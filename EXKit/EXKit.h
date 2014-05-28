@@ -44,6 +44,7 @@
     #import "gui/buttons/UIControl+EXKit.h"
     #import "gui/layers/CALayer+EXKit.h"
     #import "gui/navigation/UINavigationController+EXKit.h"
+    #import "gui/views/UIImageView+EXKit.h"
     #import "gui/views/UIView+EXKit.h"
 #endif
 

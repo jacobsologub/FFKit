@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16C67F7B19359149006FF926 /* UIImageView+EXKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C67F7A19359149006FF926 /* UIImageView+EXKit.m */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9AE819319A320090D90F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AE719319A320090D90F /* XCTest.framework */; };
 		16FA9AE919319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
@@ -52,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16C67F7919359149006FF926 /* UIImageView+EXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+EXKit.h"; sourceTree = "<group>"; };
+		16C67F7A19359149006FF926 /* UIImageView+EXKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+EXKit.m"; sourceTree = "<group>"; };
 		16FA9AD619319A320090D90F /* libEXKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEXKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FA9AD919319A320090D90F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		16FA9ADD19319A320090D90F /* EXKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EXKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 		16FA9B7219319A8C0090D90F /* views */ = {
 			isa = PBXGroup;
 			children = (
+				16C67F7919359149006FF926 /* UIImageView+EXKit.h */,
+				16C67F7A19359149006FF926 /* UIImageView+EXKit.m */,
 				16FA9B7319319A8C0090D90F /* UIView+EXKit.h */,
 				16FA9B7419319A8C0090D90F /* UIView+EXKit.m */,
 			);
@@ -426,6 +431,7 @@
 				16FA9B8119319A8C0090D90F /* UIImage+EXKit.m in Sources */,
 				16FA9B8419319A8C0090D90F /* CALayer+EXKit.m in Sources */,
 				16FA9B7B19319A8C0090D90F /* NSString+EXKit.m in Sources */,
+				16C67F7B19359149006FF926 /* UIImageView+EXKit.m in Sources */,
 				16FA9B7A19319A8C0090D90F /* NSObject+EXKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
