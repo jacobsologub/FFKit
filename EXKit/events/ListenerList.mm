@@ -66,4 +66,4 @@ void ListenerList::call (id object1, id object2) const {
     [list callWithObject: object1 withObject: object2];
 }
 
-end_namespace (hhkit);
+end_namespace (exkit);
