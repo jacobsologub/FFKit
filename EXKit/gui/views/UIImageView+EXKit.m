@@ -24,30 +24,16 @@
   ==============================================================================
 */
 
-#ifdef __OBJC__
-    #import "core/NSObject+EXKit.h"
-    #import "core/containers/NSArray+EXKit.h"
-    #import "core/containers/NSMutableArray+EXKit.h"
-    #import "core/gcd/GCD+EXKit.h"
-    #import "core/text/NSString+EXKit.h"
-    #import "core/text/NSURL+EXKit.h"
+#import "UIImageView+EXKit.h"
 
-    #import "events/EXListenerList.h"
+@implementation UIImageView (EXKit)
 
-    #import "graphics/color/UIColor+EXKit.h"
-    #import "graphics/geometry/CGRect+EXKit.h"
-    #import "graphics/geometry/CGSize+EXKit.h"
-    #import "graphics/geometry/UIEdgeInsets+EXKit.h"
-    #import "graphics/image/UIImage+EXKit.h"
+- (id) initWithImageNamed: (NSString*) name {
+    return [self initWithImage: [UIImage imageNamed: name]];
+}
 
-    #import "gui/buttons/UIBarButtonItem+EXKit.h"
-    #import "gui/buttons/UIControl+EXKit.h"
-    #import "gui/layers/CALayer+EXKit.h"
-    #import "gui/navigation/UINavigationController+EXKit.h"
-    #import "gui/views/UIImageView+EXKit.h"
-    #import "gui/views/UIView+EXKit.h"
-#endif
+- (id) initWithImageNamed: (NSString*) name1 highlightedImageNamed: (NSString*) name2 {
+    return [self initWithImage: [UIImage imageNamed: name1] highlightedImage: [UIImage imageNamed: name2]];
+}
 
-#if __cplusplus
-    //
-#endif
+@end

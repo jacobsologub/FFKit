@@ -24,30 +24,21 @@
   ==============================================================================
 */
 
-#ifdef __OBJC__
-    #import "core/NSObject+EXKit.h"
-    #import "core/containers/NSArray+EXKit.h"
-    #import "core/containers/NSMutableArray+EXKit.h"
-    #import "core/gcd/GCD+EXKit.h"
-    #import "core/text/NSString+EXKit.h"
-    #import "core/text/NSURL+EXKit.h"
+#import <UIKit/UIKit.h>
 
-    #import "events/EXListenerList.h"
+@interface UIImageView (EXKit)
 
-    #import "graphics/color/UIColor+EXKit.h"
-    #import "graphics/geometry/CGRect+EXKit.h"
-    #import "graphics/geometry/CGSize+EXKit.h"
-    #import "graphics/geometry/UIEdgeInsets+EXKit.h"
-    #import "graphics/image/UIImage+EXKit.h"
+/** Returns an image view initialized with the specified image filename.
+    
+    @see UIImage#imageNamed
+*/
+- (id) initWithImageNamed: (NSString*) name;
 
-    #import "gui/buttons/UIBarButtonItem+EXKit.h"
-    #import "gui/buttons/UIControl+EXKit.h"
-    #import "gui/layers/CALayer+EXKit.h"
-    #import "gui/navigation/UINavigationController+EXKit.h"
-    #import "gui/views/UIImageView+EXKit.h"
-    #import "gui/views/UIView+EXKit.h"
-#endif
+/** Returns an image view initialized with the specified regular and highlighted 
+    images.
+ 
+    @see UIImage#imageNamed
+*/
+- (id) initWithImageNamed: (NSString*) name highlightedImageNamed: (NSString*) name;
 
-#if __cplusplus
-    //
-#endif
+@end
