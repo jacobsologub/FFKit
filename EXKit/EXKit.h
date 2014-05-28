@@ -51,5 +51,5 @@
 #endif
 
 #if __cplusplus
-    //
+    #import "events/ListenerList.h"
 #endif
