@@ -24,32 +24,29 @@
   ==============================================================================
 */
 
-#ifdef __OBJC__
-    #import "core/NSObject+EXKit.h"
-    #import "core/containers/NSArray+EXKit.h"
-    #import "core/containers/NSMutableArray+EXKit.h"
-    #import "core/gcd/GCD+EXKit.h"
-    #import "core/text/NSString+EXKit.h"
-    #import "core/text/NSURL+EXKit.h"
+#import "UIAlertView+EXKit.h"
+#import <objc/runtime.h>
 
-    #import "events/EXListenerList.h"
+static char kUIAlertViewBlockKey;
 
-    #import "graphics/color/UIColor+EXKit.h"
-    #import "graphics/geometry/CGRect+EXKit.h"
-    #import "graphics/geometry/CGSize+EXKit.h"
-    #import "graphics/geometry/UIEdgeInsets+EXKit.h"
-    #import "graphics/image/UIImage+EXKit.h"
+@implementation UIAlertView (EXKit)
 
-    #import "gui/buttons/UIBarButtonItem+EXKit.h"
-    #import "gui/buttons/UIControl+EXKit.h"
-    #import "gui/layers/CALayer+EXKit.h"
-    #import "gui/navigation/UINavigationController+EXKit.h"
-    #import "gui/views/UIActionSheet+EXKit.h"
-    #import "gui/views/UIAlertView+EXKit.h"
-    #import "gui/views/UIImageView+EXKit.h"
-    #import "gui/views/UIView+EXKit.h"
-#endif
+- (void) showWithBlock: (UIAlertViewClickedButtonAtIndexBlock) block {
+    objc_setAssociatedObject (self, &kUIAlertViewBlockKey, block, OBJC_ASSOCIATION_COPY);
+    
+    // If you are assigning a delegate then you shouldn't be calling this
+    // method!
+    assert (self.delegate == nil);
+    self.delegate = (id <UIAlertViewDelegate>) self;
+    
+    [self show];
+}
 
-#if __cplusplus
-    //
-#endif
+- (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
+    UIAlertViewClickedButtonAtIndexBlock block = objc_getAssociatedObject (self, &kUIAlertViewBlockKey);
+    block (self, buttonIndex);
+    
+    objc_setAssociatedObject (self, &kUIAlertViewBlockKey, nil, OBJC_ASSOCIATION_COPY);
+}
+
+@end
