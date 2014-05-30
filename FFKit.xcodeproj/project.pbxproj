@@ -133,8 +133,8 @@
 		16FA9ACD19319A320090D90F = {
 			isa = PBXGroup;
 			children = (
-				16FA9AEF19319A320090D90F /* EXKitTests */,
 				16FA9ADB19319A320090D90F /* FFKit */,
+				16FA9AEF19319A320090D90F /* FFKitTests */,
 				16FA9AD819319A320090D90F /* Frameworks */,
 				16FA9AD719319A320090D90F /* Products */,
 			);
@@ -181,13 +181,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		16FA9AEF19319A320090D90F /* EXKitTests */ = {
+		16FA9AEF19319A320090D90F /* FFKitTests */ = {
 			isa = PBXGroup;
 			children = (
 				16FA9AF519319A320090D90F /* FFKitTests.m */,
 				16FA9AF019319A320090D90F /* Supporting Files */,
 			);
-			name = EXKitTests;
 			path = FFKitTests;
 			sourceTree = "<group>";
 		};
@@ -591,7 +590,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "EXKitTests/FFKitTests-Info.plist";
+				INFOPLIST_FILE = "FFKitTests/FFKitTests-Info.plist";
 				PRODUCT_NAME = FFKitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -607,7 +606,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
-				INFOPLIST_FILE = "EXKitTests/FFKitTests-Info.plist";
+				INFOPLIST_FILE = "FFKitTests/FFKitTests-Info.plist";
 				PRODUCT_NAME = FFKitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
