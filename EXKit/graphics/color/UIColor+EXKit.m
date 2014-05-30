@@ -46,4 +46,8 @@
 	return [UIColor colorWithRed: r green: g blue: b alpha: a];
 }
 
+- (UIColor*) colorWithAlpha: (CGFloat) alpha {
+    return [self colorWithAlphaComponent: alpha];
+}
+
 @end

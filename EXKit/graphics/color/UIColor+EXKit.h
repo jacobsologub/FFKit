@@ -34,4 +34,8 @@
 /**	Creates and returns a color object using the specified 'RGB" hex value. */
 + (UIColor*) colorWithRGBHex: (UInt32) hex;
 
+/** Creates and returns a color object that has the same color space and 
+    component values as the receiver, but has the specified alpha component.
+*/
+- (UIColor*) colorWithAlpha: (CGFloat) alpha;
 @end
