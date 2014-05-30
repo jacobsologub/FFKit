@@ -26,11 +26,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface EXKitTests : XCTestCase
+@interface FFKitTests : XCTestCase
 
 @end
 
-@implementation EXKitTests
+@implementation FFKitTests
 
 - (void)setUp
 {
