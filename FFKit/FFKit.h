@@ -29,6 +29,7 @@
     #import "core/containers/NSArray+FFKit.h"
     #import "core/containers/NSMutableArray+FFKit.h"
     #import "core/gcd/GCD+FFKit.h"
+    #import "core/text/NSMutableAttributedString+FFKit.h"
     #import "core/text/NSString+FFKit.h"
     #import "core/text/NSURL+FFKit.h"
 

@@ -10,6 +10,7 @@
 		162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */; };
 		162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */; };
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */; };
 		16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C67F7A19359149006FF926 /* UIImageView+FFKit.m */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9AE819319A320090D90F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AE719319A320090D90F /* XCTest.framework */; };
@@ -62,6 +63,8 @@
 		162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+FFKit.m"; sourceTree = "<group>"; };
 		162BD4811935B68C00BF2F15 /* ListenerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerList.h; sourceTree = "<group>"; };
 		162BD4821935B68C00BF2F15 /* ListenerList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListenerList.mm; sourceTree = "<group>"; };
+		166059FF19395FE1006BEF3E /* NSMutableAttributedString+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+FFKit.h"; sourceTree = "<group>"; };
+		16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+FFKit.m"; sourceTree = "<group>"; };
 		16C67F7919359149006FF926 /* UIImageView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FFKit.h"; sourceTree = "<group>"; };
 		16C67F7A19359149006FF926 /* UIImageView+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FFKit.m"; sourceTree = "<group>"; };
 		16FA9AD619319A320090D90F /* libFFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +236,8 @@
 		16FA9B4E19319A8C0090D90F /* text */ = {
 			isa = PBXGroup;
 			children = (
+				166059FF19395FE1006BEF3E /* NSMutableAttributedString+FFKit.h */,
+				16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */,
 				16FA9B4F19319A8C0090D90F /* NSString+FFKit.h */,
 				16FA9B5019319A8C0090D90F /* NSString+FFKit.m */,
 				16FA9B5119319A8C0090D90F /* NSURL+FFKit.h */,
@@ -439,6 +444,7 @@
 				16FA9B8619319A8C0090D90F /* UIView+FFKit.m in Sources */,
 				162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */,
 				16FA9B8219319A8C0090D90F /* UIBarButtonItem+FFKit.m in Sources */,
+				16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */,
 				162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */,
 				16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */,
 				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.m in Sources */,
