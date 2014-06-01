@@ -26,7 +26,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EXListenerList : NSObject {
+@interface FFListenerList : NSObject {
 @private
     NSMutableArray* listeners;
 }

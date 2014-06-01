@@ -27,10 +27,10 @@
 #import "FFListenerList.h"
 #import "NSObject+FFKit.h"
 
-NSString* const EXListenerListTargetKey = @"EXListenerListTargetKey";
-NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
+NSString* const FFListenerListTargetKey = @"FFListenerListTargetKey";
+NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
 
-@implementation EXListenerList
+@implementation FFListenerList
 
 #pragma mark -
 #pragma mark Object Lifecycle
@@ -54,7 +54,7 @@ NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
 //==============================================================================
 - (void) addTarget: (id) target action: (SEL) action {
     if (![self contains: target action: action]) {
-        [listeners addObject: @{ EXListenerListTargetKey: [NSValue valueWithPointer: (void*) target], EXListenerListActionKey: NSStringFromSelector (action) }];
+        [listeners addObject: @{ FFListenerListTargetKey: [NSValue valueWithPointer: (void*) target], FFListenerListActionKey: NSStringFromSelector (action) }];
     }
 }
 
@@ -62,7 +62,7 @@ NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
     NSIndexSet* indexSet = nil;
     if (action == nil) {
         indexSet = [listeners indexesOfObjectsPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
-            if ([obj [EXListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]) {
+            if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]) {
                 return YES;
             }
             
@@ -71,8 +71,8 @@ NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
     }
     else {
         indexSet = [listeners indexesOfObjectsPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
-            if ([obj [EXListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
-                && [obj [EXListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
+            if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
+                && [obj [FFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
                 *stop = YES;
                 return YES;
             }
@@ -93,8 +93,8 @@ NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
 //==============================================================================
 - (void) call {
     for (NSDictionary* obj in listeners) {
-        id target = [obj [EXListenerListTargetKey] pointerValue];
-        SEL action = NSSelectorFromString (obj [EXListenerListActionKey]);
+        id target = [obj [FFListenerListTargetKey] pointerValue];
+        SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
         
         [target performSelectorChecked: action];
     }
@@ -102,8 +102,8 @@ NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
 
 - (void) callWithObject: (id) object1 {
     for (NSDictionary* obj in listeners) {
-        id target = [obj [EXListenerListTargetKey] pointerValue];
-        SEL action = NSSelectorFromString (obj [EXListenerListActionKey]);
+        id target = [obj [FFListenerListTargetKey] pointerValue];
+        SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
         
         [target performSelectorChecked: action withObject: object1];
     }
@@ -111,8 +111,8 @@ NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
 
 - (void) callWithObject: (id) object1 withObject: (id) object2 {
     for (NSDictionary* obj in listeners) {
-        id target = [obj [EXListenerListTargetKey] pointerValue];
-        SEL action = NSSelectorFromString (obj [EXListenerListActionKey]);
+        id target = [obj [FFListenerListTargetKey] pointerValue];
+        SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
         
         [target performSelectorChecked: action withObject: object1 withObject: object2];
     }
@@ -120,8 +120,8 @@ NSString* const EXListenerListActionKey = @"EXListenerListActionKey";
 
 - (BOOL) contains: (id) target action: (SEL) action {
     NSUInteger index = [listeners indexOfObjectPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
-        if ([obj [EXListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
-            && [obj [EXListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
+        if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
+            && [obj [FFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
             *stop = YES;
             return YES;
         }

@@ -29,7 +29,7 @@
 
 #include "../utilities/macros.h"
 
-@class EXListenerList;
+@class FFListenerList;
 
 begin_namespace (ffkit);
 
@@ -92,7 +92,7 @@ public:
     void call (id object1, id object2) const;
     
 private:
-    EXListenerList* list;
+    FFListenerList* list;
     
     ListenerList (const ListenerList&);
     ListenerList& operator= (const ListenerList&);

@@ -32,7 +32,7 @@ begin_namespace (ffkit);
 ListenerList::ListenerList()
   : list (nil)
 {
-    list = [EXListenerList new];
+    list = [FFListenerList new];
 }
 
 ListenerList::~ListenerList() {
