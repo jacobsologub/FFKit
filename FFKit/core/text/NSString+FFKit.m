@@ -46,4 +46,8 @@
     return [test evaluateWithObject: self];
 }
 
+- (BOOL) isNotEqualToString: (NSString*) string {
+    return ![self isEqualToString: string];
+}
+
 @end

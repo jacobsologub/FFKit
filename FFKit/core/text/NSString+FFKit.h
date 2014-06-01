@@ -48,4 +48,9 @@
 /** Tests to see as to whether this string might be a valid email address. */
 - (BOOL) isEmailAddress;
 
+/** Returns a Boolean value that indicates whether a given string is NOT equal 
+    to the receiver using a literal Unicode-based comparison.
+*/
+- (BOOL) isNotEqualToString: (NSString*) string;
+
 @end
