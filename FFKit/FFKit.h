@@ -41,6 +41,8 @@
     #import "graphics/geometry/UIEdgeInsets+FFKit.h"
     #import "graphics/image/UIImage+FFKit.h"
 
+    #import "gui/buttons/FFButton.h"
+    #import "gui/buttons/FFToggleButton.h"
     #import "gui/buttons/UIBarButtonItem+FFKit.h"
     #import "gui/buttons/UIControl+FFKit.h"
     #import "gui/layers/CALayer+FFKit.h"

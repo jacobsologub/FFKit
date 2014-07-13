@@ -11,6 +11,8 @@
 		162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */; };
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */; };
+		1691EC96197323840014DF30 /* FFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC95197323840014DF30 /* FFButton.m */; };
+		1691EC9B19732E6F0014DF30 /* FFToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC9A19732E6F0014DF30 /* FFToggleButton.m */; };
 		16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C67F7A19359149006FF926 /* UIImageView+FFKit.m */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9AE819319A320090D90F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AE719319A320090D90F /* XCTest.framework */; };
@@ -65,6 +67,10 @@
 		162BD4821935B68C00BF2F15 /* ListenerList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListenerList.mm; sourceTree = "<group>"; };
 		166059FF19395FE1006BEF3E /* NSMutableAttributedString+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+FFKit.h"; sourceTree = "<group>"; };
 		16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+FFKit.m"; sourceTree = "<group>"; };
+		1691EC94197323840014DF30 /* FFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FFButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1691EC95197323840014DF30 /* FFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFButton.m; sourceTree = "<group>"; };
+		1691EC9919732E6F0014DF30 /* FFToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FFToggleButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1691EC9A19732E6F0014DF30 /* FFToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFToggleButton.m; sourceTree = "<group>"; };
 		16C67F7919359149006FF926 /* UIImageView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FFKit.h"; sourceTree = "<group>"; };
 		16C67F7A19359149006FF926 /* UIImageView+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FFKit.m"; sourceTree = "<group>"; };
 		16FA9AD619319A320090D90F /* libFFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,6 +315,10 @@
 		16FA9B6719319A8C0090D90F /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				1691EC94197323840014DF30 /* FFButton.h */,
+				1691EC95197323840014DF30 /* FFButton.m */,
+				1691EC9919732E6F0014DF30 /* FFToggleButton.h */,
+				1691EC9A19732E6F0014DF30 /* FFToggleButton.m */,
 				16FA9B6819319A8C0090D90F /* UIBarButtonItem+FFKit.h */,
 				16FA9B6919319A8C0090D90F /* UIBarButtonItem+FFKit.m */,
 				16FA9B6A19319A8C0090D90F /* UIControl+FFKit.h */,
@@ -448,6 +458,7 @@
 				162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */,
 				16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */,
 				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.m in Sources */,
+				1691EC96197323840014DF30 /* FFButton.m in Sources */,
 				16FA9B7C19319A8C0090D90F /* NSURL+FFKit.m in Sources */,
 				16FA9B8319319A8C0090D90F /* UIControl+FFKit.m in Sources */,
 				162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */,
@@ -455,6 +466,7 @@
 				16FA9B8119319A8C0090D90F /* UIImage+FFKit.m in Sources */,
 				16FA9B8419319A8C0090D90F /* CALayer+FFKit.m in Sources */,
 				16FA9B7B19319A8C0090D90F /* NSString+FFKit.m in Sources */,
+				1691EC9B19732E6F0014DF30 /* FFToggleButton.m in Sources */,
 				16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */,
 				16FA9B7A19319A8C0090D90F /* NSObject+FFKit.m in Sources */,
 			);
