@@ -136,8 +136,8 @@
     if (renderingMode == FFButtonRenderingModeLayers) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
-        shapeLayer.backgroundColor = backgroundColor.CGColor;
-        shapeLayer.borderColor = borderColor.CGColor;
+        shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
+        shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
     }
     else {
         [self setNeedsDisplay];
@@ -150,8 +150,8 @@
     if (renderingMode == FFButtonRenderingModeLayers) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
-        shapeLayer.backgroundColor = backgroundColor.CGColor;
-        shapeLayer.borderColor = borderColor.CGColor;
+        shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
+        shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
     }
     else {
         [self setNeedsDisplay];
@@ -164,8 +164,8 @@
     if (renderingMode == FFButtonRenderingModeLayers) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
-        shapeLayer.backgroundColor = backgroundColor.CGColor;
-        shapeLayer.borderColor = borderColor.CGColor;
+        shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
+        shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
     }
     else {
         [self setNeedsDisplay];
@@ -180,7 +180,7 @@
     
     if (renderingMode == FFButtonRenderingModeLayers) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
-        shapeLayer.backgroundColor = backgroundColor.CGColor;
+        shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
     }
     else {
         [self setNeedsDisplay];
@@ -196,7 +196,7 @@
     
     if (renderingMode == FFButtonRenderingModeLayers) {
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
-        shapeLayer.borderColor = borderColor.CGColor;
+        shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
     }
     else {
         [self setNeedsDisplay];
