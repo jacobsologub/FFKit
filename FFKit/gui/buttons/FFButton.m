@@ -59,6 +59,8 @@
         renderingMode = renderingMode_;
         if (renderingMode == FFButtonRenderingModeLayers) {
             shapeLayer = [CAShapeLayer layer];
+            shapeLayer.backgroundColor = [UIColor clearColor].CGColor;
+            shapeLayer.borderColor = [UIColor clearColor].CGColor;
             shapeLayer.borderWidth = borderWidth;
             [self.layer addSublayer: shapeLayer];
         }
