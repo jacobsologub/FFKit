@@ -61,6 +61,12 @@
 */
 - (void) removeAllTargets;
 
+/** Adds target(s)/action(s) from another list to this list.
+ 
+    @see addTarget, removeTarget
+*/
+- (void) addTargetsFromList: (FFListenerList*) list;
+
 //==============================================================================
 /** Calls a selector on each listener in the list, with no parameters.
  

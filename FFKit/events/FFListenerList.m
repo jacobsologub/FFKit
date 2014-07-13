@@ -30,6 +30,12 @@
 NSString* const FFListenerListTargetKey = @"FFListenerListTargetKey";
 NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
 
+@implementation FFListenerList (internal)
+- (NSArray*) listeners {
+    return listeners;
+}
+@end
+
 @implementation FFListenerList
 
 #pragma mark -
@@ -88,6 +94,10 @@ NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
 
 - (void) removeAllTargets {
     [listeners removeAllObjects];
+}
+
+- (void) addTargetsFromList: (FFListenerList*) list {
+    [listeners addObjectsFromArray: [list listeners]];
 }
 
 //==============================================================================
