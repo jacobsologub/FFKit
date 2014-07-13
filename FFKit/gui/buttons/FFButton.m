@@ -89,7 +89,6 @@
     }
     
     UIColor* color = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
-    
     if (color != nil) {
         [color setFill];
         UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect: CGRectInset (self.bounds, borderWidth * 0.5f, borderWidth * 0.5f) cornerRadius: cornerRadius];
