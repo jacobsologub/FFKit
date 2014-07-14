@@ -30,7 +30,7 @@
     Specifies the possible rendering modes for an FFButon.
 */
 typedef NS_ENUM (NSUInteger, FFButtonRenderingMode) {
-    FFButtonRenderingModeLayers = 0,
+    FFButtonRenderingModeLayer = 0,
     FFButtonRenderingModeDraw,
 };
 

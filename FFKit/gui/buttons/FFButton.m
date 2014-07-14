@@ -27,7 +27,7 @@
 #import "FFButton.h"
 #import "UIView+FFKit.h"
 
-FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers;
+FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
 
 @implementation FFButton
 @synthesize renderingMode;
@@ -59,7 +59,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
         borderWidth = 1.0f;
         
         renderingMode = renderingMode_;
-        if (renderingMode == FFButtonRenderingModeLayers) {
+        if (renderingMode == FFButtonRenderingModeLayer) {
             shapeLayer = [CAShapeLayer layer];
             shapeLayer.backgroundColor = [UIColor clearColor].CGColor;
             shapeLayer.borderColor = [UIColor clearColor].CGColor;
@@ -86,7 +86,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) drawRect: (CGRect) rect {
     [super drawRect: rect];
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         return;
     }
     
@@ -123,7 +123,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) layoutSublayersOfLayer: (CALayer*) layer {
     [super layoutSublayersOfLayer: layer];
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         shapeLayer.frame = self.layer.bounds;
     }
 }
@@ -134,7 +134,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) setHighlighted: (BOOL) highlighted {
     [super setHighlighted: highlighted];
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
         shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
@@ -150,7 +150,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) setSelected: (BOOL) selected {
     [super setSelected: selected];
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
         shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
@@ -166,7 +166,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) setEnabled: (BOOL) enabled {
     [super setEnabled: enabled];
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
         shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
@@ -219,7 +219,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) setBackgroundColor: (UIColor*) color forState: (UIControlState) state {
     backgroundColorLookup [@(state)] = color;
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
         shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
     }
@@ -235,7 +235,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) setBorderColor: (UIColor*) color forState: (UIControlState) state {
     borderColorLookup [@(state)] = color;
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
         shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
     }
@@ -259,7 +259,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) setCornerRadius: (CGFloat) newCornerRadius {
     cornerRadius = newCornerRadius;
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         shapeLayer.cornerRadius = cornerRadius;
     }
     else {
@@ -270,7 +270,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
 - (void) setBorderWidth: (CGFloat) newBorderWidth {
     borderWidth = newBorderWidth;
     
-    if (renderingMode == FFButtonRenderingModeLayers) {
+    if (renderingMode == FFButtonRenderingModeLayer) {
         shapeLayer.borderWidth = borderWidth;
     }
     else {
