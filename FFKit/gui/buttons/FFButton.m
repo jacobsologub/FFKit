@@ -27,6 +27,8 @@
 #import "FFButton.h"
 #import "UIView+FFKit.h"
 
+FFButtonRenderingMode defaultRenderingMode = FFButtonRenderingModeLayers;
+
 @implementation FFButton
 @synthesize renderingMode;
 @synthesize hitTestEdgeInsets;
@@ -37,7 +39,7 @@
 #pragma mark Object Lifecycle
 //==============================================================================
 - (id) init {
-    return [self initWithRenderingMode: FFButtonRenderingModeLayers];
+    return [self initWithRenderingMode: defaultRenderingMode];
 }
 
 - (id) initWithRenderingMode: (FFButtonRenderingMode) renderingMode_ {
@@ -45,7 +47,7 @@
 }
 
 - (id) initWithFrame: (CGRect) frame {
-    return [self initWithFrame: frame renderingMode: FFButtonRenderingModeLayers];
+    return [self initWithFrame: frame renderingMode: defaultRenderingMode];
 }
 
 - (id) initWithFrame: (CGRect) frame renderingMode: (FFButtonRenderingMode) renderingMode_ {
@@ -234,6 +236,17 @@
     else {
         [self setNeedsDisplay];
     }
+}
+
+#pragma mark -
+#pragma mark Default Rendering Mode
+//==============================================================================
++ (void) setDefaultRenderingMode: (FFButtonRenderingMode) newDefaultRenderingMode {
+    defaultRenderingMode = newDefaultRenderingMode;
+}
+
++ (FFButtonRenderingMode) defaultRenderingMode {
+    return defaultRenderingMode;
 }
 
 @end

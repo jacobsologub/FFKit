@@ -114,4 +114,15 @@ typedef NS_ENUM (NSUInteger, FFButtonRenderingMode) {
 */
 - (void) setBackgroundAndBorderColor: (UIColor*) color forState: (UIControlState) state;
 
+/** Sets the default rendering mode for the FFButton class.
+ 
+    @see defaultRenderingMode
+*/
++ (void) setDefaultRenderingMode: (FFButtonRenderingMode) renderingMode;
+
+/** Returns the default rendering mode for the FFButton class.
+ 
+    @see defaultRenderingMode
+*/
++ (FFButtonRenderingMode) defaultRenderingMode;
 @end
