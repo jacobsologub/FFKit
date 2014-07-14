@@ -34,6 +34,8 @@ typedef NS_ENUM (NSUInteger, FFButtonRenderingMode) {
     FFButtonRenderingModeDraw,
 };
 
+extern FFButtonRenderingMode FFButtonDefaultRenderingMode;
+
 @interface FFButton : UIButton {
 @private
     NSMutableDictionary* backgroundColorLookup;

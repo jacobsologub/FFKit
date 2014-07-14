@@ -16,7 +16,7 @@
 #pragma mark Object Lifecycle
 //==============================================================================
 - (id) init {
-    return [self initWithRenderingMode: FFButtonRenderingModeLayers];
+    return [self initWithRenderingMode: FFButtonDefaultRenderingMode];
 }
 
 - (id) initWithRenderingMode: (FFButtonRenderingMode) renderingMode {
