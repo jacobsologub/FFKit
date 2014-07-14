@@ -139,6 +139,8 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
         shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
         shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
+        
+        [self animateButtonComponents];
     }
     else {
         [self setNeedsDisplay];
@@ -153,6 +155,8 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
         shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
         shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
+        
+        [self animateButtonComponents];
     }
     else {
         [self setNeedsDisplay];
@@ -167,9 +171,45 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayers
         UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
         shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
         shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
+        
+        [self animateButtonComponents];
     }
     else {
         [self setNeedsDisplay];
+    }
+}
+
+- (void) animateButtonComponents {
+    NSArray* animationKeys = shapeLayer.animationKeys;
+    if ([animationKeys count] > 0) {
+        CAAnimation* animation = [shapeLayer animationForKey: animationKeys [0]];
+        
+        UIViewAnimationOptions options = UIViewAnimationOptionTransitionCrossDissolve
+                                        | UIViewAnimationOptionBeginFromCurrentState
+                                        | UIViewAnimationOptionTransitionCrossDissolve
+                                        | UIViewAnimationOptionCurveLinear;
+        
+        [UIView transitionWithView: self.titleLabel
+                          duration: animation.duration
+                           options: options
+                        animations: ^{
+                            [self setTitle: [self titleForState: self.state] forState: self.state];
+                        }
+                        completion: ^(BOOL finished) {
+                            // xx
+                        }
+         ];
+        
+        [UIView transitionWithView: self.imageView
+                          duration: animation.duration
+                           options: options
+                        animations: ^{
+                            [self setImage: [self imageForState: self.state] forState: self.state];
+                        }
+                        completion: ^(BOOL finished) {
+                            // xx
+                        }
+         ];
     }
 }
 
