@@ -10,6 +10,7 @@
 #import "UIControl+FFKit.h"
 
 @implementation FFToggleButton
+@synthesize triggerControlEvents;
 
 #pragma mark -
 #pragma mark Object Lifecycle
@@ -20,7 +21,8 @@
 
 - (id) initWithRenderingMode: (FFButtonRenderingMode) renderingMode {
     if ((self = [super initWithRenderingMode: renderingMode]) != nil) {
-        [self addUIControlEventTouchUpInsideTarget: self action: @selector (buttonPressedInternal:)];
+        triggerControlEvents = UIControlEventTouchUpInside;
+        [self addTarget: self action: @selector (buttonPressedInternal:) forControlEvents: triggerControlEvents];
     }
     
     return self;
@@ -37,6 +39,15 @@
 //==============================================================================
 - (void) buttonPressedInternal: (UIButton*) button {
     self.selected = !self.selected;
+}
+
+#pragma mark -
+#pragma mark Trigger Control Events Property
+//==============================================================================
+- (void) setTriggerControlEvents: (UIControlEvents) newTriggerControlEvents {
+    [self removeTarget: self action: @selector (buttonPressedInternal:) forControlEvents: triggerControlEvents];
+    [self addTarget: self action: @selector (buttonPressedInternal:) forControlEvents: newTriggerControlEvents];
+    triggerControlEvents = newTriggerControlEvents;
 }
 
 @end
