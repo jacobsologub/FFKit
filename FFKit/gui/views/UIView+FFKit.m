@@ -25,6 +25,7 @@
 */
 
 #import "UIView+FFKit.h"
+#import "CGRect+FFKit.h"
 
 @implementation UIView (FFKit)
 
@@ -32,24 +33,92 @@
     return self.frame.origin.x;
 }
 
+- (void) setX: (float) newX {
+    [self setX: newX adjustingWidth: NO];
+}
+
+- (void) setX: (float) newX adjustingWidth: (BOOL) adjustWidth {
+    if (adjustWidth) {
+        const float w = MAX (self.x + self.width - newX, 0.0f);
+        self.frame = CGRectMake (newX, self.y, w, self.height);
+    }
+    else  {
+        self.frame = CGRectSetX (self.frame, newX);
+    }
+}
+
 - (float) y {
     return self.frame.origin.y;
+}
+
+- (void) setY: (float) newY {
+    [self setY: newY adjustingHeight: NO];
+}
+
+- (void) setY: (float) newY adjustingHeight: (BOOL) adjustHeight {
+    if (adjustHeight) {
+        const float h = MAX (self.y + self.height - newY, 0.0f);
+        self.frame = CGRectMake (self.x, newY, self.width, h);
+    }
+    else  {
+        self.frame = CGRectSetY (self.frame, newY);
+    }
 }
 
 - (float) width {
     return self.bounds.size.width;
 }
 
+- (void) setWidth: (float) newWidth {
+    self.frame = CGRectSetWidth (self.frame, newWidth);
+}
+
 - (float) height {
     return self.bounds.size.height;
+}
+
+- (void) setHeight: (float) newHeight {
+    self.frame = CGRectSetHeight (self.frame, newHeight);
 }
 
 - (float) right {
     return self.frame.origin.x + self.width;
 }
 
+- (void) setRight: (float) newRight {
+    [self setRight: newRight adjustingWidth: NO];
+}
+
+- (void) setRight: (float) newRight adjustingWidth: (BOOL) adjustWidth {
+    if (adjustWidth) {
+        const float x = MIN (self.x, newRight);
+        const float w = newRight - x;
+        self.frame = CGRectMake (x, self.y, w, self.height);
+    }
+    else {
+        const float x = newRight - self.width;
+        self.frame = CGRectSetX (self.frame, x);
+    }
+}
+
 - (float) bottom {
     return self.frame.origin.y + self.height;
+}
+
+- (void) setBottom: (float) newBottom {
+    [self setBottom: newBottom adjustingHeight: NO];
+}
+
+- (void) setBottom: (float) newBottom adjustingHeight: (BOOL) adjustHeight {
+    if (adjustHeight) {
+        const float y = MIN (self.y, newBottom);
+        const float h = newBottom - y;
+        self.frame = CGRectMake (self.x, y, self.width, h);
+    }
+    else {
+        const float y = newBottom - self.height;
+        self.frame = CGRectSetY (self.frame, y);
+    }
 }
 
 - (void) centerWithSize: (CGSize) newSize {
