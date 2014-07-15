@@ -135,11 +135,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     [super setHighlighted: highlighted];
     
     if (renderingMode == FFButtonRenderingModeLayer) {
-        UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
-        UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
-        shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
-        shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
-        
+        [self updateShapeLayerColors];
         [self animateButtonComponents];
     }
     else {
@@ -151,11 +147,7 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     [super setSelected: selected];
     
     if (renderingMode == FFButtonRenderingModeLayer) {
-        UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
-        UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
-        shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
-        shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
-        
+        [self updateShapeLayerColors];
         [self animateButtonComponents];
     }
     else {
@@ -167,16 +159,22 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     [super setEnabled: enabled];
     
     if (renderingMode == FFButtonRenderingModeLayer) {
-        UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
-        UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
-        shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
-        shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
-        
+        [self updateShapeLayerColors];
         [self animateButtonComponents];
     }
     else {
         [self setNeedsDisplay];
     }
+}
+
+#pragma mark -
+#pragma mark Shape Layer Color Updates
+//==============================================================================
+- (void) updateShapeLayerColors {
+    UIColor* backgroundColor = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
+    UIColor* borderColor = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
+    shapeLayer.backgroundColor = backgroundColor != nil ? backgroundColor.CGColor : [UIColor clearColor].CGColor;
+    shapeLayer.borderColor = borderColor != nil ? borderColor.CGColor : [UIColor clearColor].CGColor;
 }
 
 - (void) animateButtonComponents {
