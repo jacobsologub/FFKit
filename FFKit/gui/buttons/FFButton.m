@@ -186,7 +186,6 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
         
         UIViewAnimationOptions options = UIViewAnimationOptionTransitionCrossDissolve
                                         | UIViewAnimationOptionBeginFromCurrentState
-                                        | UIViewAnimationOptionTransitionCrossDissolve
                                         | UIViewAnimationOptionCurveLinear;
         
         [UIView transitionWithView: self.titleLabel
