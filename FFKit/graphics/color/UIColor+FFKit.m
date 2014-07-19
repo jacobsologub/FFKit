@@ -50,4 +50,8 @@
     return [self colorWithAlphaComponent: alpha];
 }
 
++ (UIColor*) colorWithPatternImageNamed: (NSString*) name {
+    return [UIColor colorWithPatternImage: [UIImage imageNamed: name]];
+}
+
 @end

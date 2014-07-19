@@ -38,4 +38,8 @@
     component values as the receiver, but has the specified alpha component.
 */
 - (UIColor*) colorWithAlpha: (CGFloat) alpha;
+
+/** Creates and returns a color object using the specified image filename. */
++ (UIColor*) colorWithPatternImageNamed: (NSString*) name;
+
 @end
