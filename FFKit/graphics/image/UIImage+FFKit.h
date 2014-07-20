@@ -63,4 +63,10 @@ typedef void (^UIImageDrawRectBlock) (CGRect rect, CGContextRef ctx);
 */
 + (UIImage*) imageWithSize: (CGSize) size block: (UIImageDrawRectBlock) block;
 
+/** Creates an image using the data contained within a subregion of this image.
+ 
+    @see CGImageCreateWithImageInRect
+*/
+- (UIImage*) imageInRect: (CGRect) rect;
+
 @end
