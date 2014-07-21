@@ -48,6 +48,9 @@
 */
 + (UIBarButtonItem*) barButtonItemWithTitle: (NSString*) title style: (UIBarButtonItemStyle) style target: (id) target action: (SEL) action;
 
+/** Initializes a new UIBarButtonItem item containing the specified system item. */
++ (UIBarButtonItem*) barButtonItemWithBarButtonSystemItem: (UIBarButtonSystemItem) systemItem target: (id) target action: (SEL) action;
+
 /** Initializes a new UIBarButtonItem containing a UIBarButtonSystemItemFixedSpace 
     system item.
 */

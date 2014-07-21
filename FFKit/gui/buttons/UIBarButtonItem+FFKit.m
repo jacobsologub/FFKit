@@ -56,6 +56,16 @@
    #endif
 }
 
++ (UIBarButtonItem*) barButtonItemWithBarButtonSystemItem: (UIBarButtonSystemItem) systemItem target: (id) target action: (SEL) action {
+    UIBarButtonItem* result = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: systemItem target: target action: action];
+    
+   #if !__has_feature (objc_arc)
+    return [result autorelease];
+   #else
+    return result;
+   #endif
+}
+
 + (UIBarButtonItem*) barButtonSystemItemFixedSpace {
     return [self barButtonSystemItemFixedSpaceWithWidth: 0.0f];
 }
