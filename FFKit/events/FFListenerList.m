@@ -29,6 +29,7 @@
 
 NSString* const FFListenerListTargetKey = @"FFListenerListTargetKey";
 NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
+NSString* const FFListenerListBlockKey = @"FFListenerListBlockKey";
 
 @implementation FFListenerList (internal)
 - (NSArray*) listeners {
@@ -92,6 +93,12 @@ NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
     }
 }
 
+- (void) addTargetWithBlock: (FFListenerListBlock) block {
+    if (![listeners containsObject: block]) {
+        [listeners addObject: @{ FFListenerListBlockKey: block }];
+    }
+}
+
 - (void) removeAllTargets {
     [listeners removeAllObjects];
 }
@@ -140,6 +147,15 @@ NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
     }];
     
     return index != NSNotFound;
+}
+
+- (void) callBlockWithObject: (id) object userInfo: (NSDictionary*) userInfo {
+    for (NSDictionary* obj in listeners) {
+        FFListenerListBlock block = obj [FFListenerListBlockKey];
+        if (block != nil) {
+            block (object, userInfo);
+        }
+    }
 }
 
 @end

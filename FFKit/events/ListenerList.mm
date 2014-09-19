@@ -45,6 +45,10 @@ void ListenerList::addTarget (id target, SEL action) {
     [list addTarget: target action: action];
 }
 
+void ListenerList::addTarget (FFListenerListBlock block) {
+    [list addTargetWithBlock: block];
+}
+
 void ListenerList::removeTarget (id target, SEL action) {
     [list removeTarget: target action: action];
 }
@@ -64,6 +68,10 @@ void ListenerList::call (id object1) const {
 
 void ListenerList::call (id object1, id object2) const {
     [list callWithObject: object1 withObject: object2];
+}
+
+void ListenerList::callBlock (id object, NSDictionary* userInfo) const {
+    [list callBlockWithObject: object userInfo: userInfo];
 }
 
 end_namespace (ffkit);

@@ -26,6 +26,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^FFListenerListBlock) (id object, NSDictionary* userInfo);
+
 @interface FFListenerList : NSObject {
 @private
     NSMutableArray* listeners;
@@ -42,6 +44,14 @@
     @see removeTarget, removeAllTargets
 */
 - (void) addTarget: (id) target action: (SEL) action;
+
+/** Adds a block "target" to the list.
+    
+    @param target   The block to which the action message is sent.
+ 
+    @see FFListenerListBlock
+*/
+- (void) addTargetWithBlock: (FFListenerListBlock) block;
 
 /** Removes a target and action for from the list.
  
@@ -85,5 +95,11 @@
     @see call, callWithObject
 */
 - (void) callWithObject: (id) object1 withObject: (id) object2;
+
+/** Calls each block listener in the list.
+ 
+    @see FFListenerListBlock
+*/
+- (void) callBlockWithObject: (id) object userInfo: (NSDictionary*) userInfo;
 
 @end

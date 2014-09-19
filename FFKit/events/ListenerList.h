@@ -33,6 +33,8 @@
 
 begin_namespace (ffkit);
 
+typedef void (^FFListenerListBlock) (id object, NSDictionary* userInfo);
+
 class ListenerList {
 public:
     /** Creates an empty list. */
@@ -52,6 +54,14 @@ public:
         @see removeTarget, removeAllTargets
     */
     void addTarget (id target, SEL action);
+    
+    /** Adds a block "target" to the list.
+     
+        @param target   The block to which the action message is sent.
+     
+        @see FFListenerListBlock
+    */
+    void addTarget (FFListenerListBlock block);
     
     /** Removes a target and action for from the list.
      
@@ -90,6 +100,12 @@ public:
         @see call
     */
     void call (id object1, id object2) const;
+    
+    /** Calls each block listener in the list.
+     
+        @see FFListenerListBlock
+    */
+    void callBlock (id object, NSDictionary* userInfo) const;
     
 private:
     FFListenerList* list;
