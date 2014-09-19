@@ -135,6 +135,15 @@ NSString* const FFListenerListBlockKey = @"FFListenerListBlockKey";
     }
 }
 
+- (void) callBlockWithObject: (id) object userInfo: (NSDictionary*) userInfo {
+    for (NSDictionary* obj in listeners) {
+        FFListenerListBlock block = obj [FFListenerListBlockKey];
+        if (block != nil) {
+            block (object, userInfo);
+        }
+    }
+}
+
 - (BOOL) contains: (id) target action: (SEL) action {
     NSUInteger index = [listeners indexOfObjectPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
         if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
@@ -147,15 +156,6 @@ NSString* const FFListenerListBlockKey = @"FFListenerListBlockKey";
     }];
     
     return index != NSNotFound;
-}
-
-- (void) callBlockWithObject: (id) object userInfo: (NSDictionary*) userInfo {
-    for (NSDictionary* obj in listeners) {
-        FFListenerListBlock block = obj [FFListenerListBlockKey];
-        if (block != nil) {
-            block (object, userInfo);
-        }
-    }
 }
 
 @end
