@@ -25,11 +25,23 @@
 */
 
 #import "FFListenerList.h"
+#import "FFListenerListBlockArgs.h"
 #import "NSObject+FFKit.h"
 
 NSString* const FFListenerListTargetKey = @"FFListenerListTargetKey";
 NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
-NSString* const FFListenerListBlockKey = @"FFListenerListBlockKey";
+
+NSString* const FFListenerListTargetTypeKey = @"FFListenerListTargetTypeKey";
+
+typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
+    FFListenerListTargetTypeObject = 0x1001,
+    FFListenerListTargetTypeBlock = 0x1002
+};
+
+@interface FFListenerListBlockArgs (internal)
+- (id) initWithObject: (id) object;
+- (id) initWithObject: (id) object1 object: (id) object2;
+@end
 
 @implementation FFListenerList (internal)
 - (NSArray*) listeners {
@@ -61,7 +73,24 @@ NSString* const FFListenerListBlockKey = @"FFListenerListBlockKey";
 //==============================================================================
 - (void) addTarget: (id) target action: (SEL) action {
     if (![self contains: target action: action]) {
-        [listeners addObject: @{ FFListenerListTargetKey: [NSValue valueWithPointer: (void*) target], FFListenerListActionKey: NSStringFromSelector (action) }];
+        NSDictionary* obj = @{
+            FFListenerListTargetKey: [NSValue valueWithPointer: (void*) target],
+            FFListenerListActionKey: NSStringFromSelector (action),
+            FFListenerListTargetTypeKey: @(FFListenerListTargetTypeObject)
+        };
+        
+        [listeners addObject: obj];
+    }
+}
+
+- (void) addTarget: (FFListenerListBlock) block {
+    if (![listeners containsObject: block]) {
+        NSDictionary* obj = @{
+            FFListenerListTargetKey: block,
+            FFListenerListTargetTypeKey: @(FFListenerListTargetTypeBlock),
+        };
+        
+        [listeners addObject: obj];
     }
 }
 
@@ -93,10 +122,8 @@ NSString* const FFListenerListBlockKey = @"FFListenerListBlockKey";
     }
 }
 
-- (void) addTargetWithBlock: (FFListenerListBlock) block {
-    if (![listeners containsObject: block]) {
-        [listeners addObject: @{ FFListenerListBlockKey: block }];
-    }
+- (void) removeTarget: (FFListenerListBlock) block {
+    [listeners removeObject: block];
 }
 
 - (void) removeAllTargets {
@@ -110,40 +137,62 @@ NSString* const FFListenerListBlockKey = @"FFListenerListBlockKey";
 //==============================================================================
 - (void) call {
     for (NSDictionary* obj in listeners) {
-        id target = [obj [FFListenerListTargetKey] pointerValue];
-        SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
-        
-        [target performSelectorChecked: action];
+        const FFListenerListTargetType targetType = [obj [FFListenerListTargetTypeKey] integerValue];
+        if (targetType == FFListenerListTargetTypeObject) {
+            id target = [obj [FFListenerListTargetKey] pointerValue];
+            SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
+            
+            [target performSelectorChecked: action];
+        }
+        else if (targetType == FFListenerListTargetTypeBlock) {
+            FFListenerListBlock block = obj [FFListenerListTargetKey];
+            if (block != nil) {
+                FFListenerListBlockArgs* args = [FFListenerListBlockArgs new];
+                block (args);
+            }
+        }
     }
 }
 
 - (void) callWithObject: (id) object1 {
     for (NSDictionary* obj in listeners) {
-        id target = [obj [FFListenerListTargetKey] pointerValue];
-        SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
-        
-        [target performSelectorChecked: action withObject: object1];
+        const FFListenerListTargetType targetType = [obj [FFListenerListTargetTypeKey] integerValue];
+        if (targetType == FFListenerListTargetTypeObject) {
+            id target = [obj [FFListenerListTargetKey] pointerValue];
+            SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
+            
+            [target performSelectorChecked: action withObject: object1];
+        }
+        else if (targetType == FFListenerListTargetTypeBlock) {
+            FFListenerListBlock block = obj [FFListenerListTargetKey];
+            if (block != nil) {
+                FFListenerListBlockArgs* args = [[FFListenerListBlockArgs alloc] initWithObject: object1];
+                block (args);
+            }
+        }
     }
 }
 
 - (void) callWithObject: (id) object1 withObject: (id) object2 {
     for (NSDictionary* obj in listeners) {
-        id target = [obj [FFListenerListTargetKey] pointerValue];
-        SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
-        
-        [target performSelectorChecked: action withObject: object1 withObject: object2];
-    }
-}
-
-- (void) callBlockWithObject: (id) object userInfo: (NSDictionary*) userInfo {
-    for (NSDictionary* obj in listeners) {
-        FFListenerListBlock block = obj [FFListenerListBlockKey];
-        if (block != nil) {
-            block (object, userInfo);
+        const FFListenerListTargetType targetType = [obj [FFListenerListTargetTypeKey] integerValue];
+        if (targetType == FFListenerListTargetTypeObject) {
+            id target = [obj [FFListenerListTargetKey] pointerValue];
+            SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
+            
+            [target performSelectorChecked: action withObject: object1 withObject: object2];
+        }
+        else if (targetType == FFListenerListTargetTypeBlock) {
+            FFListenerListBlock block = obj [FFListenerListTargetKey];
+            if (block != nil) {
+                FFListenerListBlockArgs* args = [[FFListenerListBlockArgs alloc] initWithObject: object1 object: object2];
+                block (args);
+            }
         }
     }
 }
 
+//==============================================================================
 - (BOOL) contains: (id) target action: (SEL) action {
     NSUInteger index = [listeners indexOfObjectPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
         if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]

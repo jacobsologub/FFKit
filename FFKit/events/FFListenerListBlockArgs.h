@@ -24,54 +24,24 @@
   ==============================================================================
 */
 
-#include "ListenerList.h"
-#include "FFListenerList.h"
+#import <Foundation/Foundation.h>
 
-begin_namespace (ffkit);
-
-ListenerList::ListenerList()
-  : list (nil)
-{
-    list = [FFListenerList new];
+@interface FFListenerListBlockArgs : NSObject {
+@private
+    id object1;
+    id object2;
 }
 
-ListenerList::~ListenerList() {
-    [list release];
-    list = nil;
-}
+/** The first paramter associated with this object. May be nil.
+ 
+    @see FFListenerList#callWithObject
+*/
+@property (nonatomic, readonly) id object1;
 
-//==============================================================================
-void ListenerList::addTarget (id target, SEL action) {
-    [list addTarget: target action: action];
-}
+/** The second paramter associated with this object. May be nil.
+ 
+    @see FFListenerList#callWithObject
+*/
+@property (nonatomic, readonly) id object2;
 
-void ListenerList::addTarget (FFListenerListBlock block) {
-    [list addTarget: block];
-}
-
-void ListenerList::removeTarget (id target, SEL action) {
-    [list removeTarget: target action: action];
-}
-
-void ListenerList::removeTarget (FFListenerListBlock block) {
-    [list removeTarget: block];
-}
-
-void ListenerList::removeAllTargets() {
-    [list removeAllTargets];
-}
-
-//==============================================================================
-void ListenerList::call() const {
-    [list call];
-}
-
-void ListenerList::call (id object1) const {
-    [list callWithObject: object1];
-}
-
-void ListenerList::call (id object1, id object2) const {
-    [list callWithObject: object1 withObject: object2];
-}
-
-end_namespace (ffkit);
+@end

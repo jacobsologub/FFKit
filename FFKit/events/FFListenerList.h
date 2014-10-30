@@ -26,7 +26,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^FFListenerListBlock) (id object, NSDictionary* userInfo);
+@class FFListenerListBlockArgs;
+typedef void (^FFListenerListBlock) (FFListenerListBlockArgs* args);
 
 @interface FFListenerList : NSObject {
 @private
@@ -51,7 +52,7 @@ typedef void (^FFListenerListBlock) (id object, NSDictionary* userInfo);
  
     @see FFListenerListBlock
 */
-- (void) addTargetWithBlock: (FFListenerListBlock) block;
+- (void) addTarget: (FFListenerListBlock) block;
 
 /** Removes a target and action for from the list.
  
@@ -64,6 +65,14 @@ typedef void (^FFListenerListBlock) (id object, NSDictionary* userInfo);
     @see addTarget, removeAllTargets
 */
 - (void) removeTarget: (id) target action: (SEL) action;
+
+/** Removes a block target from the list.
+ 
+    @param block    The block to remove from the list.
+ 
+    @see addTarget, removeAllTargets
+*/
+- (void) removeTarget: (FFListenerListBlock) block;
 
 /** Removes all target from the list.
  
@@ -95,11 +104,5 @@ typedef void (^FFListenerListBlock) (id object, NSDictionary* userInfo);
     @see call, callWithObject
 */
 - (void) callWithObject: (id) object1 withObject: (id) object2;
-
-/** Calls each block listener in the list.
- 
-    @see FFListenerListBlock
-*/
-- (void) callBlockWithObject: (id) object userInfo: (NSDictionary*) userInfo;
 
 @end

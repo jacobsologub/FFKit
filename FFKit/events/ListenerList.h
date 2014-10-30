@@ -30,10 +30,11 @@
 #include "../utilities/macros.h"
 
 @class FFListenerList;
+@class FFListenerListBlockArgs;
 
 begin_namespace (ffkit);
 
-typedef void (^FFListenerListBlock) (id object, NSDictionary* userInfo);
+typedef void (^FFListenerListBlock) (FFListenerListBlockArgs* args);
 
 class ListenerList {
 public:
@@ -76,6 +77,14 @@ public:
     */
     void removeTarget (id target, SEL action = nil);
     
+    /** Removes a block target from the list.
+     
+        @param block    The block to remove from the list.
+     
+        @see addTarget, removeAllTargets
+    */
+    void removeTarget (FFListenerListBlock block);
+    
     /** Removes all target from the list.
      
         @see addTarget, removeTarget
@@ -100,12 +109,6 @@ public:
         @see call
     */
     void call (id object1, id object2) const;
-    
-    /** Calls each block listener in the list.
-     
-        @see FFListenerListBlock
-    */
-    void callBlock (id object, NSDictionary* userInfo) const;
     
 private:
     FFListenerList* list;
