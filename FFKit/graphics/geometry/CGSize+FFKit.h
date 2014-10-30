@@ -30,3 +30,15 @@
 CG_INLINE CGSize CGSizeMakeAll (CGFloat size) {
     return (CGSize) { size, size };
 }
+
+/**	Sets the width for the specified CGSize. */
+CG_INLINE CGSize CGSizeSetWidth (CGSize size, CGFloat width) {
+    size.width = width;
+    return size;
+}
+
+/**	Sets the height for the specified CGSize. */
+CG_INLINE CGSize CGSizeSetHeight (CGSize size, CGFloat height) {
+    size.height = height;
+    return size;
+}
