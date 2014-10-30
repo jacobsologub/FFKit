@@ -28,10 +28,10 @@
 #import "FFListenerListBlockArgs.h"
 #import "NSObject+FFKit.h"
 
-NSString* const FFListenerListTargetKey = @"FFListenerListTargetKey";
-NSString* const FFListenerListActionKey = @"FFListenerListActionKey";
+NSString* const kFFListenerListTargetKey = @"FFListenerListTargetKey";
+NSString* const kFFListenerListActionKey = @"FFListenerListActionKey";
 
-NSString* const FFListenerListTargetTypeKey = @"FFListenerListTargetTypeKey";
+NSString* const kFFListenerListTargetTypeKey = @"FFListenerListTargetTypeKey";
 
 typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
     FFListenerListTargetTypeObject = 0x1001,
@@ -74,9 +74,9 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 - (void) addTarget: (id) target action: (SEL) action {
     if (![self contains: target action: action]) {
         NSDictionary* obj = @{
-            FFListenerListTargetKey: [NSValue valueWithPointer: (void*) target],
-            FFListenerListActionKey: NSStringFromSelector (action),
-            FFListenerListTargetTypeKey: @(FFListenerListTargetTypeObject)
+            kFFListenerListTargetKey: [NSValue valueWithPointer: (void*) target],
+            kFFListenerListActionKey: NSStringFromSelector (action),
+            kFFListenerListTargetTypeKey: @(FFListenerListTargetTypeObject)
         };
         
         [listeners addObject: obj];
@@ -86,8 +86,8 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 - (void) addTarget: (FFListenerListBlock) block {
     if (![listeners containsObject: block]) {
         NSDictionary* obj = @{
-            FFListenerListTargetKey: block,
-            FFListenerListTargetTypeKey: @(FFListenerListTargetTypeBlock),
+            kFFListenerListTargetKey: block,
+            kFFListenerListTargetTypeKey: @(FFListenerListTargetTypeBlock),
         };
         
         [listeners addObject: obj];
@@ -98,7 +98,7 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
     NSIndexSet* indexSet = nil;
     if (action == nil) {
         indexSet = [listeners indexesOfObjectsPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
-            if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]) {
+            if ([obj [kFFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]) {
                 return YES;
             }
             
@@ -107,8 +107,8 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
     }
     else {
         indexSet = [listeners indexesOfObjectsPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
-            if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
-                && [obj [FFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
+            if ([obj [kFFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
+                && [obj [kFFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
                 *stop = YES;
                 return YES;
             }
@@ -137,15 +137,15 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 //==============================================================================
 - (void) call {
     for (NSDictionary* obj in listeners) {
-        const FFListenerListTargetType targetType = [obj [FFListenerListTargetTypeKey] integerValue];
+        const FFListenerListTargetType targetType = [obj [kFFListenerListTargetTypeKey] integerValue];
         if (targetType == FFListenerListTargetTypeObject) {
-            id target = [obj [FFListenerListTargetKey] pointerValue];
-            SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
+            id target = [obj [kFFListenerListTargetKey] pointerValue];
+            SEL action = NSSelectorFromString (obj [kFFListenerListActionKey]);
             
             [target performSelectorChecked: action];
         }
         else if (targetType == FFListenerListTargetTypeBlock) {
-            FFListenerListBlock block = obj [FFListenerListTargetKey];
+            FFListenerListBlock block = obj [kFFListenerListTargetKey];
             if (block != nil) {
                 FFListenerListBlockArgs* args = [FFListenerListBlockArgs new];
                 block (args);
@@ -156,15 +156,15 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 
 - (void) callWithObject: (id) object1 {
     for (NSDictionary* obj in listeners) {
-        const FFListenerListTargetType targetType = [obj [FFListenerListTargetTypeKey] integerValue];
+        const FFListenerListTargetType targetType = [obj [kFFListenerListTargetTypeKey] integerValue];
         if (targetType == FFListenerListTargetTypeObject) {
-            id target = [obj [FFListenerListTargetKey] pointerValue];
-            SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
+            id target = [obj [kFFListenerListTargetKey] pointerValue];
+            SEL action = NSSelectorFromString (obj [kFFListenerListActionKey]);
             
             [target performSelectorChecked: action withObject: object1];
         }
         else if (targetType == FFListenerListTargetTypeBlock) {
-            FFListenerListBlock block = obj [FFListenerListTargetKey];
+            FFListenerListBlock block = obj [kFFListenerListTargetKey];
             if (block != nil) {
                 FFListenerListBlockArgs* args = [[FFListenerListBlockArgs alloc] initWithObject: object1];
                 block (args);
@@ -175,15 +175,15 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 
 - (void) callWithObject: (id) object1 withObject: (id) object2 {
     for (NSDictionary* obj in listeners) {
-        const FFListenerListTargetType targetType = [obj [FFListenerListTargetTypeKey] integerValue];
+        const FFListenerListTargetType targetType = [obj [kFFListenerListTargetTypeKey] integerValue];
         if (targetType == FFListenerListTargetTypeObject) {
-            id target = [obj [FFListenerListTargetKey] pointerValue];
-            SEL action = NSSelectorFromString (obj [FFListenerListActionKey]);
+            id target = [obj [kFFListenerListTargetKey] pointerValue];
+            SEL action = NSSelectorFromString (obj [kFFListenerListActionKey]);
             
             [target performSelectorChecked: action withObject: object1 withObject: object2];
         }
         else if (targetType == FFListenerListTargetTypeBlock) {
-            FFListenerListBlock block = obj [FFListenerListTargetKey];
+            FFListenerListBlock block = obj [kFFListenerListTargetKey];
             if (block != nil) {
                 FFListenerListBlockArgs* args = [[FFListenerListBlockArgs alloc] initWithObject: object1 object: object2];
                 block (args);
@@ -195,8 +195,8 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 //==============================================================================
 - (BOOL) contains: (id) target action: (SEL) action {
     NSUInteger index = [listeners indexOfObjectPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
-        if ([obj [FFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
-            && [obj [FFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
+        if ([obj [kFFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
+            && [obj [kFFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
             *stop = YES;
             return YES;
         }
