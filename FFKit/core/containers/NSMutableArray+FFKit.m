@@ -28,6 +28,12 @@
 
 @implementation NSMutableArray (FFKit)
 
+- (void) addObjectChecked: (id) anObject {
+    if (anObject != nil) {
+        [self addObject: anObject];
+    }
+}
+
 - (void) shuffleArray {
     const NSUInteger count = [self count];
     for (NSUInteger i = 0; i < count; ++i) {

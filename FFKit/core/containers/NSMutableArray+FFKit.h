@@ -28,6 +28,12 @@
 
 @interface NSMutableArray (FFKit)
 
+/** Inserts a given object at the end of the array if the object is not nil.
+    
+    @see addObject
+*/
+- (void) addObjectChecked: (id) anObject;
+
 /** Shuffles the array’s content.
     
     @see NSArray#shuffledArray
