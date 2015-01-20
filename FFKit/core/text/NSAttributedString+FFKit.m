@@ -24,36 +24,20 @@
   ==============================================================================
 */
 
-#ifdef __OBJC__
-    #import "core/NSObject+FFKit.h"
-    #import "core/containers/NSArray+FFKit.h"
-    #import "core/containers/NSMutableArray+FFKit.h"
-    #import "core/gcd/GCD+FFKit.h"
-    #import "core/text/NSAttributedString+FFKit.h"
-    #import "core/text/NSMutableAttributedString+FFKit.h"
-    #import "core/text/NSString+FFKit.h"
-    #import "core/text/NSURL+FFKit.h"
+#import "NSAttributedString+FFKit.h"
 
-    #import "events/FFListenerList.h"
+@implementation NSAttributedString (FFKit)
 
-    #import "graphics/color/UIColor+FFKit.h"
-    #import "graphics/geometry/CGRect+FFKit.h"
-    #import "graphics/geometry/CGSize+FFKit.h"
-    #import "graphics/geometry/UIEdgeInsets+FFKit.h"
-    #import "graphics/image/UIImage+FFKit.h"
++ (instancetype) stringWithString: (NSString*) str {
+    return [[NSAttributedString alloc] initWithString: str];
+}
 
-    #import "gui/buttons/FFButton.h"
-    #import "gui/buttons/FFToggleButton.h"
-    #import "gui/buttons/UIBarButtonItem+FFKit.h"
-    #import "gui/buttons/UIControl+FFKit.h"
-    #import "gui/layers/CALayer+FFKit.h"
-    #import "gui/navigation/UINavigationController+FFKit.h"
-    #import "gui/views/UIActionSheet+FFKit.h"
-    #import "gui/views/UIAlertView+FFKit.h"
-    #import "gui/views/UIImageView+FFKit.h"
-    #import "gui/views/UIView+FFKit.h"
-#endif
++ (instancetype) stringWithString: (NSString*) str attributes: (NSDictionary*) attrs {
+    return [[NSAttributedString alloc] initWithString: str attributes: attrs];
+}
 
-#if __cplusplus
-    #import "events/ListenerList.h"
-#endif
++ (instancetype) stringWithAttributedString: (NSAttributedString*) attrStr {
+    return [[NSAttributedString alloc] initWithAttributedString: attrStr];
+}
+
+@end

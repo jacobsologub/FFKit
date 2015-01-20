@@ -24,36 +24,29 @@
   ==============================================================================
 */
 
-#ifdef __OBJC__
-    #import "core/NSObject+FFKit.h"
-    #import "core/containers/NSArray+FFKit.h"
-    #import "core/containers/NSMutableArray+FFKit.h"
-    #import "core/gcd/GCD+FFKit.h"
-    #import "core/text/NSAttributedString+FFKit.h"
-    #import "core/text/NSMutableAttributedString+FFKit.h"
-    #import "core/text/NSString+FFKit.h"
-    #import "core/text/NSURL+FFKit.h"
+#import <Foundation/Foundation.h>
 
-    #import "events/FFListenerList.h"
+@interface NSAttributedString (FFKit)
 
-    #import "graphics/color/UIColor+FFKit.h"
-    #import "graphics/geometry/CGRect+FFKit.h"
-    #import "graphics/geometry/CGSize+FFKit.h"
-    #import "graphics/geometry/UIEdgeInsets+FFKit.h"
-    #import "graphics/image/UIImage+FFKit.h"
+/** Returns an NSAttributedString object initialized with the characters of a 
+    given string and no attribute information.
+ 
+    @see NSAttributedString#initWithString:
+*/
++ (instancetype) stringWithString: (NSString*) str;
 
-    #import "gui/buttons/FFButton.h"
-    #import "gui/buttons/FFToggleButton.h"
-    #import "gui/buttons/UIBarButtonItem+FFKit.h"
-    #import "gui/buttons/UIControl+FFKit.h"
-    #import "gui/layers/CALayer+FFKit.h"
-    #import "gui/navigation/UINavigationController+FFKit.h"
-    #import "gui/views/UIActionSheet+FFKit.h"
-    #import "gui/views/UIAlertView+FFKit.h"
-    #import "gui/views/UIImageView+FFKit.h"
-    #import "gui/views/UIView+FFKit.h"
-#endif
+/** Returns an NSAttributedString object initialized with a given string and 
+    attributes.
+ 
+    @see NSAttributedString#initWithString:attributes:
+*/
++ (instancetype) stringWithString: (NSString*) str attributes: (NSDictionary*) attrs;
 
-#if __cplusplus
-    #import "events/ListenerList.h"
-#endif
+/** Returns an NSAttributedString object initialized with the characters and 
+    attributes of another given attributed string.
+ 
+    @see NSAttributedString#initWithAttributedString:
+*/
++ (instancetype) stringWithAttributedString: (NSAttributedString*) attrStr;
+
+@end

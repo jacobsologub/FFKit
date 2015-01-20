@@ -12,6 +12,7 @@
 		162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */; };
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */; };
+		167419DD1A6DF9BB00EB375B /* NSAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 167419DC1A6DF9BB00EB375B /* NSAttributedString+FFKit.m */; };
 		1691EC96197323840014DF30 /* FFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC95197323840014DF30 /* FFButton.m */; };
 		1691EC9B19732E6F0014DF30 /* FFToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC9A19732E6F0014DF30 /* FFToggleButton.m */; };
 		16BC6F551A3D174A007BFC3A /* NSDictionary+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */; };
@@ -71,6 +72,8 @@
 		162BD4821935B68C00BF2F15 /* ListenerList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListenerList.mm; sourceTree = "<group>"; };
 		166059FF19395FE1006BEF3E /* NSMutableAttributedString+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+FFKit.h"; sourceTree = "<group>"; };
 		16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+FFKit.m"; sourceTree = "<group>"; };
+		167419DB1A6DF9BB00EB375B /* NSAttributedString+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+FFKit.h"; sourceTree = "<group>"; };
+		167419DC1A6DF9BB00EB375B /* NSAttributedString+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+FFKit.m"; sourceTree = "<group>"; };
 		1691EC94197323840014DF30 /* FFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FFButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1691EC95197323840014DF30 /* FFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFButton.m; sourceTree = "<group>"; };
 		1691EC9919732E6F0014DF30 /* FFToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FFToggleButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -250,6 +253,8 @@
 		16FA9B4E19319A8C0090D90F /* text */ = {
 			isa = PBXGroup;
 			children = (
+				167419DB1A6DF9BB00EB375B /* NSAttributedString+FFKit.h */,
+				167419DC1A6DF9BB00EB375B /* NSAttributedString+FFKit.m */,
 				166059FF19395FE1006BEF3E /* NSMutableAttributedString+FFKit.h */,
 				16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */,
 				16FA9B4F19319A8C0090D90F /* NSString+FFKit.h */,
@@ -479,6 +484,7 @@
 				16FA9B8419319A8C0090D90F /* CALayer+FFKit.m in Sources */,
 				16FA9B7B19319A8C0090D90F /* NSString+FFKit.m in Sources */,
 				1691EC9B19732E6F0014DF30 /* FFToggleButton.m in Sources */,
+				167419DD1A6DF9BB00EB375B /* NSAttributedString+FFKit.m in Sources */,
 				16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */,
 				16FA9B7A19319A8C0090D90F /* NSObject+FFKit.m in Sources */,
 			);
