@@ -191,6 +191,16 @@
     return nil;
 }
 
+- (UIViewController*) viewController {
+    UIViewController* nextResponder = (UIViewController*) [self nextResponder];
+    if ([nextResponder isKindOfClass: [UIViewController class]] && nextResponder.view == self) {
+        return nextResponder;
+    }
+    else {
+        return nil;
+    }
+}
+
 - (UIImage*) snapshotImage {
     UIImage* snapshot = nil;
     

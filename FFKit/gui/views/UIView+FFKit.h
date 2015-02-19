@@ -123,6 +123,17 @@
 /** Returns the superview whose tag matches the specified value. */
 - (UIView*) superviewWithTag: (NSInteger) tag;
 
+/** Returns the UIViewController object that manages this view or nil if it does 
+    not have one. 
+ 
+    This method calls UIResponder#nextResponder and checks to see
+    if the returned object is of type UIViewController and if its view property 
+    is equal to this view.
+ 
+    @see UIResponder#nextResponder
+*/
+@property (nonatomic, readonly) UIViewController* viewController;
+
 //==============================================================================
 /** Generates an image of this view and its its subviews. */
 - (UIImage*) snapshotImage;
