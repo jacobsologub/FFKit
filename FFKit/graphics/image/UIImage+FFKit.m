@@ -70,4 +70,17 @@
     return newImage;
 }
 
+#if __IPHONE_8_0
++ (UIImage*) imageNamed: (NSString*) name renderingMode: (UIImageRenderingMode) renderingMode {
+    UIImage* result = [UIImage imageNamed: name];
+    
+    if ([result respondsToSelector: @selector (imageWithRenderingMode:)]) {
+        result = [result imageWithRenderingMode: renderingMode];
+    }
+    
+    return result;
+}
+
+#endif
+
 @end

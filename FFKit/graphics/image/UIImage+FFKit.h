@@ -69,4 +69,11 @@ typedef void (^UIImageDrawRectBlock) (CGRect rect, CGContextRef ctx);
 */
 - (UIImage*) imageInRect: (CGRect) rect;
 
+#if __IPHONE_8_0
+/** Returns the image object associated with the specified filename and the 
+    specified rendering mode.
+*/
++ (UIImage*) imageNamed: (NSString*) name renderingMode: (UIImageRenderingMode) renderingMode;
+#endif
+
 @end
