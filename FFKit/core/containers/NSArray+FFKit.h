@@ -46,4 +46,9 @@
 */
 - (NSArray*) shuffledArray;
 
+/** Returns a new array by mapping each value in this array through a 
+    transformation block.
+*/
+- (NSArray*) mappedArray: (id (^)(id obj, NSUInteger idx, BOOL* stop)) block;
+
 @end

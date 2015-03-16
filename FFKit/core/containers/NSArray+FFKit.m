@@ -51,4 +51,26 @@
     return mutableSelf;
 }
 
+- (NSArray*) mappedArray: (id (^)(id obj, NSUInteger idx, BOOL* stop)) block {
+    if ([self count] <= 0) {
+        return nil;
+    }
+    
+    NSMutableArray* result = [NSMutableArray new];
+    NSUInteger idx = 0;
+    
+    for (id obj in self) {
+        BOOL stop = NO;
+        [result addObjectChecked: block (obj, idx, &stop)];
+        
+        if (stop) {
+            break;
+        }
+        
+        ++idx;
+    }
+    
+    return result;
+}
+
 @end
