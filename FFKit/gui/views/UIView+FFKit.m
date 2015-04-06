@@ -130,6 +130,22 @@
 	self.frame = CGRectMake (xpos, ypos, newSize.width, newSize.height);
 }
 
+- (float) centerX {
+    return self.center.x;
+}
+
+- (void) setCenterX: (float) newCenterX {
+    self.center = CGPointMake (newCenterX, self.centerY);
+}
+
+- (float) centerY {
+    return self.center.y;
+}
+
+- (void) setCenterY: (float) newCenterY {
+    self.center = CGPointMake (self.centerX, newCenterY);
+}
+
 - (BOOL) visible {
     return !self.hidden;
 }

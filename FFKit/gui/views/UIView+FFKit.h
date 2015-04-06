@@ -107,6 +107,18 @@
 /** Changes the view's size and centres it within its superview. */
 - (void) centerWithSize: (CGSize) newSize;
 
+/**	Gets or sets the center x of the view.
+ 
+    @see setCenter
+*/
+@property (nonatomic, assign) float centerX;
+
+/**	Gets or sets the center x of the view.
+ 
+    @see setCenter
+*/
+@property (nonatomic, assign) float centerY;
+
 /**	Gets or sets whether or not the view is visible. */
 @property (nonatomic, assign) BOOL visible;
 
