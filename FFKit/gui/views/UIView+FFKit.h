@@ -90,7 +90,7 @@
 
 /**	Gets or sets the y coordinate of the view's bottom edge.
     
-    @see @see setBottom:adjustingHeight
+    @see setBottom:adjustingHeight
 */
 @property (nonatomic, assign) float bottom;
 
