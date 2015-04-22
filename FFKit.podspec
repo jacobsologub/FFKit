@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FFKit"
-  s.version      = "0.0.1"
+  s.version      = "1.0"
   s.summary      = "A short description of FFKit."
 
   s.description  = <<-DESC
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/zoosjuice/FFKit.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/zoosjuice/FFKit.git"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
