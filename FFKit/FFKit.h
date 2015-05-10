@@ -29,6 +29,7 @@
     #import "core/NSObject+FFKit.h"
     #import "core/containers/NSArray+FFKit.h"
     #import "core/containers/NSDictionary+FFKit.h"
+    #import "core/containers/NSJSONSerialization+FFKit.h"
     #import "core/containers/NSMutableArray+FFKit.h"
     #import "core/gcd/GCD+FFKit.h"
     #import "core/text/NSAttributedString+FFKit.h"
