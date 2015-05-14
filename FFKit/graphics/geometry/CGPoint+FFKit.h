@@ -26,6 +26,11 @@
 
 #include <CoreGraphics/CGGeometry.h>
 
+/** Creates point with the same x and y coordinates. */
+CG_INLINE CGPoint CGPointMakeAll (CGFloat coord) {
+    return (CGPoint) { coord, coord };
+}
+
 /** An "empty" point. Note that the Null point is not the
     same as the zero "CGPointZero" point.
 */
