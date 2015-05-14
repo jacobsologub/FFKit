@@ -41,6 +41,7 @@
     #import "events/FFListenerListBlockArgs.h"
 
     #import "graphics/color/UIColor+FFKit.h"
+    #import "graphics/geometry/CGPoint+FFKit.h"
     #import "graphics/geometry/CGRect+FFKit.h"
     #import "graphics/geometry/CGSize+FFKit.h"
     #import "graphics/geometry/UIEdgeInsets+FFKit.h"

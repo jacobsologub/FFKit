@@ -11,6 +11,7 @@
 		162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */; };
 		162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */; };
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		165C6D711B052CD8007E2674 /* CGPoint+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 165C6D701B052CD8007E2674 /* CGPoint+FFKit.m */; };
 		16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */; };
 		167419DD1A6DF9BB00EB375B /* NSAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 167419DC1A6DF9BB00EB375B /* NSAttributedString+FFKit.m */; };
 		1691EC96197323840014DF30 /* FFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC95197323840014DF30 /* FFButton.m */; };
@@ -72,6 +73,8 @@
 		162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+FFKit.m"; sourceTree = "<group>"; };
 		162BD4811935B68C00BF2F15 /* ListenerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerList.h; sourceTree = "<group>"; };
 		162BD4821935B68C00BF2F15 /* ListenerList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListenerList.mm; sourceTree = "<group>"; };
+		165C6D6F1B052CD8007E2674 /* CGPoint+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGPoint+FFKit.h"; sourceTree = "<group>"; };
+		165C6D701B052CD8007E2674 /* CGPoint+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGPoint+FFKit.m"; sourceTree = "<group>"; };
 		166059FF19395FE1006BEF3E /* NSMutableAttributedString+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+FFKit.h"; sourceTree = "<group>"; };
 		16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+FFKit.m"; sourceTree = "<group>"; };
 		167419DB1A6DF9BB00EB375B /* NSAttributedString+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+FFKit.h"; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 		16FA9B5F19319A8C0090D90F /* geometry */ = {
 			isa = PBXGroup;
 			children = (
+				165C6D6F1B052CD8007E2674 /* CGPoint+FFKit.h */,
+				165C6D701B052CD8007E2674 /* CGPoint+FFKit.m */,
 				16FA9B6019319A8C0090D90F /* CGRect+FFKit.h */,
 				16FA9B6119319A8C0090D90F /* CGSize+FFKit.h */,
 				16FA9B6219319A8C0090D90F /* UIEdgeInsets+FFKit.h */,
@@ -495,6 +500,7 @@
 				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.m in Sources */,
 				1691EC96197323840014DF30 /* FFButton.m in Sources */,
 				16FA9B7C19319A8C0090D90F /* NSURL+FFKit.m in Sources */,
+				165C6D711B052CD8007E2674 /* CGPoint+FFKit.m in Sources */,
 				16FA9B8319319A8C0090D90F /* UIControl+FFKit.m in Sources */,
 				162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */,
 				16FA9B7D19319A8C0090D90F /* FFListenerList.m in Sources */,
