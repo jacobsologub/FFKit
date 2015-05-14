@@ -1,7 +1,7 @@
 /*
   ==============================================================================
  
-   Copyright (C) 2014 Jacob Sologub
+   Copyright (C) 2015 Jacob Sologub
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to
@@ -24,41 +24,6 @@
   ==============================================================================
 */
 
-#include <CoreGraphics/CGGeometry.h>
+#import "CGSize+FFKit.h"
 
-/** Creates size with the same width and height. */
-CG_INLINE CGSize CGSizeMakeAll (CGFloat size) {
-    return (CGSize) { size, size };
-}
-
-/**	Sets the width for the specified CGSize. */
-CG_INLINE CGSize CGSizeSetWidth (CGSize size, CGFloat width) {
-    size.width = width;
-    return size;
-}
-
-/**	Sets the height for the specified CGSize. */
-CG_INLINE CGSize CGSizeSetHeight (CGSize size, CGFloat height) {
-    size.height = height;
-    return size;
-}
-
-/** An "empty" size. Note that the Null size is not the
-    same as the zero "CGSizeZero" size.
-*/
-CG_EXTERN const CGSize CGSizeNull;
-
-/** Return true if `size' is a null "CGSizeNull" size, false otherwise.
- 
-    By default CGSizeNull is defined as { -HUGE_VALF, -HUGE_VALF } but you can
-    define it using any values that suit your needs.
- 
-    @code
-        const CGSize CGSizeNull = { -1.0f, -1.0f };
-    @code
- 
-    @see CGPointNull
-*/
-CG_INLINE bool CGSizeIsNull (CGSize size) {
-    return CGSizeEqualToSize (size, CGSizeNull);
-}
+const CGSize CGSizeNull = { -HUGE_VALF, -HUGE_VALF };
