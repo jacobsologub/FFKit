@@ -73,4 +73,13 @@
     return result;
 }
 
+- (NSUInteger) count: (BOOL (^)(id obj, NSUInteger idx, BOOL* stop)) predicate {
+    if ([self count] <= 0) {
+        return 0;
+    }
+    
+    NSIndexSet* set = [self indexesOfObjectsPassingTest: predicate];
+    return [set count];
+}
+
 @end

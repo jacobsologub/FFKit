@@ -51,4 +51,10 @@
 */
 - (NSArray*) mappedArray: (id (^)(id obj, NSUInteger idx, BOOL* stop)) block;
 
+/** Returns the number of objects in the array satisfying a specific criteria.
+    
+    @see NSArray#count
+*/
+- (NSUInteger) count: (BOOL (^)(id obj, NSUInteger idx, BOOL* stop)) predicate;
+
 @end
