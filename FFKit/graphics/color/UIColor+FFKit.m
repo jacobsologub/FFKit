@@ -46,6 +46,25 @@
 	return [UIColor colorWithRed: r green: g blue: b alpha: a];
 }
 
++ (UInt32) ARGBHexWithColor: (UIColor*) color {
+    CGFloat a = 0.0f;
+    CGFloat r = 0.0f;
+    CGFloat g = 0.0f;
+    CGFloat b = 0.0f;
+    
+    [color getRed: &r green: &g blue: &b alpha: &a];
+    
+    return ((UInt32) (a * 255) << 24) + ((UInt32) (r * 255) << 16) + ((UInt32) (g * 255) << 8) + ((UInt32) (b * 255) << 0);
+}
+
+- (UInt32) ARGBHex {
+    return [UIColor ARGBHexWithColor: self];
+}
+
+- (BOOL) isEqualToColor: (UIColor*) color {
+    return [self ARGBHex] == [color ARGBHex];
+}
+
 - (UIColor*) colorWithAlpha: (CGFloat) alpha {
     return [self colorWithAlphaComponent: alpha];
 }

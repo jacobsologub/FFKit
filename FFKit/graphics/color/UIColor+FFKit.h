@@ -34,6 +34,17 @@
 /**	Creates and returns a color object using the specified 'RGB" hex value. */
 + (UIColor*) colorWithRGBHex: (UInt32) hex;
 
+/**	Returns a 32-bit integer 'ARGB' hex value using the specified UIColor value. */
++ (UInt32) ARGBHexWithColor: (UIColor*) color;
+
+/**	Returns a 32-bit integer 'ARGB' hex value for this color. */
+- (UInt32) ARGBHex;
+
+/** Returns a Boolean value that indicates whether this color and a given color 
+    are equal.
+*/
+- (BOOL) isEqualToColor: (UIColor*) color;
+
 /** Creates and returns a color object that has the same color space and 
     component values as the receiver, but has the specified alpha component.
 */
