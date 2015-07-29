@@ -106,4 +106,12 @@ const CAShadow CAShadowZero = { 0.0f, 0.0f, { 0.0f, 0.0f },  NULL, NULL};
     return [self sublayerOfClassType: classType searchRecursively: NO];
 }
 
++ (void) performWithDisabledActions: (void (^) (void)) disabledActions {
+    [CATransaction begin];
+    [CATransaction setDisableActions: YES];
+    {
+        disabledActions();
+    }
+    [CATransaction commit];
+}
 @end

@@ -91,4 +91,9 @@ extern const CAShadow CAShadowZero;
 /** Searches the layer's sublayers for a CALayer of a specified class. */
 - (CALayer*) sublayerOfClassType: (Class) classType searchRecursively: (BOOL) searchRecursively;
 
+//==============================================================================
+/** Disables the layer's -actionForKey: method that is used to find an action 
+    (aka. implicit animation) for each layer property change. 
+*/
++ (void) performWithDisabledActions: (void (^) (void)) disabledActions;
 @end
