@@ -60,23 +60,81 @@ extern const CAShadow CAShadowZero;
 @property (nonatomic, assign) CAShadow shadow;
 
 //==============================================================================
-/**	Returns the x coordinate of the layer's left edge. */
-@property (nonatomic, readonly) float x;
+/**	Gets or sets the x coordinate of the view.
+ 
+    @see setX:adjustingWidth
+ */
+@property (nonatomic, assign) float x;
 
-/**	Returns the y coordinate of the layer's top edge. */
-@property (nonatomic, readonly) float y;
+/** Sets the x coordinate of the view.
+ 
+    @param adjustWidth      Whether or not to adjust the width of the view. If 
+                            this is set to YES then the right edge of the view 
+                            will remain the same.
+ 
+    @see setX
+*/
+- (void) setX: (float) newX adjustingWidth: (BOOL) adjustWidth;
 
-/**	Returns the width of the layer. */
-@property (nonatomic, readonly) float width;
+/**	Gets or sets the y coordinate of the view.
+    
+    @see setY:adjustingHeight
+*/
+@property (nonatomic, assign) float y;
 
-/**	Returns the height of the layer. */
-@property (nonatomic, readonly) float height;
+/** Sets the y coordinate of the view.
+ 
+    @param adjustHeight     Whether or not to adjust the height of the view. If 
+                            this is set to YES then the bottom edge of the view 
+                            will remain the same.
+ 
+    @see setY
+*/
+- (void) setY: (float) newY adjustingHeight: (BOOL) adjustHeight;
 
-/**	Returns the x coordinate of the layer's right edge. */
-@property (nonatomic, readonly) float right;
+/**	Gets or sets the width of the view. 
+    
+    @see setHeight
+*/
+@property (nonatomic, assign) float width;
 
-/**	Returns the y coordinate of the layer's bottom edge. */
-@property (nonatomic, readonly) float bottom;
+/**	Gets or sets the height of the view. 
+ 
+    @see setWidth
+*/
+@property (nonatomic, assign) float height;
+
+/**	Gets or sets the x coordinate of the view's right edge. 
+    
+    @see setRight:adjustingWidth
+*/
+@property (nonatomic, assign) float right;
+
+/** Sets the x coordinate of the view's right edge.
+ 
+    @param adjustWidth      Whether or not to adjust the width of the view. If
+                            this is set to YES then the left edge of the view
+                            will remain the same.
+ 
+    @see setRight
+*/
+- (void) setRight: (float) newRight adjustingWidth: (BOOL) adjustWidth;
+
+/**	Gets or sets the y coordinate of the view's bottom edge.
+    
+    @see setBottom:adjustingHeight
+*/
+@property (nonatomic, assign) float bottom;
+
+/** Sets the y coordinate of the view's bottom edge.
+ 
+    @param adjustHeight     Whether or not to adjust the height of the view. If
+                            this is set to YES then the top edge of the view
+                            will remain the same.
+ 
+    @see setBottom
+*/
+- (void) setBottom: (float) newBottom adjustingHeight: (BOOL) adjustHeight;
 
 /** Changes the layer's size and centres it within its superlayer. */
 - (void) centerWithSize: (CGSize) newSize;
