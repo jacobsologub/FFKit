@@ -250,4 +250,8 @@
 	return snapshot;
 }
 
++ (void) animateWithDuration: (NSTimeInterval) duration usingSpringWithDamping: (CGFloat) dampingRatio animations: (void (^)(void)) animations completion: (void (^)(BOOL finished)) completion {
+    [UIView animateWithDuration: duration delay: 0.0f usingSpringWithDamping: dampingRatio initialSpringVelocity: 1.0f options: UIViewAnimationOptionCurveEaseInOut animations: animations completion: completion];
+}
+
 @end
