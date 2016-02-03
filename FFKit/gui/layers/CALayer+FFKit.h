@@ -139,6 +139,11 @@ extern const CAShadow CAShadowZero;
 /** Changes the layer's size and centres it within its superlayer. */
 - (void) centerWithSize: (CGSize) newSize;
 
+/** Changes the view's size and centres it within its superview with an optional
+    block paramter that you can use to modify the final centered frame.
+*/
+- (void) centerWithSize: (CGSize) newSize block: (void (^) (CGRect* frame)) block;
+
 /**	Gets or sets whether or not the layer is visible. */
 @property (nonatomic, assign) BOOL visible;
 

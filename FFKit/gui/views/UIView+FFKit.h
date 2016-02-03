@@ -107,6 +107,11 @@
 /** Changes the view's size and centres it within its superview. */
 - (void) centerWithSize: (CGSize) newSize;
 
+/** Changes the view's size and centres it within its superview with an optional 
+    block paramter that you can use to modify the final centered frame.
+*/
+- (void) centerWithSize: (CGSize) newSize block: (void (^) (CGRect* frame)) block;
+
 /**	Gets or sets the center x of the view.
  
     @see setCenter

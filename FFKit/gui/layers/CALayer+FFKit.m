@@ -136,12 +136,21 @@ const CAShadow CAShadowZero = { 0.0f, 0.0f, { 0.0f, 0.0f },  NULL, NULL};
 }
 
 - (void) centerWithSize: (CGSize) newSize {
-	const CGSize parentSize = self.superlayer.bounds.size;
-	
-	const float xpos = roundf ((parentSize.width - newSize.width) * 0.5f);
-	const float ypos = roundf ((parentSize.height - newSize.height) * 0.5f);
-	
-	self.frame = CGRectMake (xpos, ypos, newSize.width, newSize.height);
+    [self centerWithSize: newSize block: nil];
+}
+
+- (void) centerWithSize: (CGSize) newSize block: (void (^) (CGRect* frame)) block {
+    const CGSize parentSize = self.superlayer.bounds.size;
+    
+    const float xpos = roundf ((parentSize.width - newSize.width) * 0.5f);
+    const float ypos = roundf ((parentSize.height - newSize.height) * 0.5f);
+    
+    CGRect frame = CGRectMake (xpos, ypos, newSize.width, newSize.height);
+    if (block != nil) {
+        block (&frame);
+    }
+    
+    self.frame = frame;
 }
 
 - (BOOL) visible {
