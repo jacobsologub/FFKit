@@ -170,7 +170,15 @@
     initialSpringVelocity of 1.0f, UIViewAnimationOptionCurveEaseInOut and  
     0.0f delay.
 */
-
 + (void) animateWithDuration: (NSTimeInterval) duration usingSpringWithDamping: (CGFloat) dampingRatio animations: (void (^)(void)) animations completion: (void (^)(BOOL finished)) completion;
 
+/** Performs `animations` using a timing curve described by the motion of a
+    spring. When `dampingRatio` is 1, the animation will smoothly decelerate to
+    its final model values without oscillating. Damping ratios less than 1 will
+    oscillate more and more before coming to a complete stop.
+ 
+    This is a shorthand method that calls the longer version with an
+    initialSpringVelocity of 1.0f, UIViewAnimationOptionCurveEaseInOut.
+ */
++ (void) animateWithDuration: (NSTimeInterval) duration delay: (double) delay usingSpringWithDamping: (CGFloat) dampingRatio animations: (void (^)(void)) animations completion: (void (^)(BOOL finished)) completion;
 @end
