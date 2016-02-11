@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		161031BB1A02C17100C0B229 /* FFListenerListBlockArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */; };
-		162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */; };
-		162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */; };
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		165C6D711B052CD8007E2674 /* CGPoint+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 165C6D701B052CD8007E2674 /* CGPoint+FFKit.m */; };
 		165C6D731B0550A7007E2674 /* CGSize+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 165C6D721B0550A7007E2674 /* CGSize+FFKit.m */; };
@@ -68,10 +66,6 @@
 /* Begin PBXFileReference section */
 		161031B91A02C17100C0B229 /* FFListenerListBlockArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFListenerListBlockArgs.h; sourceTree = "<group>"; };
 		161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFListenerListBlockArgs.m; sourceTree = "<group>"; };
-		162BD47B1935AF9F00BF2F15 /* UIAlertView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+FFKit.h"; sourceTree = "<group>"; };
-		162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+FFKit.m"; sourceTree = "<group>"; };
-		162BD47E1935B45200BF2F15 /* UIActionSheet+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+FFKit.h"; sourceTree = "<group>"; };
-		162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+FFKit.m"; sourceTree = "<group>"; };
 		162BD4811935B68C00BF2F15 /* ListenerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerList.h; sourceTree = "<group>"; };
 		162BD4821935B68C00BF2F15 /* ListenerList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListenerList.mm; sourceTree = "<group>"; };
 		165C6D6F1B052CD8007E2674 /* CGPoint+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGPoint+FFKit.h"; sourceTree = "<group>"; };
@@ -389,10 +383,6 @@
 		16FA9B7219319A8C0090D90F /* views */ = {
 			isa = PBXGroup;
 			children = (
-				162BD47E1935B45200BF2F15 /* UIActionSheet+FFKit.h */,
-				162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */,
-				162BD47B1935AF9F00BF2F15 /* UIAlertView+FFKit.h */,
-				162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */,
 				16C67F7919359149006FF926 /* UIImageView+FFKit.h */,
 				16C67F7A19359149006FF926 /* UIImageView+FFKit.m */,
 				16FA9B7319319A8C0090D90F /* UIView+FFKit.h */,
@@ -453,7 +443,7 @@
 		16FA9ACE19319A320090D90F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jacob Sologub";
 			};
 			buildConfigurationList = 16FA9AD119319A320090D90F /* Build configuration list for PBXProject "FFKit" */;
@@ -496,10 +486,8 @@
 				16FA9B8519319A8C0090D90F /* UINavigationController+FFKit.m in Sources */,
 				16A242DE1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m in Sources */,
 				16FA9B8619319A8C0090D90F /* UIView+FFKit.m in Sources */,
-				162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */,
 				16FA9B8219319A8C0090D90F /* UIBarButtonItem+FFKit.m in Sources */,
 				16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */,
-				162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */,
 				16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */,
 				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.m in Sources */,
 				1691EC96197323840014DF30 /* FFButton.m in Sources */,
@@ -567,6 +555,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -657,6 +646,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "FFKitTests/FFKitTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobsologub.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FFKitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -673,6 +663,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
 				INFOPLIST_FILE = "FFKitTests/FFKitTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobsologub.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FFKitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
