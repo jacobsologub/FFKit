@@ -16,6 +16,7 @@
 		165C6D731B0550A7007E2674 /* CGSize+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 165C6D721B0550A7007E2674 /* CGSize+FFKit.m */; };
 		16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */; };
 		167419DD1A6DF9BB00EB375B /* NSAttributedString+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 167419DC1A6DF9BB00EB375B /* NSAttributedString+FFKit.m */; };
+		16796C831CDD5E87001F81A9 /* UILabel+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16796C821CDD5E87001F81A9 /* UILabel+FFKit.m */; };
 		1691EC96197323840014DF30 /* FFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC95197323840014DF30 /* FFButton.m */; };
 		1691EC9B19732E6F0014DF30 /* FFToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC9A19732E6F0014DF30 /* FFToggleButton.m */; };
 		169E959E1CACE6440016266E /* NSIndexPath+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 169E959D1CACE6440016266E /* NSIndexPath+FFKit.m */; };
@@ -85,6 +86,8 @@
 		16605A0019395FE1006BEF3E /* NSMutableAttributedString+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+FFKit.m"; sourceTree = "<group>"; };
 		167419DB1A6DF9BB00EB375B /* NSAttributedString+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+FFKit.h"; sourceTree = "<group>"; };
 		167419DC1A6DF9BB00EB375B /* NSAttributedString+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+FFKit.m"; sourceTree = "<group>"; };
+		16796C811CDD5E87001F81A9 /* UILabel+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FFKit.h"; sourceTree = "<group>"; };
+		16796C821CDD5E87001F81A9 /* UILabel+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FFKit.m"; sourceTree = "<group>"; };
 		1691EC94197323840014DF30 /* FFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FFButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1691EC95197323840014DF30 /* FFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFButton.m; sourceTree = "<group>"; };
 		1691EC9919732E6F0014DF30 /* FFToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FFToggleButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -165,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16796C801CDD5E61001F81A9 /* labels */ = {
+			isa = PBXGroup;
+			children = (
+				16796C811CDD5E87001F81A9 /* UILabel+FFKit.h */,
+				16796C821CDD5E87001F81A9 /* UILabel+FFKit.m */,
+			);
+			path = labels;
+			sourceTree = "<group>";
+		};
 		16D81FBF1AF9508600620042 /* application */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				16FA9B6719319A8C0090D90F /* buttons */,
+				16796C801CDD5E61001F81A9 /* labels */,
 				16FA9B6C19319A8C0090D90F /* layers */,
 				16FA9B6F19319A8C0090D90F /* navigation */,
 				16FA9B7219319A8C0090D90F /* views */,
@@ -517,6 +530,7 @@
 				16FA9B7C19319A8C0090D90F /* NSURL+FFKit.m in Sources */,
 				169E959E1CACE6440016266E /* NSIndexPath+FFKit.m in Sources */,
 				165C6D711B052CD8007E2674 /* CGPoint+FFKit.m in Sources */,
+				16796C831CDD5E87001F81A9 /* UILabel+FFKit.m in Sources */,
 				16FA9B8319319A8C0090D90F /* UIControl+FFKit.m in Sources */,
 				162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */,
 				16FA9B7D19319A8C0090D90F /* FFListenerList.m in Sources */,

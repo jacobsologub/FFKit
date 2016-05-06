@@ -53,6 +53,7 @@
     #import "gui/buttons/FFToggleButton.h"
     #import "gui/buttons/UIBarButtonItem+FFKit.h"
     #import "gui/buttons/UIControl+FFKit.h"
+    #import "gui/labels/UILabel+FFKit.h"
     #import "gui/layers/CALayer+FFKit.h"
     #import "gui/navigation/UINavigationController+FFKit.h"
     #import "gui/views/UIActionSheet+FFKit.h"
