@@ -55,6 +55,19 @@
 */
 - (void) setTextColor: (UIColor*) color range: (NSRange) range;
 
+/** Sets the NSKernAttributeName attribute for all the characters.
+    
+    @see NSMutableAttributedString#setTextColor:range
+*/
+- (void) setKerning: (CGFloat) kerning;
+
+/** Sets the NSKernAttributeName attribute for the characters in the
+    specified range.
+
+    @see NSMutableAttributedString#setKern
+*/
+- (void) setKerning: (CGFloat) kerning range: (NSRange) range;
+
 /** Sets the NSParagraphStyleAttributeName attribute for all the characters.
     
     @see NSMutableAttributedString#setParagraphStyle:range

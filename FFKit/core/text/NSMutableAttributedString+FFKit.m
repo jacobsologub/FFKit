@@ -44,6 +44,14 @@
     [self addAttribute: NSForegroundColorAttributeName value: color range: range];
 }
 
+- (void) setKerning: (CGFloat) kerning {
+    [self setKerning: kerning range: NSMakeRange (0, [self length])];
+}
+
+- (void) setKerning: (CGFloat) kerning range: (NSRange) range {
+    [self addAttribute: NSKernAttributeName value: @(kerning) range: range];
+}
+
 - (void) setParagraphStyle: (NSParagraphStyle*) style {
     [self setParagraphStyle: style range: NSMakeRange (0, [self length])];
 }
