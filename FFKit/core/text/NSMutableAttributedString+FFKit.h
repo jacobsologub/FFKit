@@ -29,6 +29,27 @@
 
 @interface NSMutableAttributedString (FFKit)
 
+/** Returns an NSMutableAttributedString object initialized with the characters 
+    of a given string and no attribute information.
+ 
+    @see NSMutableAttributedString#initWithString:
+*/
++ (instancetype) stringWithString: (NSString*) str;
+
+/** Returns an NSMutableAttributedString object initialized with a given string 
+    and attributes.
+ 
+    @see NSMutableAttributedString#initWithString:attributes:
+*/
++ (instancetype) stringWithString: (NSString*) str attributes: (NSDictionary*) attrs;
+
+/** Returns an NSMutableAttributedString object initialized with the characters 
+    and attributes of another given attributed string.
+ 
+    @see NSMutableAttributedString#initWithAttributedString:
+*/
++ (instancetype) stringWithAttributedString: (NSAttributedString*) attrStr;
+
 /** Sets the NSFontAttributeName attribute for all the characters.
  
     @see NSMutableAttributedString#setFont:range

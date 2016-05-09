@@ -28,6 +28,18 @@
 
 @implementation NSMutableAttributedString (FFKit)
 
++ (instancetype) stringWithString: (NSString*) str {
+    return [[NSMutableAttributedString alloc] initWithString: str];
+}
+
++ (instancetype) stringWithString: (NSString*) str attributes: (NSDictionary*) attrs {
+    return [[NSMutableAttributedString alloc] initWithString: str attributes: attrs];
+}
+
++ (instancetype) stringWithAttributedString: (NSAttributedString*) attrStr {
+    return [[NSMutableAttributedString alloc] initWithAttributedString: attrStr];
+}
+
 - (void) setFont: (UIFont*) font {
     [self setFont: font range: NSMakeRange (0, [self length])];
 }
