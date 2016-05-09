@@ -25,6 +25,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#include <CoreGraphics/CGGeometry.h>
 
 @interface NSAttributedString (FFKit)
 
@@ -48,5 +49,14 @@
     @see NSAttributedString#initWithAttributedString:
 */
 + (instancetype) stringWithAttributedString: (NSAttributedString*) attrStr;
+
+/** Calculates and returns the bounding rect for the receiver's text drawn 
+    using NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading 
+    options and display characteristics, within the specified size in the 
+    current graphics context.
+ 
+    @see NSString#boundingRectWithSize:options:attributes:context:
+*/
+- (CGRect) boundingRectWithSize: (CGSize) size;
 
 @end

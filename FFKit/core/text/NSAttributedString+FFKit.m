@@ -25,6 +25,7 @@
 */
 
 #import "NSAttributedString+FFKit.h"
+#import <UIKit/UIKit.h>
 
 @implementation NSAttributedString (FFKit)
 
@@ -38,6 +39,16 @@
 
 + (instancetype) stringWithAttributedString: (NSAttributedString*) attrStr {
     return [[NSAttributedString alloc] initWithAttributedString: attrStr];
+}
+
+- (CGRect) boundingRectWithSize: (CGSize) size {
+    CGRect result = [self
+        boundingRectWithSize: size
+        options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+        context: nil
+    ];
+    
+    return result;
 }
 
 @end
