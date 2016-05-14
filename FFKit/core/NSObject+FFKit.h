@@ -81,3 +81,16 @@
 - (BOOL) isNotNull;
 
 @end
+
+#if __cplusplus
+#include "../utilities/macros.h"
+begin_namespace (ffkit)
+template <typename T> inline T* objc_cast (id from) {
+    if ([from isKindOfClass: [T class]]) {
+        return static_cast <T*> (from);
+    }
+    
+    return nil;
+}
+end_namespace (ffkit)
+#endif
