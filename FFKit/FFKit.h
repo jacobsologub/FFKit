@@ -28,6 +28,10 @@
 #define FFKIT_H_INCLUDED
 
 #ifdef __OBJC__
+    #if __has_include ("../../FFKitConfig.h")
+     #include "../../FFKitConfig.h"
+    #endif
+
     #import "application/NSBundle+FFKit.h"
     #import "core/NSObject+FFKit.h"
     #import "core/containers/NSArray+FFKit.h"
