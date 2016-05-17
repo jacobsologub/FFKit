@@ -163,6 +163,10 @@
     self.hidden = !shouldBeVisible;
 }
 
+- (BOOL) isShowing {
+    return (self.window != nil) && self.visible && (self.alpha > 0.0f);
+}
+
 - (UIView*) subviewOfClassType: (Class) classType searchRecursively: (BOOL) searchRecursively {
     if ([self isKindOfClass: classType]) {
         return self;

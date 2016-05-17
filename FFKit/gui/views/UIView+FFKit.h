@@ -127,6 +127,12 @@
 /**	Gets or sets whether or not the view is visible. */
 @property (nonatomic, assign) BOOL visible;
 
+/**	Returns true if this view is currently on screen. This property checks if 
+    this view's window property is not nil, this view is visible or "not hidden" 
+    and this view's alpha is > 0.0f.
+*/
+@property (nonatomic, readonly, getter= isShowing) BOOL showing;
+
 //==============================================================================
 /** Searches the view's subviews for a UIView of a specified class. */
 - (UIView*) subviewOfClassType: (Class) classType;
