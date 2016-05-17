@@ -24,6 +24,9 @@
   ==============================================================================
 */
 
+#ifndef FFKIT_H_INCLUDED
+#define FFKIT_H_INCLUDED
+
 #ifdef __OBJC__
     #import "application/NSBundle+FFKit.h"
     #import "core/NSObject+FFKit.h"
@@ -65,3 +68,5 @@
 #if __cplusplus
     #import "events/ListenerList.h"
 #endif
+
+#endif /* FFKIT_H_INCLUDED */
