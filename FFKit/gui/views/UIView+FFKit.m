@@ -187,7 +187,7 @@
         
         [self aspect_hookSelector: @selector (layoutSubviews) withOptions: AspectPositionAfter usingBlock: ^(id<AspectInfo> aspectInfo) {
             UIView* _view = (UIView*) [aspectInfo instance];
-            [_view.resized callWithObject: self withObject: [NSValue valueWithCGSize: _view.bounds.size]];
+            [_view.resized callWithObject: _view withObject: [NSValue valueWithCGSize: _view.bounds.size]];
         } error: NULL];
     }
     
