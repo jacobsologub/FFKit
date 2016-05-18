@@ -184,12 +184,12 @@
     if (_resized == nil) {
         _resized = [FFListenerList new];
         objc_setAssociatedObject (self, &kUIViewResizedKey, _resized, OBJC_ASSOCIATION_RETAIN);
+        
+        [self aspect_hookSelector: @selector (layoutSubviews) withOptions: AspectPositionAfter usingBlock: ^(id<AspectInfo> aspectInfo) {
+            UIView* _view = (UIView*) [aspectInfo instance];
+            [_view.resized callWithObject: self withObject: [NSValue valueWithCGSize: _view.bounds.size]];
+        } error: NULL];
     }
-    
-    [self aspect_hookSelector: @selector (layoutSubviews) withOptions: AspectPositionAfter usingBlock: ^(id<AspectInfo> aspectInfo) {
-        UIView* _view = (UIView*) [aspectInfo instance];
-        [_view.resized callWithObject: self withObject: [NSValue valueWithCGSize: _view.bounds.size]];
-    } error: NULL];
     
     return _resized;
 }
