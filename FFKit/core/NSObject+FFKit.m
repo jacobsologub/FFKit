@@ -121,4 +121,12 @@ static inline NSMethodSignatureReturnType methodSignatureReturnType (id object, 
     return ![self isNull];
 }
 
++ (instancetype) cast: (id) from {
+    if ([from isKindOfClass: self]) {
+        return from;
+    }
+    
+    return nil;
+}
+
 @end

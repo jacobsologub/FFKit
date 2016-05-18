@@ -80,6 +80,11 @@
 */
 - (BOOL) isNotNull;
 
+/** Returns the value passed-in or nil if the passed-in value is not an instance
+    of this class or an instance of any class that inherits from this class.
+*/
++ (instancetype) cast: (id) from;
+
 @end
 
 #if __cplusplus
