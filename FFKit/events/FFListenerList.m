@@ -195,7 +195,8 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 //==============================================================================
 - (BOOL) contains: (id) target action: (SEL) action {
     NSUInteger index = [listeners indexOfObjectPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
-        if ([obj [kFFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
+        const FFListenerListTargetType targetType = [obj [kFFListenerListTargetTypeKey] integerValue];
+        if (targetType == FFListenerListTargetTypeObject && [obj [kFFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
             && [obj [kFFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
             *stop = YES;
             return YES;
