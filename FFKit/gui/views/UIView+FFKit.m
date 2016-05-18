@@ -26,6 +26,16 @@
 
 #import "UIView+FFKit.h"
 #import "CGRect+FFKit.h"
+#include "../../events/FFListenerList.h"
+#import <objc/runtime.h>
+
+#if __has_include ("../../../../FFKitConfig.h")
+ #include "../../../../FFKitConfig.h"
+#endif
+
+#ifdef FFKIT_USE_ASPECTS
+ static char kUIViewResizedKey;
+#endif
 
 @implementation UIView (FFKit)
 
@@ -166,6 +176,24 @@
 - (BOOL) isShowing {
     return (self.window != nil) && self.visible && (self.alpha > 0.0f);
 }
+
+#ifdef FFKIT_USE_ASPECTS
+- (FFListenerList*) resized {
+    FFListenerList* _resized = objc_getAssociatedObject (self, &kUIViewResizedKey);
+    
+    if (_resized == nil) {
+        _resized = [FFListenerList new];
+        objc_setAssociatedObject (self, &kUIViewResizedKey, _resized, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    [self aspect_hookSelector: @selector (layoutSubviews) withOptions: AspectPositionAfter usingBlock: ^(id<AspectInfo> aspectInfo) {
+        UIView* _view = (UIView*) [aspectInfo instance];
+        [_view.resized callWithObject: self withObject: [NSValue valueWithCGSize: _view.bounds.size]];
+    } error: NULL];
+    
+    return _resized;
+}
+#endif
 
 - (UIView*) subviewOfClassType: (Class) classType searchRecursively: (BOOL) searchRecursively {
     if ([self isKindOfClass: classType]) {

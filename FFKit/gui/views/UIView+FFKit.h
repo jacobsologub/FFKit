@@ -133,6 +133,26 @@
 */
 @property (nonatomic, readonly, getter= isShowing) BOOL showing;
 
+#ifdef FFKIT_USE_ASPECTS
+/** Called when this view's size is changed.
+ 
+    This event is called after UIView#layoutSubviews is called. To use this 
+    property FFKIT_USE_ASPECTS has to be defined in FFKitConfig.h @see FFKit.h
+ 
+    @code
+    #ifndef FFKIT_USE_ASPECTS
+      #include "../Pods/Aspects/Aspects.h"
+      #define FFKIT_USE_ASPECTS
+    #endif
+    @code
+ 
+    Aspects.h #include must be relative to the FFKitConfig.h file.
+    @see FFKit.h
+*/
+#include "../../events/FFListenerList.h"
+@property (nonatomic, readonly) FFListenerList* resized;
+#endif
+
 //==============================================================================
 /** Searches the view's subviews for a UIView of a specified class. */
 - (UIView*) subviewOfClassType: (Class) classType;
