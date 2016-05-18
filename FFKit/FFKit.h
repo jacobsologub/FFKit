@@ -29,6 +29,9 @@
 
 #ifdef __OBJC__
     #if __has_include ("../../FFKitConfig.h")
+     /** FFKitConfig.h must be located in the same 
+         directory as the FFKit folder.
+     */
      #include "../../FFKitConfig.h"
     #endif
 
