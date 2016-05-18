@@ -23,6 +23,7 @@
 		16A242DE1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A242DD1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m */; };
 		16BC6F551A3D174A007BFC3A /* NSDictionary+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */; };
 		16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C67F7A19359149006FF926 /* UIImageView+FFKit.m */; };
+		16CCF9FD1CEBF747001969F6 /* FFApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CCF9FC1CEBF747001969F6 /* FFApplication.m */; };
 		16D81FC21AF9509B00620042 /* NSBundle+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9AE819319A320090D90F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AE719319A320090D90F /* XCTest.framework */; };
@@ -100,6 +101,8 @@
 		16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FFKit.m"; sourceTree = "<group>"; };
 		16C67F7919359149006FF926 /* UIImageView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FFKit.h"; sourceTree = "<group>"; };
 		16C67F7A19359149006FF926 /* UIImageView+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FFKit.m"; sourceTree = "<group>"; };
+		16CCF9FB1CEBF747001969F6 /* FFApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFApplication.h; sourceTree = "<group>"; };
+		16CCF9FC1CEBF747001969F6 /* FFApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFApplication.m; sourceTree = "<group>"; };
 		16D81FC01AF9509B00620042 /* NSBundle+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+FFKit.h"; sourceTree = "<group>"; };
 		16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+FFKit.m"; sourceTree = "<group>"; };
 		16FA9AD619319A320090D90F /* libFFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +185,8 @@
 			children = (
 				16D81FC01AF9509B00620042 /* NSBundle+FFKit.h */,
 				16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */,
+				16CCF9FB1CEBF747001969F6 /* FFApplication.h */,
+				16CCF9FC1CEBF747001969F6 /* FFApplication.m */,
 			);
 			path = application;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */,
 				16FA9B8219319A8C0090D90F /* UIBarButtonItem+FFKit.m in Sources */,
 				1640EBE41C839EDB0097E1A1 /* UIScreen+FFKit.m in Sources */,
+				16CCF9FD1CEBF747001969F6 /* FFApplication.m in Sources */,
 				16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */,
 				162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */,
 				16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */,

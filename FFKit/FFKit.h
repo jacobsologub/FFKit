@@ -36,6 +36,7 @@
     #endif
 
     #import "application/NSBundle+FFKit.h"
+    #import "application/FFApplication.h"
     #import "core/NSObject+FFKit.h"
     #import "core/containers/NSArray+FFKit.h"
     #import "core/containers/NSDictionary+FFKit.h"
