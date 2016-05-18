@@ -34,7 +34,7 @@
  */
 struct CAShadow
 {
-	float shadowOpacity;
+	CGFloat shadowOpacity;
 	CGFloat shadowRadius;
 	CGSize shadowOffset;
 	CGColorRef shadowColor;
@@ -43,7 +43,7 @@ struct CAShadow
 typedef struct CAShadow CAShadow;
 
 /**	Returns a CAShadow with the specified CALayer values. */
-CA_INLINE CAShadow CAShadowMake (float shadowOpacity, CGFloat shadowRadius, CGSize shadowOffset, CGColorRef shadowColor, CGPathRef shadowPath) {
+CA_INLINE CAShadow CAShadowMake (CGFloat shadowOpacity, CGFloat shadowRadius, CGSize shadowOffset, CGColorRef shadowColor, CGPathRef shadowPath) {
 	CAShadow shadow = { shadowOpacity, shadowRadius, shadowOffset,  shadowColor, shadowPath };
 	return shadow;
 }
@@ -64,7 +64,7 @@ extern const CAShadow CAShadowZero;
  
     @see setX:adjustingWidth
  */
-@property (nonatomic, assign) float x;
+@property (nonatomic, assign) CGFloat x;
 
 /** Sets the x coordinate of the view.
  
@@ -74,13 +74,13 @@ extern const CAShadow CAShadowZero;
  
     @see setX
 */
-- (void) setX: (float) newX adjustingWidth: (BOOL) adjustWidth;
+- (void) setX: (CGFloat) newX adjustingWidth: (BOOL) adjustWidth;
 
 /**	Gets or sets the y coordinate of the view.
     
     @see setY:adjustingHeight
 */
-@property (nonatomic, assign) float y;
+@property (nonatomic, assign) CGFloat y;
 
 /** Sets the y coordinate of the view.
  
@@ -90,25 +90,25 @@ extern const CAShadow CAShadowZero;
  
     @see setY
 */
-- (void) setY: (float) newY adjustingHeight: (BOOL) adjustHeight;
+- (void) setY: (CGFloat) newY adjustingHeight: (BOOL) adjustHeight;
 
 /**	Gets or sets the width of the view. 
     
     @see setHeight
 */
-@property (nonatomic, assign) float width;
+@property (nonatomic, assign) CGFloat width;
 
 /**	Gets or sets the height of the view. 
  
     @see setWidth
 */
-@property (nonatomic, assign) float height;
+@property (nonatomic, assign) CGFloat height;
 
 /**	Gets or sets the x coordinate of the view's right edge. 
     
     @see setRight:adjustingWidth
 */
-@property (nonatomic, assign) float right;
+@property (nonatomic, assign) CGFloat right;
 
 /** Sets the x coordinate of the view's right edge.
  
@@ -118,13 +118,13 @@ extern const CAShadow CAShadowZero;
  
     @see setRight
 */
-- (void) setRight: (float) newRight adjustingWidth: (BOOL) adjustWidth;
+- (void) setRight: (CGFloat) newRight adjustingWidth: (BOOL) adjustWidth;
 
 /**	Gets or sets the y coordinate of the view's bottom edge.
     
     @see setBottom:adjustingHeight
 */
-@property (nonatomic, assign) float bottom;
+@property (nonatomic, assign) CGFloat bottom;
 
 /** Sets the y coordinate of the view's bottom edge.
  
@@ -134,7 +134,7 @@ extern const CAShadow CAShadowZero;
  
     @see setBottom
 */
-- (void) setBottom: (float) newBottom adjustingHeight: (BOOL) adjustHeight;
+- (void) setBottom: (CGFloat) newBottom adjustingHeight: (BOOL) adjustHeight;
 
 /** Changes the layer's size and centres it within its superlayer. */
 - (void) centerWithSize: (CGSize) newSize;

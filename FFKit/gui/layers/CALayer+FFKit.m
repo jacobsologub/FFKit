@@ -43,17 +43,17 @@ const CAShadow CAShadowZero = { 0.0f, 0.0f, { 0.0f, 0.0f },  NULL, NULL};
     self.shadowPath = newShadow.shadowPath;
 }
 
-- (float) x {
+- (CGFloat) x {
     return self.frame.origin.x;
 }
 
-- (void) setX: (float) newX {
+- (void) setX: (CGFloat) newX {
     [self setX: newX adjustingWidth: NO];
 }
 
-- (void) setX: (float) newX adjustingWidth: (BOOL) adjustWidth {
+- (void) setX: (CGFloat) newX adjustingWidth: (BOOL) adjustWidth {
     if (adjustWidth) {
-        const float w = MAX (self.x + self.width - newX, 0.0f);
+        const CGFloat w = MAX (self.x + self.width - newX, 0.0f);
         self.frame = CGRectMake (newX, self.y, w, self.height);
     }
     else  {
@@ -61,17 +61,17 @@ const CAShadow CAShadowZero = { 0.0f, 0.0f, { 0.0f, 0.0f },  NULL, NULL};
     }
 }
 
-- (float) y {
+- (CGFloat) y {
     return self.frame.origin.y;
 }
 
-- (void) setY: (float) newY {
+- (void) setY: (CGFloat) newY {
     [self setY: newY adjustingHeight: NO];
 }
 
-- (void) setY: (float) newY adjustingHeight: (BOOL) adjustHeight {
+- (void) setY: (CGFloat) newY adjustingHeight: (BOOL) adjustHeight {
     if (adjustHeight) {
-        const float h = MAX (self.y + self.height - newY, 0.0f);
+        const CGFloat h = MAX (self.y + self.height - newY, 0.0f);
         self.frame = CGRectMake (self.x, newY, self.width, h);
     }
     else  {
@@ -79,58 +79,58 @@ const CAShadow CAShadowZero = { 0.0f, 0.0f, { 0.0f, 0.0f },  NULL, NULL};
     }
 }
 
-- (float) width {
+- (CGFloat) width {
     return self.frame.size.width;
 }
 
-- (void) setWidth: (float) newWidth {
+- (void) setWidth: (CGFloat) newWidth {
     self.frame = CGRectSetWidth (self.frame, newWidth);
 }
 
-- (float) height {
+- (CGFloat) height {
     return self.frame.size.height;
 }
 
-- (void) setHeight: (float) newHeight {
+- (void) setHeight: (CGFloat) newHeight {
     self.frame = CGRectSetHeight (self.frame, newHeight);
 }
 
-- (float) right {
+- (CGFloat) right {
     return self.frame.origin.x + self.width;
 }
 
-- (void) setRight: (float) newRight {
+- (void) setRight: (CGFloat) newRight {
     [self setRight: newRight adjustingWidth: NO];
 }
 
-- (void) setRight: (float) newRight adjustingWidth: (BOOL) adjustWidth {
+- (void) setRight: (CGFloat) newRight adjustingWidth: (BOOL) adjustWidth {
     if (adjustWidth) {
-        const float x = MIN (self.x, newRight);
-        const float w = newRight - x;
+        const CGFloat x = MIN (self.x, newRight);
+        const CGFloat w = newRight - x;
         self.frame = CGRectMake (x, self.y, w, self.height);
     }
     else {
-        const float x = newRight - self.width;
+        const CGFloat x = newRight - self.width;
         self.frame = CGRectSetX (self.frame, x);
     }
 }
 
-- (float) bottom {
+- (CGFloat) bottom {
     return self.frame.origin.y + self.height;
 }
 
-- (void) setBottom: (float) newBottom {
+- (void) setBottom: (CGFloat) newBottom {
     [self setBottom: newBottom adjustingHeight: NO];
 }
 
-- (void) setBottom: (float) newBottom adjustingHeight: (BOOL) adjustHeight {
+- (void) setBottom: (CGFloat) newBottom adjustingHeight: (BOOL) adjustHeight {
     if (adjustHeight) {
-        const float y = MIN (self.y, newBottom);
-        const float h = newBottom - y;
+        const CGFloat y = MIN (self.y, newBottom);
+        const CGFloat h = newBottom - y;
         self.frame = CGRectMake (self.x, y, self.width, h);
     }
     else {
-        const float y = newBottom - self.height;
+        const CGFloat y = newBottom - self.height;
         self.frame = CGRectSetY (self.frame, y);
     }
 }
@@ -142,8 +142,8 @@ const CAShadow CAShadowZero = { 0.0f, 0.0f, { 0.0f, 0.0f },  NULL, NULL};
 - (void) centerWithSize: (CGSize) newSize block: (void (^) (CGRect* frame)) block {
     const CGSize parentSize = self.superlayer.bounds.size;
     
-    const float xpos = roundf ((parentSize.width - newSize.width) * 0.5f);
-    const float ypos = roundf ((parentSize.height - newSize.height) * 0.5f);
+    const CGFloat xpos = roundf ((parentSize.width - newSize.width) * 0.5f);
+    const CGFloat ypos = roundf ((parentSize.height - newSize.height) * 0.5f);
     
     CGRect frame = CGRectMake (xpos, ypos, newSize.width, newSize.height);
     if (block != nil) {

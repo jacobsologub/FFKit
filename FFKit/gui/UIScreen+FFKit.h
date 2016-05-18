@@ -14,12 +14,12 @@
     
     @see height
 */
-@property (nonatomic, readonly) float width;
+@property (nonatomic, readonly) CGFloat width;
 
 /**	Gets the height of the screen, measured in points. (read-only)
  
     @see width
 */
-@property (nonatomic, readonly) float height;
+@property (nonatomic, readonly) CGFloat height;
 
 @end

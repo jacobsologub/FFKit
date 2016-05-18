@@ -10,11 +10,11 @@
 
 @implementation UIScreen (FFKit)
 
-- (float) width {
+- (CGFloat) width {
     return self.bounds.size.width;
 }
 
-- (float) height {
+- (CGFloat) height {
     return self.bounds.size.height;
 }
 
