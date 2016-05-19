@@ -27,4 +27,37 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (FFKit)
+
+#ifdef FFKIT_USE_ASPECTS
+
+/** Sets a block that will be invoked after this view controller's 
+    viewWillAppear: method is invoked.
+    
+    @see UIViewController#viewWillAppear:
+*/
+- (void) setViewWillAppearBlock: (void (^) (BOOL animated)) block;
+
+/** Sets a block that will be invoked after this view controller's
+    viewDidAppear: method is invoked.
+ 
+    @see UIViewController#viewDidAppear:
+*/
+- (void) setViewDidAppearBlock: (void (^) (BOOL animated)) block;
+
+/** Sets a block that will be invoked after this view controller's
+    viewWillDisappear: method is invoked.
+ 
+    @see UIViewController#viewWillDisappear:
+*/
+- (void) setViewWillDisappearBlock: (void (^) (BOOL animated)) block;
+
+/** Sets a block that will be invoked after this view controller's
+    viewDidDisappear: method is invoked.
+ 
+    @see UIViewController#viewDidDisappear:
+*/
+- (void) setViewDidDisappearBlock: (void (^) (BOOL animated)) block;
+
+#endif
+
 @end

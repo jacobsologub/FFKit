@@ -25,6 +25,80 @@
 */
 
 #import "UIViewController+FFKit.h"
+#import <objc/runtime.h>
+#import "macros.h"
+
+#if __has_include ("../../../../FFKitConfig.h")
+ #include "../../../../FFKitConfig.h"
+#endif
+
+#ifdef FFKIT_USE_ASPECTS
+
+static inline NSValue* NSBLockValue (id block) {
+    return [NSValue valueWithNonretainedObject: block];
+}
+
+static char kFFKitBlockListKey;
+
+#endif
 
 @implementation UIViewController (FFKit)
+
+#ifdef FFKIT_USE_ASPECTS
+
+- (NSMutableArray*) blockList {
+    NSMutableArray* _list = objc_getAssociatedObject (self, &kFFKitBlockListKey);
+    if (_list == nil) {
+        _list = [NSMutableArray new];
+        objc_setAssociatedObject (self, &kFFKitBlockListKey, _list, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    return _list;
+}
+
+- (id<AspectToken>) hookSelectorChecked: (SEL) selector block: (id) block aspectBlock: (id) aspectBlock error: (NSError**) error {
+    NSMutableArray* const list = [self blockList];
+    if (![list containsObject: NSBLockValue (block)]) {
+        [list addObject: NSBLockValue (block)];
+        
+        return [self aspect_hookSelector: selector withOptions: AspectPositionAfter usingBlock: aspectBlock error: error];
+    }
+    
+    return nil;
+}
+
+- (void) setViewWillAppearBlock: (void (^) (BOOL animated)) block {
+    assert (block != nil);
+    
+    [self hookSelectorChecked: @selector (viewWillAppear:) block: block aspectBlock: ^(id<AspectInfo> aspectInfo, BOOL animated) {
+        block (animated);
+    } error: NULL];
+}
+
+- (void) setViewDidAppearBlock: (void (^) (BOOL animated)) block {
+    assert (block != nil);
+    
+    [self hookSelectorChecked: @selector (viewDidAppear:) block: block aspectBlock: ^(id<AspectInfo> aspectInfo, BOOL animated) {
+        block (animated);
+    } error: NULL];
+}
+
+- (void) setViewWillDisappearBlock: (void (^) (BOOL animated)) block {
+    assert (block != nil);
+    
+    [self hookSelectorChecked: @selector (viewWillDisappear:) block: block aspectBlock: ^(id<AspectInfo> aspectInfo, BOOL animated) {
+        block (animated);
+    } error: NULL];
+}
+
+- (void) setViewDidDisappearBlock: (void (^) (BOOL animated)) block {
+    assert (block != nil);
+    
+    [self hookSelectorChecked: @selector (viewDidDisappear:) block: block aspectBlock: ^(id<AspectInfo> aspectInfo, BOOL animated) {
+        block (animated);
+    } error: NULL];
+}
+
+#endif
+
 @end
