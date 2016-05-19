@@ -151,6 +151,13 @@
 */
 #include "../../events/FFListenerList.h"
 @property (nonatomic, readonly) FFListenerList* resized;
+
+/** Sets a block that will be invoked after this view's layoutSubviews method 
+    is invoked.
+    
+    @see UIView#layoutSubviews:
+*/
+- (void) setLayoutSubviewsBlock: (void (^) (void)) block;
 #endif
 
 //==============================================================================

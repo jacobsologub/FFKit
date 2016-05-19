@@ -35,6 +35,13 @@
 
 #ifdef FFKIT_USE_ASPECTS
  static char kUIViewResizedKey;
+
+ static inline NSValue* NSBLockValue (id block) {
+     return [NSValue valueWithNonretainedObject: block];
+ }
+
+ static char kFFKitBlockListKey;
+
 #endif
 
 @implementation UIView (FFKit)
@@ -178,6 +185,7 @@
 }
 
 #ifdef FFKIT_USE_ASPECTS
+
 - (FFListenerList*) resized {
     FFListenerList* _resized = objc_getAssociatedObject (self, &kUIViewResizedKey);
     
@@ -193,6 +201,36 @@
     
     return _resized;
 }
+
+- (NSMutableArray*) blockList {
+    NSMutableArray* _list = objc_getAssociatedObject (self, &kFFKitBlockListKey);
+    if (_list == nil) {
+        _list = [NSMutableArray new];
+        objc_setAssociatedObject (self, &kFFKitBlockListKey, _list, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    return _list;
+}
+
+- (id<AspectToken>) hookSelectorChecked: (SEL) selector block: (id) block aspectBlock: (id) aspectBlock error: (NSError**) error {
+    NSMutableArray* const list = [self blockList];
+    if (![list containsObject: NSBLockValue (block)]) {
+        [list addObject: NSBLockValue (block)];
+        
+        return [self aspect_hookSelector: selector withOptions: AspectPositionAfter usingBlock: aspectBlock error: error];
+    }
+    
+    return nil;
+}
+
+- (void) setLayoutSubviewsBlock: (void (^) (void)) block {
+    assert (block != nil);
+    
+    [self hookSelectorChecked: @selector (layoutSubviews) block: block aspectBlock: ^(id<AspectInfo> aspectInfo) {
+        block();
+    } error: NULL];
+}
+
 #endif
 
 - (UIView*) subviewOfClassType: (Class) classType searchRecursively: (BOOL) searchRecursively {
