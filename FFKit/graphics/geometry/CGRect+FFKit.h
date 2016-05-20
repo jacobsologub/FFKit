@@ -59,3 +59,12 @@ CG_INLINE CGFloat CGRectGetX (CGRect rect) {
 CG_INLINE CGFloat CGRectGetY (CGRect rect) {
     return rect.origin.y;
 }
+
+/** Returns a rectangle with the specified coordinate and size values expanded 
+    to the smallest rect containing it with integral origin and size.
+ 
+    @see CGRectIntegral, CGRectMake
+*/
+CG_INLINE CGRect CGRectMakeIntegral (CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
+    return CGRectIntegral (CGRectMake (x, y, width, height));
+}
