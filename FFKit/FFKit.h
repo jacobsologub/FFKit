@@ -70,6 +70,7 @@
     #import "gui/navigation/UINavigationController+FFKit.h"
     #import "gui/views/UIActionSheet+FFKit.h"
     #import "gui/views/UIAlertView+FFKit.h"
+    #import "gui/views/UIScrollView+FFKit.h"
     #import "gui/views/UIImageView+FFKit.h"
     #import "gui/views/UIView+FFKit.h"
 #endif
