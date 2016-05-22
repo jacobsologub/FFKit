@@ -26,22 +26,22 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FFListenerListBlockArgs : NSObject {
+@interface FFListenerListBlockArgs <Object1Type, Object2Type> : NSObject {
 @private
-    id object1;
-    id object2;
+    Object1Type object1;
+    Object2Type object2;
 }
 
 /** The first paramter associated with this object. May be nil.
  
     @see FFListenerList#callWithObject
 */
-@property (nonatomic, readonly) id object1;
+@property (nonatomic, readonly) Object1Type object1;
 
 /** The second paramter associated with this object. May be nil.
  
     @see FFListenerList#callWithObject
 */
-@property (nonatomic, readonly) id object2;
+@property (nonatomic, readonly) Object2Type object2;
 
 @end
