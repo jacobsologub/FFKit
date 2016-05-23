@@ -219,4 +219,9 @@
     delay = 0.0, options, and completion handler.
 */
 + (void) animateWithDuration: (NSTimeInterval) duration options: (UIViewAnimationOptions) options animations: (void (^)(void)) animations completion: (void (^)(BOOL finished)) completion;
+
+/** Animate changes to one or more views using the specified duration,
+    delay = 0.0, options, and completion = NULL handler.
+*/
++ (void) animateWithDuration: (NSTimeInterval) duration options: (UIViewAnimationOptions) options animations: (void (^)(void)) animations;
 @end

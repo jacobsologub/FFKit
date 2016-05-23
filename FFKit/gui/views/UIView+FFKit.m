@@ -332,4 +332,8 @@
     [UIView animateWithDuration: duration delay: 0.0 options: options animations: animations completion: completion];
 }
 
++ (void) animateWithDuration: (NSTimeInterval) duration options: (UIViewAnimationOptions) options animations: (void (^)(void)) animations {
+    [UIView animateWithDuration: duration options: options animations: animations completion: nil];
+}
+
 @end
