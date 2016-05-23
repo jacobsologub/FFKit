@@ -328,4 +328,8 @@
     [UIView animateWithDuration: duration delay: delay usingSpringWithDamping: dampingRatio initialSpringVelocity: 1.0f options: UIViewAnimationOptionCurveEaseInOut animations: animations completion: completion];
 }
 
++ (void) animateWithDuration: (NSTimeInterval) duration options: (UIViewAnimationOptions) options animations: (void (^)(void)) animations completion: (void (^ __nullable)(BOOL finished)) completion {
+    [UIView animateWithDuration: duration delay: 0.0 options: options animations: animations completion: completion];
+}
+
 @end

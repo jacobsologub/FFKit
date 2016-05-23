@@ -214,4 +214,9 @@
     initialSpringVelocity of 1.0f, UIViewAnimationOptionCurveEaseInOut.
  */
 + (void) animateWithDuration: (NSTimeInterval) duration delay: (double) delay usingSpringWithDamping: (CGFloat) dampingRatio animations: (void (^)(void)) animations completion: (void (^)(BOOL finished)) completion;
+
+/** Animate changes to one or more views using the specified duration, 
+    delay = 0.0, options, and completion handler.
+*/
++ (void) animateWithDuration: (NSTimeInterval) duration options: (UIViewAnimationOptions) options animations: (void (^)(void)) animations completion: (void (^)(BOOL finished)) completion;
 @end
