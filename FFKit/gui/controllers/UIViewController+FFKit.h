@@ -60,4 +60,15 @@
 
 #endif
 
+//==============================================================================
+/** Searches the controller's child view controllers for a UIViewController of 
+    a specified class. 
+*/
+- (UIViewController*) childViewControllerOfClassType: (Class) classType;
+
+/** Searches the controller's child view controllers for a UIViewController of
+    a specified class.
+*/
+- (UIViewController*) childViewControllerOfClassType: (Class) classType searchRecursively: (BOOL) searchRecursively;
+
 @end

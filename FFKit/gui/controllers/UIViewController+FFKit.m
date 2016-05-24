@@ -101,4 +101,27 @@ static char kFFKitBlockListKey;
 
 #endif
 
+- (UIViewController*) childViewControllerOfClassType: (Class) classType searchRecursively: (BOOL) searchRecursively {
+    if ([self isKindOfClass: classType]) {
+        return self;
+    }
+    
+    for (UIViewController* viewController in self.childViewControllers) {
+        if ([viewController isKindOfClass: classType]) {
+            return viewController;
+        }
+        else {
+            if (searchRecursively) {
+                return [viewController childViewControllerOfClassType: classType searchRecursively: searchRecursively];
+            }
+        }
+    }
+    
+    return nil;
+}
+
+- (UIViewController*) childViewControllerOfClassType: (Class) classType {
+    return [self childViewControllerOfClassType: classType searchRecursively: NO];
+}
+
 @end
