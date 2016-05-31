@@ -31,3 +31,15 @@ UIKIT_STATIC_INLINE UIEdgeInsets UIEdgeInsetsMakeAll (CGFloat inset) {
     UIEdgeInsets insets = { inset, inset, inset, inset };
     return insets;
 }
+
+/** Creates an edge inset for the specified inset for the top and bottom sides */
+UIKIT_STATIC_INLINE UIEdgeInsets UIEdgeInsetsMakeTopBottom (CGFloat inset) {
+    UIEdgeInsets insets = { inset, 0.0f, inset, 0.0f };
+    return insets;
+}
+
+/** Creates an edge inset for the specified inset for the left and right sides */
+UIKIT_STATIC_INLINE UIEdgeInsets UIEdgeInsetsMakeLeftRight (CGFloat inset) {
+    UIEdgeInsets insets = { 0.0f, inset, 0.0f, inset };
+    return insets;
+}
