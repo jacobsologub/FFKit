@@ -25,6 +25,7 @@
 */
 
 #include <CoreGraphics/CGGeometry.h>
+#import "CGRect+FFKit.h"
 
 /** Creates size with the same width and height. */
 CG_INLINE CGSize CGSizeMakeAll (CGFloat size) {
@@ -49,4 +50,18 @@ CG_EXTERN const CGSize CGSizeNull;
 */
 CG_INLINE bool CGSizeIsNull (CGSize size) {
     return CGSizeEqualToSize (size, CGSizeNull);
+}
+
+/* Expand `size' to the smallest size containing it with integral size. */
+CG_INLINE CGSize CGSizeIntegral (CGSize size) {
+    return CGRectMakeIntegral (0.0f, 0.0f, size.width, size.height ).size;
+}
+
+/** Returns a size with the specified size values expanded to the smallest size 
+    containing it with integral size.
+ 
+    @see CGRectIntegral, CGRectMake
+*/
+CG_INLINE CGSize CGSizeMakeIntegral (CGFloat width, CGFloat height) {
+    return CGSizeIntegral (CGSizeMake (width, height));
 }
