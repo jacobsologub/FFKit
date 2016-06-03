@@ -28,6 +28,8 @@
 
 @interface UITextField (FFKit)
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**	A handy method to add a target/action for an UIControlEventEditingDidBegin
     event instead of writing out addTarget:action:forControlEvents:.
  
@@ -40,7 +42,7 @@
  
     @see addTextDidBeginEditingTarget
 */
-- (void) removeTextDidBeginEditingTarget: (id) target action: (SEL) action;
+- (void) removeTextDidBeginEditingTarget: (id) target action: (nonnull SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventEditingChanged
     event instead of writing out addTarget:action:forControlEvents:.
@@ -54,7 +56,7 @@
  
     @see addTextChangedTarget
 */
-- (void) removeTextChangedTarget: (id) target action: (SEL) action;
+- (void) removeTextChangedTarget: (id) target action: (nonnull SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventEditingDidEnd
     event instead of writing out addTarget:action:forControlEvents:.
@@ -68,7 +70,7 @@
  
     @see addTextDidEndEditingTarget
 */
-- (void) removeTextDidEndEditingTarget: (id) target action: (SEL) action;
+- (void) removeTextDidEndEditingTarget: (id) target action: (nonnull SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventEditingDidEndOnExit
     event instead of writing out addTarget:action:forControlEvents:.
@@ -82,6 +84,8 @@
  
     @see addTextDidEndEditingOnExitTarget
 */
-- (void) removeTextDidEndEditingOnExitTarget: (id) target action: (SEL) action;
+- (void) removeTextDidEndEditingOnExitTarget: (id) target action: (nonnull SEL) action;
+
+NS_ASSUME_NONNULL_END
 
 @end
