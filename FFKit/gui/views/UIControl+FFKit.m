@@ -44,4 +44,12 @@
     [self removeTarget: target action: action forControlEvents: UIControlEventValueChanged];
 }
 
+- (void) addUIControlEventEditingChangedTarget: (id) target action: (SEL) action {
+    [self addTarget: target action: action forControlEvents: UIControlEventEditingChanged];
+}
+
+- (void) removeUIControlEventEditingChangedTarget: (id) target action: (SEL) action {
+    [self removeTarget: target action: action forControlEvents: UIControlEventEditingChanged];
+}
+
 @end
