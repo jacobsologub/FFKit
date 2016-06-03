@@ -45,6 +45,14 @@
     [[NSNotificationCenter defaultCenter] addObserver: observer selector: selector name: UIKeyboardDidHideNotification object: nil];
 }
 
++ (void) addObserver: (id) observer selector: (SEL) selector name: (nullable NSString*) name {
+    [NSNotificationCenter addObserver: observer selector: selector name: name object: nil];
+}
+
++ (void) addObserver: (id) observer selector: (SEL) selector name: (nullable NSString*) name object: (nullable id) object {
+    [[NSNotificationCenter defaultCenter] addObserver: observer selector: selector name: name object: object];
+}
+
 + (void) removeObserver: (id) observer {
     [[NSNotificationCenter defaultCenter] removeObserver: observer];
 }

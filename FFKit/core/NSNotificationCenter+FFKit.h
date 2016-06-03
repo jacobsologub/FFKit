@@ -58,6 +58,18 @@ NS_ASSUME_NONNULL_BEGIN
 */
 + (void) addUIKeyboardDidHideNotificationObserver: (id) observer selector: (SEL) selector;
 
+/**	A handy method to add an observer to the default NSNotificationCenter.
+ 
+    @see NSNotificationCenter#addObserver:selector:name:object
+*/
++ (void) addObserver: (id) observer selector: (SEL) selector name: (nullable NSString*) name;
+
+/**	A handy method to add an observer to the default NSNotificationCenter.
+ 
+    @see NSNotificationCenter#addObserver:selector:name:object
+*/
++ (void) addObserver: (id) observer selector: (SEL) selector name: (nullable NSString*) name object: (nullable id) object;
+
 /**	A handy method to remove an observer from the default NSNotificationCenter.
  
     @see NSNotificationCenter#removeObserver:
