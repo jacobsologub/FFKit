@@ -44,12 +44,36 @@
     [self removeTarget: target action: action forControlEvents: UIControlEventValueChanged];
 }
 
+- (void) addUIControlEventEditingDidBeginTarget: (id) target action: (SEL) action {
+    [self addTarget: target action: action forControlEvents: UIControlEventEditingDidBegin];
+}
+
+- (void) removeUIControlEventEditingDidBeginTarget: (id) target action: (SEL) action {
+    [self removeTarget: target action: action forControlEvents: UIControlEventEditingDidBegin];
+}
+
 - (void) addUIControlEventEditingChangedTarget: (id) target action: (SEL) action {
     [self addTarget: target action: action forControlEvents: UIControlEventEditingChanged];
 }
 
 - (void) removeUIControlEventEditingChangedTarget: (id) target action: (SEL) action {
     [self removeTarget: target action: action forControlEvents: UIControlEventEditingChanged];
+}
+
+- (void) addUIControlEventEditingDidEndTarget: (id) target action: (SEL) action {
+    [self addTarget: target action: action forControlEvents: UIControlEventEditingDidEnd];
+}
+
+- (void) removeUIControlEventEditingDidEndTarget: (id) target action: (SEL) action {
+    [self removeTarget: target action: action forControlEvents: UIControlEventEditingDidEnd];
+}
+
+- (void) addUIControlEventEditingDidEndOnExitTarget: (id) target action: (SEL) action {
+    [self addTarget: target action: action forControlEvents: UIControlEventEditingDidEndOnExit];
+}
+
+- (void) removeUIControlEventEditingDidEndOnExitTarget: (id) target action: (SEL) action {
+    [self removeTarget: target action: action forControlEvents: UIControlEventEditingDidEndOnExit];
 }
 
 @end

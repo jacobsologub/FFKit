@@ -56,6 +56,20 @@
 */
 - (void) removeUIControlEventValueChangedTarget: (id) target action: (SEL) action;
 
+/**	A handy method to add a target/action for an UIControlEventEditingDidBegin
+    event instead of writing out addTarget:action:forControlEvents:.
+ 
+    @see removeUIControlEventEditingDidBeginTarget
+*/
+- (void) addUIControlEventEditingDidBeginTarget: (id) target action: (SEL) action;
+
+/**	A handy method to remove a target/action for an UIControlEventEditingDidBegin
+    event instead of writing out removeTarget:action:forControlEvents:.
+ 
+    @see addUIControlEventEditingDidBeginTarget
+*/
+- (void) removeUIControlEventEditingDidBeginTarget: (id) target action: (SEL) action;
+
 /**	A handy method to add a target/action for an UIControlEventEditingChanged
     event instead of writing out addTarget:action:forControlEvents:.
  
@@ -69,5 +83,33 @@
     @see addUIControlEventEditingChangedTarget
 */
 - (void) removeUIControlEventEditingChangedTarget: (id) target action: (SEL) action;
+
+/**	A handy method to add a target/action for an UIControlEventEditingDidEnd
+    event instead of writing out addTarget:action:forControlEvents:.
+ 
+    @see removeUIControlEventEditingDidEndTarget
+*/
+- (void) addUIControlEventEditingDidEndTarget: (id) target action: (SEL) action;
+
+/**	A handy method to remove a target/action for an UIControlEventEditingDidEnd
+    event instead of writing out removeTarget:action:forControlEvents:.
+ 
+    @see addUIControlEventEditingDidEndTarget
+*/
+- (void) removeUIControlEventEditingDidEndTarget: (id) target action: (SEL) action;
+
+/**	A handy method to add a target/action for an UIControlEventEditingDidEndOnExit
+    event instead of writing out addTarget:action:forControlEvents:.
+ 
+    @see removeUIControlEventEditingDidEndTarget
+*/
+- (void) addUIControlEventEditingDidEndOnExitTarget: (id) target action: (SEL) action;
+
+/**	A handy method to remove a target/action for an UIControlEventEditingDidEndOnExit
+    event instead of writing out removeTarget:action:forControlEvents:.
+ 
+    @see addUIControlEventEditingDidEndTarget
+*/
+- (void) removeUIControlEventEditingDidEndOnExitTarget: (id) target action: (SEL) action;
 
 @end
