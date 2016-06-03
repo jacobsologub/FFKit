@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1604FEBC1D02149100576087 /* UIControl+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1604FEBB1D02149100576087 /* UIControl+FFKit.m */; };
 		161031BB1A02C17100C0B229 /* FFListenerListBlockArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */; };
 		162994541CEE9B1B0056907A /* UIScrollView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162994531CEE9B1B0056907A /* UIScrollView+FFKit.m */; };
 		162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */; };
@@ -43,7 +44,6 @@
 		16FA9B7F19319A8C0090D90F /* UIColor+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5B19319A8C0090D90F /* UIColor+FFKit.m */; };
 		16FA9B8119319A8C0090D90F /* UIImage+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B6519319A8C0090D90F /* UIImage+FFKit.m */; };
 		16FA9B8219319A8C0090D90F /* UIBarButtonItem+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B6919319A8C0090D90F /* UIBarButtonItem+FFKit.m */; };
-		16FA9B8319319A8C0090D90F /* UIControl+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B6B19319A8C0090D90F /* UIControl+FFKit.m */; };
 		16FA9B8419319A8C0090D90F /* CALayer+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B6E19319A8C0090D90F /* CALayer+FFKit.m */; };
 		16FA9B8519319A8C0090D90F /* UINavigationController+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B7119319A8C0090D90F /* UINavigationController+FFKit.m */; };
 		16FA9B8619319A8C0090D90F /* UIView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B7419319A8C0090D90F /* UIView+FFKit.m */; };
@@ -72,6 +72,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1604FEBA1D02149100576087 /* UIControl+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+FFKit.h"; sourceTree = "<group>"; };
+		1604FEBB1D02149100576087 /* UIControl+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+FFKit.m"; sourceTree = "<group>"; };
 		161031B91A02C17100C0B229 /* FFListenerListBlockArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFListenerListBlockArgs.h; sourceTree = "<group>"; };
 		161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFListenerListBlockArgs.m; sourceTree = "<group>"; };
 		162994521CEE9B1B0056907A /* UIScrollView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FFKit.h"; sourceTree = "<group>"; };
@@ -142,8 +144,6 @@
 		16FA9B6519319A8C0090D90F /* UIImage+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FFKit.m"; sourceTree = "<group>"; };
 		16FA9B6819319A8C0090D90F /* UIBarButtonItem+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+FFKit.h"; sourceTree = "<group>"; };
 		16FA9B6919319A8C0090D90F /* UIBarButtonItem+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+FFKit.m"; sourceTree = "<group>"; };
-		16FA9B6A19319A8C0090D90F /* UIControl+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+FFKit.h"; sourceTree = "<group>"; };
-		16FA9B6B19319A8C0090D90F /* UIControl+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+FFKit.m"; sourceTree = "<group>"; };
 		16FA9B6D19319A8C0090D90F /* CALayer+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CALayer+FFKit.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		16FA9B6E19319A8C0090D90F /* CALayer+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "CALayer+FFKit.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		16FA9B7019319A8C0090D90F /* UINavigationController+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FFKit.h"; sourceTree = "<group>"; };
@@ -406,8 +406,6 @@
 				1691EC9A19732E6F0014DF30 /* FFToggleButton.m */,
 				16FA9B6819319A8C0090D90F /* UIBarButtonItem+FFKit.h */,
 				16FA9B6919319A8C0090D90F /* UIBarButtonItem+FFKit.m */,
-				16FA9B6A19319A8C0090D90F /* UIControl+FFKit.h */,
-				16FA9B6B19319A8C0090D90F /* UIControl+FFKit.m */,
 			);
 			path = buttons;
 			sourceTree = "<group>";
@@ -437,6 +435,8 @@
 				162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */,
 				162BD47B1935AF9F00BF2F15 /* UIAlertView+FFKit.h */,
 				162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */,
+				1604FEBA1D02149100576087 /* UIControl+FFKit.h */,
+				1604FEBB1D02149100576087 /* UIControl+FFKit.m */,
 				16C67F7919359149006FF926 /* UIImageView+FFKit.h */,
 				16C67F7A19359149006FF926 /* UIImageView+FFKit.m */,
 				162994521CEE9B1B0056907A /* UIScrollView+FFKit.h */,
@@ -556,11 +556,11 @@
 				169E959E1CACE6440016266E /* NSIndexPath+FFKit.m in Sources */,
 				165C6D711B052CD8007E2674 /* CGPoint+FFKit.m in Sources */,
 				16796C831CDD5E87001F81A9 /* UILabel+FFKit.m in Sources */,
-				16FA9B8319319A8C0090D90F /* UIControl+FFKit.m in Sources */,
 				162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */,
 				16FA9B7D19319A8C0090D90F /* FFListenerList.m in Sources */,
 				16BC6F551A3D174A007BFC3A /* NSDictionary+FFKit.m in Sources */,
 				16FA9B8119319A8C0090D90F /* UIImage+FFKit.m in Sources */,
+				1604FEBC1D02149100576087 /* UIControl+FFKit.m in Sources */,
 				16FA9B8419319A8C0090D90F /* CALayer+FFKit.m in Sources */,
 				162994541CEE9B1B0056907A /* UIScrollView+FFKit.m in Sources */,
 				16FA9B7B19319A8C0090D90F /* NSString+FFKit.m in Sources */,
