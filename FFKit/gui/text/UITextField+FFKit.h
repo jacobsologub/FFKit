@@ -28,6 +28,20 @@
 
 @interface UITextField (FFKit)
 
+/**	A handy method to add a target/action for an UIControlEventEditingDidBegin
+    event instead of writing out addTarget:action:forControlEvents:.
+ 
+    @see removeTextDidBeginEditingTarget
+*/
+- (void) addTextDidBeginEditingTarget: (id) target action: (SEL) action;
+
+/**	A handy method to remove a target/action for an UIControlEventEditingDidBegin
+    event instead of writing out removeTarget:action:forControlEvents:.
+ 
+    @see addTextDidBeginEditingTarget
+*/
+- (void) removeTextDidBeginEditingTarget: (id) target action: (SEL) action;
+
 /**	A handy method to add a target/action for an UIControlEventEditingChanged
     event instead of writing out addTarget:action:forControlEvents:.
  
@@ -41,5 +55,33 @@
     @see addTextChangedTarget
 */
 - (void) removeTextChangedTarget: (id) target action: (SEL) action;
+
+/**	A handy method to add a target/action for an UIControlEventEditingDidEnd
+    event instead of writing out addTarget:action:forControlEvents:.
+ 
+    @see removeTextDidEndEditingTarget
+*/
+- (void) addTextDidEndEditingTarget: (id) target action: (SEL) action;
+
+/**	A handy method to remove a target/action for an UIControlEventEditingDidEnd
+    event instead of writing out removeTarget:action:forControlEvents:.
+ 
+    @see addTextDidEndEditingTarget
+*/
+- (void) removeTextDidEndEditingTarget: (id) target action: (SEL) action;
+
+/**	A handy method to add a target/action for an UIControlEventEditingDidEndOnExit
+    event instead of writing out addTarget:action:forControlEvents:.
+ 
+    @see removeTextDidEndEditingOnExitTarget
+*/
+- (void) addTextDidEndEditingOnExitTarget: (id) target action: (SEL) action;
+
+/**	A handy method to remove a target/action for an UIControlEventEditingDidEndOnExit
+    event instead of writing out removeTarget:action:forControlEvents:.
+ 
+    @see addTextDidEndEditingOnExitTarget
+*/
+- (void) removeTextDidEndEditingOnExitTarget: (id) target action: (SEL) action;
 
 @end

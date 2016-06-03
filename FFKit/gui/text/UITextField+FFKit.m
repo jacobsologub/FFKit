@@ -29,12 +29,36 @@
 
 @implementation UITextField (FFKit)
 
+- (void) addTextDidBeginEditingTarget: (id) target action: (SEL) action {
+    [self addUIControlEventEditingDidBeginTarget: self action: action];
+}
+
+- (void) removeTextDidBeginEditingTarget: (id) target action: (SEL) action {
+    [self removeUIControlEventEditingDidBeginTarget: self action: action];
+}
+
 - (void) addTextChangedTarget: (id) target action: (SEL) action {
     [self addUIControlEventEditingChangedTarget: target action: action];
 }
 
 - (void) removeTextChangedTarget: (id) target action: (SEL) action {
     [self removeUIControlEventEditingChangedTarget: target action: action];
+}
+
+- (void) addTextDidEndEditingTarget: (id) target action: (SEL) action {
+    [self addUIControlEventEditingDidEndTarget: self action: action];
+}
+
+- (void) removeTextDidEndEditingTarget: (id) target action: (SEL) action {
+    [self removeUIControlEventEditingDidEndTarget: self action: action];
+}
+
+- (void) addTextDidEndEditingOnExitTarget: (id) target action: (SEL) action {
+    [self addUIControlEventEditingDidEndOnExitTarget: self action: action];
+}
+
+- (void) removeTextDidEndEditingOnExitTarget: (id) target action: (SEL) action {
+    [self removeUIControlEventEditingDidEndOnExitTarget: self action: action];
 }
 
 @end
