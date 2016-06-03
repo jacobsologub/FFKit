@@ -42,4 +42,18 @@
 */
 - (void) removeUIControlEventTouchUpInsideTarget: (id) target action: (SEL) action;
 
+/**	A handy method to add a target/action for an UIControlEventValueChanged
+    event instead of writing out addTarget:action:forControlEvents:.
+ 
+    @see removeUIControlEventValueChangedTarget
+*/
+- (void) addUIControlEventValueChangedTarget: (id) target action: (SEL) action;
+
+/**	A handy method to remove a target/action for an UIControlEventValueChanged
+    event instead of writing out removeTarget:action:forControlEvents:.
+ 
+    @see addUIControlEventValueChangedTarget
+*/
+- (void) removeUIControlEventValueChangedTarget: (id) target action: (SEL) action;
+
 @end

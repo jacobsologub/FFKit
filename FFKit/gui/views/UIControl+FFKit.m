@@ -36,4 +36,12 @@
     [self removeTarget: target action: action forControlEvents: UIControlEventTouchUpInside];
 }
 
+- (void) addUIControlEventValueChangedTarget: (id) target action: (SEL) action {
+    [self addTarget: target action: action forControlEvents: UIControlEventValueChanged];
+}
+
+- (void) removeUIControlEventValueChangedTarget: (id) target action: (SEL) action {
+    [self removeTarget: target action: action forControlEvents: UIControlEventValueChanged];
+}
+
 @end
