@@ -67,6 +67,7 @@
     #import "gui/labels/UILabel+FFKit.h"
     #import "gui/layers/CALayer+FFKit.h"
     #import "gui/navigation/UINavigationController+FFKit.h"
+    #import "gui/text/UITextField+FFKit.h"
     #import "gui/views/UIActionSheet+FFKit.h"
     #import "gui/views/UIAlertView+FFKit.h"
     #import "gui/views/UIControl+FFKit.h"
