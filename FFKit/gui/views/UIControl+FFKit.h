@@ -28,6 +28,8 @@
 
 @interface UIControl (FFKit)
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**	A handy method to add a target/action for an UIControlEventTouchUpInside 
     event instead of writing out addTarget:action:forControlEvents:.
  
@@ -40,7 +42,7 @@
  
     @see addUIControlEventTouchUpInsideTarget:action:action
 */
-- (void) removeUIControlEventTouchUpInsideTarget: (id) target action: (SEL) action;
+- (void) removeUIControlEventTouchUpInsideTarget: (id) target action: (nullable SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventValueChanged
     event instead of writing out addTarget:action:forControlEvents:.
@@ -54,7 +56,7 @@
  
     @see addUIControlEventValueChangedTarget
 */
-- (void) removeUIControlEventValueChangedTarget: (id) target action: (SEL) action;
+- (void) removeUIControlEventValueChangedTarget: (id) target action: (nullable SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventEditingDidBegin
     event instead of writing out addTarget:action:forControlEvents:.
@@ -68,7 +70,7 @@
  
     @see addUIControlEventEditingDidBeginTarget
 */
-- (void) removeUIControlEventEditingDidBeginTarget: (id) target action: (SEL) action;
+- (void) removeUIControlEventEditingDidBeginTarget: (id) target action: (nullable SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventEditingChanged
     event instead of writing out addTarget:action:forControlEvents:.
@@ -82,7 +84,7 @@
  
     @see addUIControlEventEditingChangedTarget
 */
-- (void) removeUIControlEventEditingChangedTarget: (id) target action: (SEL) action;
+- (void) removeUIControlEventEditingChangedTarget: (id) target action: (nullable SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventEditingDidEnd
     event instead of writing out addTarget:action:forControlEvents:.
@@ -96,7 +98,7 @@
  
     @see addUIControlEventEditingDidEndTarget
 */
-- (void) removeUIControlEventEditingDidEndTarget: (id) target action: (SEL) action;
+- (void) removeUIControlEventEditingDidEndTarget: (id) target action: (nullable SEL) action;
 
 /**	A handy method to add a target/action for an UIControlEventEditingDidEndOnExit
     event instead of writing out addTarget:action:forControlEvents:.
@@ -110,6 +112,8 @@
  
     @see addUIControlEventEditingDidEndTarget
 */
-- (void) removeUIControlEventEditingDidEndOnExitTarget: (id) target action: (SEL) action;
+- (void) removeUIControlEventEditingDidEndOnExitTarget: (id) target action: (nullable SEL) action;
+
+NS_ASSUME_NONNULL_END
 
 @end
