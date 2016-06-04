@@ -26,6 +26,21 @@
 
 #import "NSNotificationCenter+FFKit.h"
 #import <UIKit/UIWindow.h>
+#import <objc/runtime.h>
+
+#if __has_include ("../../../FFKitConfig.h")
+ #include "../../../FFKitConfig.h"
+#endif
+
+#ifdef FFKIT_USE_ASPECTS
+
+static inline NSValue* NSBLockValue (id block) {
+    return [NSValue valueWithNonretainedObject: block];
+}
+
+static char kFFKitBlockListKey;
+
+#endif
 
 @implementation NSNotificationCenter (FFKit)
 
@@ -44,6 +59,69 @@
 + (void) addUIKeyboardDidHideNotificationObserver: (id) observer selector: (SEL) selector {
     [NSNotificationCenter addObserver: observer selector: selector name: UIKeyboardDidHideNotification];
 }
+
+#ifdef FFKIT_USE_ASPECTS
+- (NSMutableArray*) blockList {
+    NSMutableArray* _list = objc_getAssociatedObject (self, &kFFKitBlockListKey);
+    if (_list == nil) {
+        _list = [NSMutableArray new];
+        objc_setAssociatedObject (self, &kFFKitBlockListKey, _list, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    return _list;
+}
+
+- (id<AspectToken>) hookSelectorChecked: (SEL) selector options: (AspectOptions) options block: (id) block aspectBlock: (id) aspectBlock error: (NSError**) error {
+    NSMutableArray* const list = [self blockList];
+    if (![list containsObject: NSBLockValue (block)]) {
+        [list addObject: NSBLockValue (block)];
+        
+        return [self aspect_hookSelector: selector withOptions: options usingBlock: aspectBlock error: error];
+    }
+    
+    return nil;
+}
+
++ (void) addUIKeyboardNotificationObserver: (NSString*) notificationName block: (UIKeyboardWillShowNotificationObserverBlock) block {
+    NSNotificationCenter* defaultCenter = [NSNotificationCenter defaultCenter];
+    
+    [defaultCenter hookSelectorChecked: @selector (postNotificationName:object:userInfo:)
+        options: AspectPositionAfter block: block
+        aspectBlock: ^(id<AspectInfo> aspectInfo, NSString* name, id object, NSDictionary* userInfo) {
+            
+            if ([name isEqualToString: notificationName]) {
+                UIKeyboardNotificationInfo info = {
+                    [userInfo [UIKeyboardAnimationCurveUserInfoKey] integerValue],
+                    [userInfo [UIKeyboardAnimationDurationUserInfoKey] doubleValue],
+                    [userInfo [UIKeyboardFrameBeginUserInfoKey] CGRectValue],
+                    [userInfo [UIKeyboardFrameEndUserInfoKey] CGRectValue],
+                    [userInfo [UIKeyboardIsLocalUserInfoKey] boolValue]
+                };
+                
+                block (info);
+            }
+        }
+        error: NULL
+    ];
+}
+
++ (void) addUIKeyboardWillShowNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block {
+    [self addUIKeyboardNotificationObserver: UIKeyboardWillShowNotification block: block];
+}
+
++ (void) addUIKeyboardDidShowNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block {
+    [self addUIKeyboardNotificationObserver: UIKeyboardDidShowNotification block: block];
+}
+
++ (void) addUIKeyboardWillHideNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block {
+    [self addUIKeyboardNotificationObserver: UIKeyboardWillHideNotification block: block];
+}
+
++ (void) addUIKeyboardDidHideNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block {
+    [self addUIKeyboardNotificationObserver: UIKeyboardDidHideNotification block: block];
+}
+
+#endif
 
 + (void) addObserver: (id) observer selector: (SEL) selector name: (nullable NSString*) name {
     [NSNotificationCenter addObserver: observer selector: selector name: name object: nil];

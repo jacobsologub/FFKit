@@ -26,6 +26,26 @@
 
 #import <Foundation/Foundation.h>
 
+#if __has_include ("../../../FFKitConfig.h")
+ #include "../../../FFKitConfig.h"
+#endif
+
+#ifdef FFKIT_USE_ASPECTS
+ #import <CoreGraphics/CGGeometry.h>
+ #import <UIKit/UIView.h>
+
+ struct UIKeyboardNotificationInfo {
+     UIViewAnimationOptions animationOptions;
+     double animationDuration;
+     CGRect beginFrame;
+     CGRect endFrame;
+     BOOL isLocal;
+ };
+
+ typedef struct UIKeyboardNotificationInfo UIKeyboardNotificationInfo;
+ typedef void (^UIKeyboardWillShowNotificationObserverBlock) (UIKeyboardNotificationInfo info);
+#endif
+
 @interface NSNotificationCenter (FFKit)
 
 NS_ASSUME_NONNULL_BEGIN
@@ -57,6 +77,13 @@ NS_ASSUME_NONNULL_BEGIN
     @see UIKeyboardDidHideNotification, NSNotificationCenter#addObserver:selector:name:object
 */
 + (void) addUIKeyboardDidHideNotificationObserver: (id) observer selector: (SEL) selector;
+
+#ifdef FFKIT_USE_ASPECTS
++ (void) addUIKeyboardWillShowNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block;
++ (void) addUIKeyboardDidShowNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block;
++ (void) addUIKeyboardWillHideNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block;
++ (void) addUIKeyboardDidHideNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block;
+#endif
 
 /**	A handy method to add an observer to the default NSNotificationCenter.
  
