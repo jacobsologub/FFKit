@@ -30,19 +30,19 @@
 @implementation NSNotificationCenter (FFKit)
 
 + (void) addUIKeyboardWillShowNotificationObserver: (id) observer selector: (SEL) selector {
-    [[NSNotificationCenter defaultCenter] addObserver: observer selector: selector name: UIKeyboardWillShowNotification object: nil];
+    [NSNotificationCenter addObserver: observer selector: selector name: UIKeyboardWillShowNotification];
 }
 
 + (void) addUIKeyboardDidShowNotificationObserver: (id) observer selector: (SEL) selector {
-    [[NSNotificationCenter defaultCenter] addObserver: observer selector: selector name: UIKeyboardDidShowNotification object: nil];
+    [NSNotificationCenter addObserver: observer selector: selector name: UIKeyboardDidShowNotification];
 }
 
 + (void) addUIKeyboardWillHideNotificationObserver: (id) observer selector: (SEL) selector {
-    [[NSNotificationCenter defaultCenter] addObserver: observer selector: selector name: UIKeyboardWillHideNotification object: nil];
+    [NSNotificationCenter addObserver: observer selector: selector name: UIKeyboardWillHideNotification];
 }
 
 + (void) addUIKeyboardDidHideNotificationObserver: (id) observer selector: (SEL) selector {
-    [[NSNotificationCenter defaultCenter] addObserver: observer selector: selector name: UIKeyboardDidHideNotification object: nil];
+    [NSNotificationCenter addObserver: observer selector: selector name: UIKeyboardDidHideNotification];
 }
 
 + (void) addObserver: (id) observer selector: (SEL) selector name: (nullable NSString*) name {
