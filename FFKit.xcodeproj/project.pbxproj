@@ -17,6 +17,8 @@
 		162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */; };
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1640EBE41C839EDB0097E1A1 /* UIScreen+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1640EBE31C839EDB0097E1A1 /* UIScreen+FFKit.m */; };
+		1646B4A91D026EBC0016D82E /* FFKeyboardListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 1646B4A81D026EBC0016D82E /* FFKeyboardListener.m */; };
+		1646B4AE1D02710C0016D82E /* FFKeyboardListenerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1646B4AD1D02710C0016D82E /* FFKeyboardListenerInfo.m */; };
 		1648B10E1CEC41FA0063E0AA /* UIViewController+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1648B10D1CEC41FA0063E0AA /* UIViewController+FFKit.m */; };
 		165C6D711B052CD8007E2674 /* CGPoint+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 165C6D701B052CD8007E2674 /* CGPoint+FFKit.m */; };
 		165C6D731B0550A7007E2674 /* CGSize+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 165C6D721B0550A7007E2674 /* CGSize+FFKit.m */; };
@@ -95,6 +97,10 @@
 		162BD4821935B68C00BF2F15 /* ListenerList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListenerList.mm; sourceTree = "<group>"; };
 		1640EBE21C839EDB0097E1A1 /* UIScreen+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+FFKit.h"; sourceTree = "<group>"; };
 		1640EBE31C839EDB0097E1A1 /* UIScreen+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+FFKit.m"; sourceTree = "<group>"; };
+		1646B4A71D026EBC0016D82E /* FFKeyboardListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFKeyboardListener.h; sourceTree = "<group>"; };
+		1646B4A81D026EBC0016D82E /* FFKeyboardListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFKeyboardListener.m; sourceTree = "<group>"; };
+		1646B4AC1D02710C0016D82E /* FFKeyboardListenerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFKeyboardListenerInfo.h; sourceTree = "<group>"; };
+		1646B4AD1D02710C0016D82E /* FFKeyboardListenerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFKeyboardListenerInfo.m; sourceTree = "<group>"; };
 		1648B10C1CEC41FA0063E0AA /* UIViewController+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FFKit.h"; sourceTree = "<group>"; };
 		1648B10D1CEC41FA0063E0AA /* UIViewController+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FFKit.m"; sourceTree = "<group>"; };
 		165C6D6F1B052CD8007E2674 /* CGPoint+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGPoint+FFKit.h"; sourceTree = "<group>"; };
@@ -195,6 +201,17 @@
 				1604FEC81D02289700576087 /* UITextView+FFKit.m */,
 			);
 			path = text;
+			sourceTree = "<group>";
+		};
+		1646B4A61D026E500016D82E /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1646B4A71D026EBC0016D82E /* FFKeyboardListener.h */,
+				1646B4A81D026EBC0016D82E /* FFKeyboardListener.m */,
+				1646B4AC1D02710C0016D82E /* FFKeyboardListenerInfo.h */,
+				1646B4AD1D02710C0016D82E /* FFKeyboardListenerInfo.m */,
+			);
+			path = keyboard;
 			sourceTree = "<group>";
 		};
 		1648B10B1CEC41D40063E0AA /* controllers */ = {
@@ -409,6 +426,7 @@
 			children = (
 				16FA9B6719319A8C0090D90F /* buttons */,
 				1648B10B1CEC41D40063E0AA /* controllers */,
+				1646B4A61D026E500016D82E /* keyboard */,
 				16796C801CDD5E61001F81A9 /* labels */,
 				16FA9B6C19319A8C0090D90F /* layers */,
 				16FA9B6F19319A8C0090D90F /* navigation */,
@@ -593,7 +611,9 @@
 				1691EC9B19732E6F0014DF30 /* FFToggleButton.m in Sources */,
 				167419DD1A6DF9BB00EB375B /* NSAttributedString+FFKit.m in Sources */,
 				16D81FC21AF9509B00620042 /* NSBundle+FFKit.m in Sources */,
+				1646B4AE1D02710C0016D82E /* FFKeyboardListenerInfo.m in Sources */,
 				16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */,
+				1646B4A91D026EBC0016D82E /* FFKeyboardListener.m in Sources */,
 				16FA9B7A19319A8C0090D90F /* NSObject+FFKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
