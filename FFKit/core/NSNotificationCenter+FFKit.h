@@ -30,25 +30,15 @@
  #include "../../../FFKitConfig.h"
 #endif
 
+@class FFKeyboardListenerInfo;
+
+NS_ASSUME_NONNULL_BEGIN
+
 #ifdef FFKIT_USE_ASPECTS
- #import <CoreGraphics/CGGeometry.h>
- #import <UIKit/UIView.h>
-
- struct UIKeyboardNotificationInfo {
-     UIViewAnimationOptions animationOptions;
-     double animationDuration;
-     CGRect beginFrame;
-     CGRect endFrame;
-     BOOL isLocal;
- };
-
- typedef struct UIKeyboardNotificationInfo UIKeyboardNotificationInfo;
- typedef void (^UIKeyboardWillShowNotificationObserverBlock) (UIKeyboardNotificationInfo info);
+ typedef void (^UIKeyboardWillShowNotificationObserverBlock) (FFKeyboardListenerInfo* info);
 #endif
 
 @interface NSNotificationCenter (FFKit)
-
-NS_ASSUME_NONNULL_BEGIN
 
 /**	A handy method to add a UIKeyboardWillShowNotification observer instead of 
     writing out addObserver:selector:name:object.

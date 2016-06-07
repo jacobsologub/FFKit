@@ -33,12 +33,26 @@
 #endif
 
 #ifdef FFKIT_USE_ASPECTS
+#import "FFKeyboardListener.h"
+#import "FFListenerList.h"
+#import "FFListenerListBlockArgs.h"
 
 static inline NSValue* NSBLockValue (id block) {
     return [NSValue valueWithNonretainedObject: block];
 }
 
 static char kFFKitBlockListKey;
+
+@interface FFKeyboardListener (Internal)
+- (void) keyboardWillShowNotification: (NSNotification*) notification;
+- (void) keyboardDidShowNotification: (NSNotification*) notification;
+- (void) keyboardWillHideNotification: (NSNotification*) notification;
+- (void) keyboardDidHideNotification: (NSNotification*) notification;
+@end
+
+@interface FFKeyboardListenerInfo (Internal)
+- (id) initWithNotification: (NSNotification*) notification;
+@end
 
 #endif
 
@@ -71,38 +85,38 @@ static char kFFKitBlockListKey;
     return _list;
 }
 
-- (id<AspectToken>) hookSelectorChecked: (SEL) selector options: (AspectOptions) options block: (id) block aspectBlock: (id) aspectBlock error: (NSError**) error {
-    NSMutableArray* const list = [self blockList];
-    if (![list containsObject: NSBLockValue (block)]) {
-        [list addObject: NSBLockValue (block)];
-        
-        return [self aspect_hookSelector: selector withOptions: options usingBlock: aspectBlock error: error];
-    }
-    
-    return nil;
-}
-
 + (void) addUIKeyboardNotificationObserver: (NSString*) notificationName block: (UIKeyboardWillShowNotificationObserverBlock) block {
     NSNotificationCenter* defaultCenter = [NSNotificationCenter defaultCenter];
     
-    [defaultCenter hookSelectorChecked: @selector (postNotificationName:object:userInfo:)
-        options: AspectPositionAfter block: block
-        aspectBlock: ^(id<AspectInfo> aspectInfo, NSString* name, id object, NSDictionary* userInfo) {
-            
-            if ([name isEqualToString: notificationName]) {
-                UIKeyboardNotificationInfo info = {
-                    [userInfo [UIKeyboardAnimationCurveUserInfoKey] integerValue],
-                    [userInfo [UIKeyboardAnimationDurationUserInfoKey] doubleValue],
-                    [userInfo [UIKeyboardFrameBeginUserInfoKey] CGRectValue],
-                    [userInfo [UIKeyboardFrameEndUserInfoKey] CGRectValue],
-                    [userInfo [UIKeyboardIsLocalUserInfoKey] boolValue]
-                };
-                
-                block (info);
-            }
+    NSMutableArray* const list = [defaultCenter blockList];
+    if (![list containsObject: NSBLockValue (block)]) {
+        [list addObject: NSBLockValue (block)];
+        
+        SEL selector = NULL;
+        if ([notificationName isEqualToString: UIKeyboardWillShowNotification]) {
+            selector = @selector (keyboardWillShowNotification:);
         }
-        error: NULL
-    ];
+        else if ([notificationName isEqualToString: UIKeyboardDidShowNotification]) {
+            selector = @selector (keyboardDidShowNotification:);
+        }
+        else if ([notificationName isEqualToString: UIKeyboardWillHideNotification]) {
+            selector = @selector (keyboardWillHideNotification:);
+        }
+        else if ([notificationName isEqualToString: UIKeyboardDidHideNotification]) {
+            selector = @selector (keyboardDidHideNotification:);
+        }
+        
+        FFKeyboardListener* keyboardListener = [FFKeyboardListener instance];
+        [keyboardListener aspect_hookSelector: selector
+            withOptions: AspectPositionBefore
+            usingBlock: ^(id<AspectInfo> aspectInfo, NSNotification* notification) {
+                
+                FFKeyboardListenerInfo* keyboardListenerInfo = [[FFKeyboardListenerInfo alloc] initWithNotification: notification];
+                block (keyboardListenerInfo);
+            
+            } error: NULL
+        ];
+    }
 }
 
 + (void) addUIKeyboardWillShowNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block {
@@ -120,7 +134,6 @@ static char kFFKitBlockListKey;
 + (void) addUIKeyboardDidHideNotificationObserver: (UIKeyboardWillShowNotificationObserverBlock) block {
     [self addUIKeyboardNotificationObserver: UIKeyboardDidHideNotification block: block];
 }
-
 #endif
 
 + (void) addObserver: (id) observer selector: (SEL) selector name: (nullable NSString*) name {
