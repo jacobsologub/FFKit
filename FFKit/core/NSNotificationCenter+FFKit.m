@@ -25,8 +25,8 @@
 */
 
 #import "NSNotificationCenter+FFKit.h"
+#import "FFAssociatedObject.h"
 #import <UIKit/UIWindow.h>
-#import <objc/runtime.h>
 
 #if __has_include ("../../../FFKitConfig.h")
  #include "../../../FFKitConfig.h"
@@ -41,7 +41,7 @@ static inline NSValue* NSBLockValue (id block) {
     return [NSValue valueWithNonretainedObject: block];
 }
 
-static char kFFKitBlockListKey;
+static NSString* const kFFKitBlockListKey = @"kFFKitBlockListKey";
 
 @interface FFKeyboardListener (Internal)
 - (void) keyboardWillShowNotification: (NSNotification*) notification;
@@ -75,20 +75,8 @@ static char kFFKitBlockListKey;
 }
 
 #ifdef FFKIT_USE_ASPECTS
-- (NSMutableArray*) blockList {
-    NSMutableArray* _list = objc_getAssociatedObject (self, &kFFKitBlockListKey);
-    if (_list == nil) {
-        _list = [NSMutableArray new];
-        objc_setAssociatedObject (self, &kFFKitBlockListKey, _list, OBJC_ASSOCIATION_RETAIN);
-    }
-    
-    return _list;
-}
-
 + (void) addUIKeyboardNotificationObserver: (NSString*) notificationName block: (UIKeyboardWillShowNotificationObserverBlock) block {
-    NSNotificationCenter* defaultCenter = [NSNotificationCenter defaultCenter];
-    
-    NSMutableArray* const list = [defaultCenter blockList];
+    NSMutableArray* const list = [FFAssociatedObject getOrCreate: self forKey: kFFKitBlockListKey type: [NSMutableArray class]];
     if (![list containsObject: NSBLockValue (block)]) {
         [list addObject: NSBLockValue (block)];
         
