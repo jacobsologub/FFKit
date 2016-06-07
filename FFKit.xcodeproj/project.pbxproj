@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160080761D065A0000133883 /* FFAssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 160080751D065A0000133883 /* FFAssociatedObject.m */; };
 		1604FEBC1D02149100576087 /* UIControl+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1604FEBB1D02149100576087 /* UIControl+FFKit.m */; };
 		1604FEC01D02179500576087 /* UITextField+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1604FEBF1D02179500576087 /* UITextField+FFKit.m */; };
 		1604FEC61D021BDA00576087 /* NSNotificationCenter+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1604FEC51D021BDA00576087 /* NSNotificationCenter+FFKit.m */; };
@@ -77,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		160080741D065A0000133883 /* FFAssociatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFAssociatedObject.h; sourceTree = "<group>"; };
+		160080751D065A0000133883 /* FFAssociatedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFAssociatedObject.m; sourceTree = "<group>"; };
 		1604FEBA1D02149100576087 /* UIControl+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+FFKit.h"; sourceTree = "<group>"; };
 		1604FEBB1D02149100576087 /* UIControl+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+FFKit.m"; sourceTree = "<group>"; };
 		1604FEBE1D02179500576087 /* UITextField+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+FFKit.h"; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 				1604FEC51D021BDA00576087 /* NSNotificationCenter+FFKit.m */,
 				16FA9B4C19319A8C0090D90F /* NSObject+FFKit.h */,
 				16FA9B4D19319A8C0090D90F /* NSObject+FFKit.m */,
+				160080741D065A0000133883 /* FFAssociatedObject.h */,
+				160080751D065A0000133883 /* FFAssociatedObject.m */,
 				16FA9B4E19319A8C0090D90F /* text */,
 			);
 			path = core;
@@ -604,6 +609,7 @@
 				16BC6F551A3D174A007BFC3A /* NSDictionary+FFKit.m in Sources */,
 				16FA9B8119319A8C0090D90F /* UIImage+FFKit.m in Sources */,
 				1604FEC91D02289700576087 /* UITextView+FFKit.m in Sources */,
+				160080761D065A0000133883 /* FFAssociatedObject.m in Sources */,
 				1604FEBC1D02149100576087 /* UIControl+FFKit.m in Sources */,
 				16FA9B8419319A8C0090D90F /* CALayer+FFKit.m in Sources */,
 				162994541CEE9B1B0056907A /* UIScrollView+FFKit.m in Sources */,
