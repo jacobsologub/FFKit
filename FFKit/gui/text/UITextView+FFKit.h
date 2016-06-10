@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  
     @see UITextViewTextDidBeginEditingNotification, NSNotificationCenter#addObserver:selector:name:object
 */
-- (void) removeTextDidBeginEditingNotificationObserver: (id) observer selector: (nonnull SEL) selector;
+- (void) removeTextDidBeginEditingNotificationObserver: (id) observer selector: (nullable SEL) selector;
 
 /**	Adds a UITextViewTextDidChangeNotification observer for this text view.
  
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  
     @see UITextViewTextDidChangeNotification, NSNotificationCenter#addObserver:selector:name:object
 */
-- (void) removeTextDidChangeNotificationObserver: (id) observer selector: (nonnull SEL) selector;
+- (void) removeTextDidChangeNotificationObserver: (id) observer selector: (nullable SEL) selector;
 
 /**	Adds a UITextViewTextDidEndEditingNotification observer for this text view.
  
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  
     @see UITextViewTextDidEndEditingNotification, NSNotificationCenter#addObserver:selector:name:object
 */
-- (void) removeTextDidEndEditingNotificationObserver: (id) observer selector: (nonnull SEL) selector;
+- (void) removeTextDidEndEditingNotificationObserver: (id) observer selector: (nullable SEL) selector;
 
 NS_ASSUME_NONNULL_END
 

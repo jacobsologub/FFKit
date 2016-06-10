@@ -33,7 +33,7 @@
     [NSNotificationCenter addObserver: observer selector: selector name: UITextViewTextDidBeginEditingNotification object: self];
 }
 
-- (void) removeTextDidBeginEditingNotificationObserver: (id) observer selector: (nonnull SEL) selector {
+- (void) removeTextDidBeginEditingNotificationObserver: (id) observer selector: (nullable SEL) selector {
     [NSNotificationCenter removeObserver: observer name: UITextViewTextDidBeginEditingNotification object: self];
 }
 
@@ -41,7 +41,7 @@
     [NSNotificationCenter addObserver: observer selector: selector name: UITextViewTextDidChangeNotification object: self];
 }
 
-- (void) removeTextDidChangeNotificationObserver: (id) observer selector: (nonnull SEL) selector {
+- (void) removeTextDidChangeNotificationObserver: (id) observer selector: (nullable SEL) selector {
     [NSNotificationCenter removeObserver: observer name: UITextViewTextDidChangeNotification object: self];
 }
 
@@ -49,7 +49,7 @@
     [NSNotificationCenter addObserver: observer selector: selector name: UITextViewTextDidEndEditingNotification object: self];
 }
 
-- (void) removeTextDidEndEditingNotificationObserver: (id) observer selector: (nonnull SEL) selector {
+- (void) removeTextDidEndEditingNotificationObserver: (id) observer selector: (nullable SEL) selector {
     [NSNotificationCenter removeObserver: observer name: UITextViewTextDidEndEditingNotification object: self];
 }
 
