@@ -46,19 +46,19 @@
 }
 
 - (void) addTextDidEndEditingTarget: (id) target action: (SEL) action {
-    [self addUIControlEventEditingDidEndTarget: self action: action];
+    [self addUIControlEventEditingDidEndTarget: target action: action];
 }
 
 - (void) removeTextDidEndEditingTarget: (id) target action: (SEL) action {
-    [self removeUIControlEventEditingDidEndTarget: self action: action];
+    [self removeUIControlEventEditingDidEndTarget: target action: action];
 }
 
 - (void) addTextDidEndEditingOnExitTarget: (id) target action: (SEL) action {
-    [self addUIControlEventEditingDidEndOnExitTarget: self action: action];
+    [self addUIControlEventEditingDidEndOnExitTarget: target action: action];
 }
 
 - (void) removeTextDidEndEditingOnExitTarget: (id) target action: (SEL) action {
-    [self removeUIControlEventEditingDidEndOnExitTarget: self action: action];
+    [self removeUIControlEventEditingDidEndOnExitTarget: target action: action];
 }
 
 @end
