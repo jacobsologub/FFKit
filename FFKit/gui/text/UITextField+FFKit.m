@@ -30,11 +30,11 @@
 @implementation UITextField (FFKit)
 
 - (void) addTextDidBeginEditingTarget: (id) target action: (SEL) action {
-    [self addUIControlEventEditingDidBeginTarget: self action: action];
+    [self addUIControlEventEditingDidBeginTarget: target action: action];
 }
 
 - (void) removeTextDidBeginEditingTarget: (id) target action: (SEL) action {
-    [self removeUIControlEventEditingDidBeginTarget: self action: action];
+    [self removeUIControlEventEditingDidBeginTarget: target action: action];
 }
 
 - (void) addTextChangedTarget: (id) target action: (SEL) action {
