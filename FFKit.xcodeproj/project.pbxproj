@@ -30,6 +30,7 @@
 		1691EC9B19732E6F0014DF30 /* FFToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691EC9A19732E6F0014DF30 /* FFToggleButton.m */; };
 		169E959E1CACE6440016266E /* NSIndexPath+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 169E959D1CACE6440016266E /* NSIndexPath+FFKit.m */; };
 		16A242DE1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A242DD1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m */; };
+		16BA024F1D6D391200D9834B /* UIGestureRecognizer+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA024E1D6D391200D9834B /* UIGestureRecognizer+FFKit.m */; };
 		16BC6F551A3D174A007BFC3A /* NSDictionary+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */; };
 		16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C67F7A19359149006FF926 /* UIImageView+FFKit.m */; };
 		16CCF9FD1CEBF747001969F6 /* FFApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CCF9FC1CEBF747001969F6 /* FFApplication.m */; };
@@ -123,6 +124,8 @@
 		169E959D1CACE6440016266E /* NSIndexPath+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+FFKit.m"; sourceTree = "<group>"; };
 		16A242DC1AFEE5C900944BDF /* NSJSONSerialization+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+FFKit.h"; sourceTree = "<group>"; };
 		16A242DD1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+FFKit.m"; sourceTree = "<group>"; };
+		16BA024D1D6D391200D9834B /* UIGestureRecognizer+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+FFKit.h"; sourceTree = "<group>"; };
+		16BA024E1D6D391200D9834B /* UIGestureRecognizer+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+FFKit.m"; sourceTree = "<group>"; };
 		16BC6F531A3D174A007BFC3A /* NSDictionary+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FFKit.h"; sourceTree = "<group>"; };
 		16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FFKit.m"; sourceTree = "<group>"; };
 		16C67F7919359149006FF926 /* UIImageView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FFKit.h"; sourceTree = "<group>"; };
@@ -233,6 +236,15 @@
 				16796C821CDD5E87001F81A9 /* UILabel+FFKit.m */,
 			);
 			path = labels;
+			sourceTree = "<group>";
+		};
+		16BA024C1D6D38DC00D9834B /* gesture */ = {
+			isa = PBXGroup;
+			children = (
+				16BA024D1D6D391200D9834B /* UIGestureRecognizer+FFKit.h */,
+				16BA024E1D6D391200D9834B /* UIGestureRecognizer+FFKit.m */,
+			);
+			path = gesture;
 			sourceTree = "<group>";
 		};
 		16D81FBF1AF9508600620042 /* application */ = {
@@ -431,6 +443,7 @@
 			children = (
 				16FA9B6719319A8C0090D90F /* buttons */,
 				1648B10B1CEC41D40063E0AA /* controllers */,
+				16BA024C1D6D38DC00D9834B /* gesture */,
 				1646B4A61D026E500016D82E /* keyboard */,
 				16796C801CDD5E61001F81A9 /* labels */,
 				16FA9B6C19319A8C0090D90F /* layers */,
@@ -608,6 +621,7 @@
 				16FA9B7D19319A8C0090D90F /* FFListenerList.m in Sources */,
 				16BC6F551A3D174A007BFC3A /* NSDictionary+FFKit.m in Sources */,
 				16FA9B8119319A8C0090D90F /* UIImage+FFKit.m in Sources */,
+				16BA024F1D6D391200D9834B /* UIGestureRecognizer+FFKit.m in Sources */,
 				1604FEC91D02289700576087 /* UITextView+FFKit.m in Sources */,
 				160080761D065A0000133883 /* FFAssociatedObject.m in Sources */,
 				1604FEBC1D02149100576087 /* UIControl+FFKit.m in Sources */,
