@@ -61,8 +61,12 @@ static NSString* const kFFKitGestureRecognizerListenerListKey = @"kFFKitGestureR
 
 #ifdef FFKIT_USE_ASPECTS
 - (void) addTargetWithBlock: (UIGestureRecognizerBlock) block {
-    FFListenerList* const listenerList = [FFListenerList new];
-    [FFAssociatedObject set: self value: listenerList forKey: kFFKitGestureRecognizerListenerListKey];
+    FFListenerList* listenerList = [FFAssociatedObject get: self forKey: kFFKitGestureRecognizerListenerListKey];
+    if (listenerList == nil) {
+        listenerList = [FFListenerList new];
+        [FFAssociatedObject set: self value: listenerList forKey: kFFKitGestureRecognizerListenerListKey policy: FFAssociatedObjectPolicyRetainNonatomic];
+    }
+    
     [listenerList addTarget: block];
     
     UIGestureRecognizerTarget* const gestureRecognizerTarget = [UIGestureRecognizerTarget new];
