@@ -84,12 +84,12 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 }
 
 - (void) addTarget: (FFListenerListBlock) block {
-    if (![listeners containsObject: block]) {
-        NSDictionary* obj = @{
-            kFFListenerListTargetKey: block,
-            kFFListenerListTargetTypeKey: @(FFListenerListTargetTypeBlock),
-        };
-        
+    NSDictionary* obj = @{
+        kFFListenerListTargetKey: block,
+        kFFListenerListTargetTypeKey: @(FFListenerListTargetTypeBlock),
+    };
+    
+    if (![listeners containsObject: obj]) {
         [listeners addObject: obj];
     }
 }
