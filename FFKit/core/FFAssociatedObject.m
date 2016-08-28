@@ -72,8 +72,7 @@
     if (create == YES && result == nil) {
         result = [type new];
         
-        const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
-        objc_setAssociatedObject (object, (__bridge const void*) (self.associatedObjectKeyLookup [key]), result, objc_policy);
+        [FFAssociatedObject set: self value: result forKey: self.associatedObjectKeyLookup [key] policy: policy];
     }
     
     return result;
