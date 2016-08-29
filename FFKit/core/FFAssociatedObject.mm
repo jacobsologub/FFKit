@@ -66,13 +66,11 @@ end_namespace (ffkit);
 @dynamic associatedObjectKeyLookup;
 
 - (NSMutableDictionary<NSString*, NSString*>*) associatedObjectKeyLookup {
-    return [
-        FFAssociatedObject <NSMutableDictionary<NSString*, NSString*>*>
-        getOrCreate: self
-        forSelector: @selector (associatedObjectKeyLookup)
-        policy: FFAssociatedObjectPolicyRetainNonatomic
-        type: [NSMutableDictionary class]
-    ];
+    return ffkit::AssociatedObject (self).getOrCreateAssociatedObject (
+        @selector (associatedObjectKeyLookup),
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC,
+        [NSMutableDictionary class]
+    );
 }
 @end
 
