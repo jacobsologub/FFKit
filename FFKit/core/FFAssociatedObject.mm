@@ -41,7 +41,7 @@ public:
     
     id getOrCreateAssociatedObject (const void* key, objc_AssociationPolicy policy, Class T = [NSObject class]) {
         id result = getAssociatedObject (key);
-        if (result) {
+        if (result == nil) {
             result = [T new];
             setAssociatedObject (key, result, policy);
         }
