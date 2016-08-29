@@ -27,35 +27,17 @@
 #import <UIKit/UIKit.h>
 #import "../../events/FFListenerList.h"
 
-#if __has_include ("../../../../FFKitConfig.h")
- #include "../../../../FFKitConfig.h"
-#endif
-
 NS_ASSUME_NONNULL_BEGIN
 
-#ifdef FFKIT_USE_ASPECTS
-  typedef FFListenerListBlock UIGestureRecognizerBlock;
-#endif
+typedef FFListenerListBlock UIGestureRecognizerBlock;
 
 @interface UIGestureRecognizer (FFKit)
 
-#ifdef FFKIT_USE_ASPECTS
-/** Adds a block target to a gesture-recognizer object. To use this method
-    FFKIT_USE_ASPECTS has to be defined in FFKitConfig.h 
-    
-    @see FFKit.h
- 
-    @code
-    #ifndef FFKIT_USE_ASPECTS
-      #include "../Pods/Aspects/Aspects.h"
-      #define FFKIT_USE_ASPECTS
-    #endif
-    @code
+/** Adds a block target to a gesture-recognizer object.
  
     @see FFListenerListBlock, FFListenerListBlockArgs
 */
 - (void) addTargetWithBlock: (UIGestureRecognizerBlock) block;
-#endif
 
 @end
 

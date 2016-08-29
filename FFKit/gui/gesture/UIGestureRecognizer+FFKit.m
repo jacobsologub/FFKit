@@ -26,13 +26,6 @@
 
 #import "UIGestureRecognizer+FFKit.h"
 #import "../../core/NSObject+FFKit.h"
-
-#if __has_include ("../../../../FFKitConfig.h")
- #include "../../../../FFKitConfig.h"
-#endif
-
-#ifdef FFKIT_USE_ASPECTS
-
 #import "FFAssociatedObject.h"
 #import "FFListenerList.h"
 
@@ -56,11 +49,8 @@ static NSString* const kFFKitGestureRecognizerListenerListKey = @"kFFKitGestureR
 }
 @end
 
-#endif
-
 @implementation UIGestureRecognizer (FFKit)
 
-#ifdef FFKIT_USE_ASPECTS
 - (void) addTargetWithBlock: (UIGestureRecognizerBlock) block {
     FFListenerList* listenerList = [self getOrCreateAssociatedObjectForKey: kFFKitGestureRecognizerListenerListKey type: [FFListenerList class]];
     [listenerList addTarget: block];
@@ -71,7 +61,5 @@ static NSString* const kFFKitGestureRecognizerListenerListKey = @"kFFKitGestureR
     gestureRecognizerTarget.listenerList = listenerList;
     [self addTarget: gestureRecognizerTarget action: @selector (handleGesture:)];
 }
-
-#endif
 
 @end
