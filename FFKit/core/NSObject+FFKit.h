@@ -25,6 +25,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import "FFAssociatedObject.h"
 
 @interface NSObject (FFKit)
 
@@ -79,6 +80,80 @@
     @see NSObject#isKindOfClass
 */
 - (BOOL) isNotNull;
+
+/** Gets the value associated with this object for a given key.
+ 
+    @see NSObject#getOrCreateAssociatedObjectForKey
+*/
+- (id) getAssociatedObjectForKey: (NSString*) key;
+
+/** Gets or creates the value associated with this object for a given key.
+ 
+    @param type         The Class to use when creating the object.
+ 
+    @see NSObject#getOrCreateAssociatedObjectForKey:policy
+*/
+- (id) getOrCreateAssociatedObjectForKey: (NSString*) key type: (Class) type;
+
+/** Gets or creates the value associated with this object for a given key.
+ 
+    @param policy       The policy to use when creating the object.
+    @param type         The Class to use when creating the object.
+ 
+    @see NSObject#get:object:forKey
+*/
+- (id) getOrCreateAssociatedObjectForKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy type: (Class) type;
+
+/** Gets the value associated with this object for a given selector.
+ 
+    @see NSObject#getAssociatedObjectForSelector
+*/
+- (id) getAssociatedObjectForSelector: (SEL) selector;
+
+/** Gets or creates the value associated with this object for a given selector.
+ 
+    @param type         The Class to use when creating the object.
+ 
+    @see NSObject#getOrCreateAssociatedObjectForKey:policy
+*/
+- (id) getOrCreateAssociatedObjectForSelector: (SEL) selector type: (Class) type;
+
+/** Gets or creates the value associated with this object for a given key.
+ 
+    @param policy       The policy to use when creating the object.
+    @param type         The Class to use when creating the object.
+ 
+    @see NSObject#getAssociatedObjectForSelector
+*/
+- (id) getOrCreateAssociatedObjectForSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy type: (Class) type;
+
+/** Sets an associated value for this using a given key.
+    
+    @see NSObject#setAssociatedObject:forKey:policy
+*/
+- (void) setAssociatedObject: (id) value forKey: (NSString*) key;
+
+/** Sets an associated value for this object using a given key.
+ 
+    @param policy       The policy to use when creating the object.
+    
+    @see NSObject#setAssociatedObject:forKey
+*/
+- (void) setAssociatedObject: (id) value forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy;
+
+/** Sets an associated value for this object using a given key.
+    
+    @see NSObject#setAssociatedObject:value:forSelector:policy
+*/
+- (void) setAssociatedObject: (id) value forSelector: (SEL) selector;
+
+/** Sets an associated value for this object using a given key.
+ 
+    @param policy       The policy to use when creating the object.
+    
+    @see NSObject#setAssociatedObject:value:forSelector
+*/
+- (void) setAssociatedObject: (id) value forSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy;
 
 /** Returns the value passed-in or nil if the passed-in value is not an instance
     of this class or an instance of any class that inherits from this class.

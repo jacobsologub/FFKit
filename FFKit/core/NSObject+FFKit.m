@@ -121,6 +121,47 @@ static inline NSMethodSignatureReturnType methodSignatureReturnType (id object, 
     return ![self isNull];
 }
 
+- (id) getAssociatedObjectForKey: (NSString*) key {
+    return [FFAssociatedObject get: self forKey: key];
+}
+
+- (id) getOrCreateAssociatedObjectForKey: (NSString*) key type: (Class) type {
+    return [FFAssociatedObject getOrCreate: self forKey: key type: type];
+}
+
+- (id) getOrCreateAssociatedObjectForKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy type: (Class) type {
+    return [FFAssociatedObject getOrCreate: self forKey: key policy: policy type: type];
+}
+
+- (id) getAssociatedObjectForSelector: (SEL) selector {
+    return [FFAssociatedObject get: self forSelector: selector];
+}
+
+- (id) getOrCreateAssociatedObjectForSelector: (SEL) selector type: (Class) type {
+    return [FFAssociatedObject getOrCreate: self forSelector: selector type: type];
+}
+
+- (id) getOrCreateAssociatedObjectForSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy type: (Class) type {
+    return [FFAssociatedObject getOrCreate: self forSelector: selector policy: policy type: type];
+}
+
+- (void) setAssociatedObject: (id) value forKey: (NSString*) key {
+    [FFAssociatedObject set: self value: value forKey: key];
+}
+
+- (void) setAssociatedObject: (id) value forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy {
+    [FFAssociatedObject set: self value: value forKey: key policy: policy];
+}
+
+- (void) setAssociatedObject: (id) value forSelector: (SEL) selector {
+    [FFAssociatedObject set: self value: value forSelector: selector];
+}
+
+- (void) setAssociatedObject: (id) value forSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy {
+    [FFAssociatedObject set: self value: value forSelector: selector policy: policy];
+}
+
+
 + (instancetype) cast: (id) from {
     if ([from isKindOfClass: self]) {
         return from;
