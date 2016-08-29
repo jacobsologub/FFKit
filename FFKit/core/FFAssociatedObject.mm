@@ -26,6 +26,38 @@
 
 #import "FFAssociatedObject.h"
 #import <objc/runtime.h>
+#import "../utilities/macros.h"
+
+begin_namespace (ffkit);
+
+class AssociatedObject {
+public:
+    AssociatedObject (id object_) : object (object_) {}
+    ~AssociatedObject() {}
+    
+    id getAssociatedObject (const void* key) {
+        return objc_getAssociatedObject (object, key);
+    }
+    
+    id getOrCreateAssociatedObject (const void* key, objc_AssociationPolicy policy, Class T = [NSObject class]) {
+        id result = getAssociatedObject (key);
+        if (result) {
+            result = [T new];
+            setAssociatedObject (key, result, policy);
+        }
+        
+        return result;
+    }
+    
+    void setAssociatedObject (const void* key, id value, objc_AssociationPolicy policy) {
+        objc_setAssociatedObject (object, key, value, policy);
+    }
+    
+private:
+    id object;
+};
+
+end_namespace (ffkit);
 
 @interface NSObject (FFKitAssociatedObject)
 @property (nonatomic, strong) NSMutableDictionary<NSString*, NSString*>* associatedObjectKeyLookup;
@@ -47,87 +79,47 @@
 @implementation FFAssociatedObject
 
 + (id) get: (id) object forKey: (NSString*) key {
-    return [[[FFAssociatedObject alloc] init] get: object forKey: key policy: FFAssociatedObjectPolicyRetainNonatomic type: [NSObject class] create: NO];
-}
-
-+ (id) getOrCreate: (id) object forKey: (NSString*) key {
-    return [FFAssociatedObject getOrCreate: object forKey: key type: [NSObject class]];
+    return ffkit::AssociatedObject (object).getAssociatedObject ((__bridge const void*) key);
 }
 
 + (id) getOrCreate: (id) object forKey: (NSString*) key type: (Class) type {
-    return [FFAssociatedObject getOrCreate: object forKey: key policy: FFAssociatedObjectPolicyRetainNonatomic type: type];
-}
-
-+ (id) getOrCreate: (id) object forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy {
-    return [FFAssociatedObject getOrCreate: object forKey: key policy: policy type: [NSObject class]];
+    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) key, OBJC_ASSOCIATION_RETAIN_NONATOMIC, type);
 }
 
 + (id) getOrCreate: (id) object forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy type: (Class) type {
-    return [[[FFAssociatedObject alloc] init] get: object forKey: key policy: policy type: type create: YES];
-}
-
-- (id) get: (id) object forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy type: (Class) type create: (BOOL) create {
-    self.associatedObjectKeyLookup [key] = key;
-    id result = objc_getAssociatedObject (object, (__bridge const void*) (self.associatedObjectKeyLookup [key]));
-    if (create == YES && result == nil) {
-        result = [type new];
-        
-        [FFAssociatedObject set: self value: result forKey: self.associatedObjectKeyLookup [key] policy: policy];
-    }
-    
-    return result;
+    const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
+    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) key, objc_policy, type);
 }
 
 + (id) get: (id) object forSelector: (SEL) selector {
-    return [[[FFAssociatedObject alloc] init] get: object forSelector: selector policy: FFAssociatedObjectPolicyRetainNonatomic type: [NSObject class] create: NO];
+    return ffkit::AssociatedObject (object).getAssociatedObject (selector);
 }
 
 + (id) getOrCreate: (id) object forSelector: (SEL) selector type: (Class) type {
-    return [FFAssociatedObject getOrCreate: object forSelector: selector policy: FFAssociatedObjectPolicyRetainNonatomic type: type];
+    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject (selector, OBJC_ASSOCIATION_RETAIN_NONATOMIC, type);
 }
 
 + (id) getOrCreate: (id) object forSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy type: (Class) type {
-    return [[[FFAssociatedObject alloc] init] get: object forSelector: selector policy: policy type: type create: YES];
-}
-
-- (id) get: (id) object forSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy type: (Class) type create: (BOOL) create {
-    id result = objc_getAssociatedObject (object, selector);
-    if (create == YES && result == nil) {
-        result = [type new];
-        
-        const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
-        objc_setAssociatedObject (object, selector, result, objc_policy);
-    }
-    
-    return result;
+    const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
+    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject (selector, objc_policy, type);
 }
 
 + (void) set: (id) object value: (id) value forKey: (NSString*) key {
-    [FFAssociatedObject set: object value: value forKey: key policy: FFAssociatedObjectPolicyRetainNonatomic];
+    ffkit::AssociatedObject (object).setAssociatedObject ((__bridge const void*) (self.associatedObjectKeyLookup [key]), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 + (void) set: (id) object value: (id) value forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy {
-    [[[FFAssociatedObject alloc] init] set: object value: value forKey: key policy: policy];
-}
-
-- (void) set: (id) object value: (id) value forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy {
-    self.associatedObjectKeyLookup [key] = key;
-    
     const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
-    objc_setAssociatedObject (object, (__bridge const void*) (self.associatedObjectKeyLookup [key]), value, objc_policy);
+    ffkit::AssociatedObject (object).setAssociatedObject ((__bridge const void*) (self.associatedObjectKeyLookup [key]), value, objc_policy);
 }
 
 + (void) set: (id) object value: (id) value forSelector: (SEL) selector {
-    [FFAssociatedObject set: object value: value forSelector: selector policy: FFAssociatedObjectPolicyRetainNonatomic];
+    ffkit::AssociatedObject (object).setAssociatedObject (selector, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 + (void) set: (id) object value: (id) value forSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy {
-    [[[FFAssociatedObject alloc] init] set: object value: value forSelector: selector policy: policy];
-}
-
-- (void) set: (id) object value: (id) value forSelector: (SEL) selector policy: (FFAssociatedObjectPolicy) policy {
     const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
-    objc_setAssociatedObject (object, selector, value, objc_policy);
+    ffkit::AssociatedObject (object).setAssociatedObject (selector, value, objc_policy);
 }
 
 + (objc_AssociationPolicy) objc_AssociationPolicyFromFFAssociatedObjectPolicy: (FFAssociatedObjectPolicy) policy {
