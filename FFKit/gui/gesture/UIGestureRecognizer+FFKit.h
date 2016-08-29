@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIGestureRecognizer (FFKit)
 
 #ifdef FFKIT_USE_ASPECTS
-/** Adds a target block a gesture-recognizer object. To use this method 
+/** Adds a block target to a gesture-recognizer object. To use this method
     FFKIT_USE_ASPECTS has to be defined in FFKitConfig.h 
     
     @see FFKit.h
