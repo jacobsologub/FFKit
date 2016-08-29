@@ -25,6 +25,7 @@
 */
 
 #import "UIGestureRecognizer+FFKit.h"
+#import "../../core/NSObject+FFKit.h"
 
 #if __has_include ("../../../../FFKitConfig.h")
  #include "../../../../FFKitConfig.h"
@@ -61,12 +62,7 @@ static NSString* const kFFKitGestureRecognizerListenerListKey = @"kFFKitGestureR
 
 #ifdef FFKIT_USE_ASPECTS
 - (void) addTargetWithBlock: (UIGestureRecognizerBlock) block {
-    FFListenerList* listenerList = [FFAssociatedObject get: self forKey: kFFKitGestureRecognizerListenerListKey];
-    if (listenerList == nil) {
-        listenerList = [FFListenerList new];
-        [FFAssociatedObject set: self value: listenerList forKey: kFFKitGestureRecognizerListenerListKey policy: FFAssociatedObjectPolicyRetainNonatomic];
-    }
-    
+    FFListenerList* listenerList = [self getOrCreateAssociatedObjectForKey: kFFKitGestureRecognizerListenerListKey type: [FFListenerList class]];
     [listenerList addTarget: block];
     
     UIGestureRecognizerTarget* const gestureRecognizerTarget = [UIGestureRecognizerTarget new];
