@@ -77,17 +77,21 @@ end_namespace (ffkit);
 @implementation FFAssociatedObject
 
 + (id) get: (id) object forKey: (NSString*) key {
-    return ffkit::AssociatedObject (object).getAssociatedObject ((__bridge const void*) key);
+    NSString* const _key = [object associatedObjectKeyLookup] [key];
+    return ffkit::AssociatedObject (object).getAssociatedObject ((__bridge const void*) _key);
 }
 
 + (id) getOrCreate: (id) object forKey: (NSString*) key type: (Class) type {
-    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) key, OBJC_ASSOCIATION_RETAIN_NONATOMIC, type);
+    NSString* const _key = [object associatedObjectKeyLookup] [key] = key;
+    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) _key, OBJC_ASSOCIATION_RETAIN_NONATOMIC, type);
 }
 
 + (id) getOrCreate: (id) object forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy type: (Class) type {
+    NSString* const _key = [object associatedObjectKeyLookup] [key] = key;
     const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
-    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) key, objc_policy, type);
+    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) _key, objc_policy, type);
 }
+
 
 + (id) get: (id) object forSelector: (SEL) selector {
     return ffkit::AssociatedObject (object).getAssociatedObject (selector);
@@ -102,14 +106,18 @@ end_namespace (ffkit);
     return ffkit::AssociatedObject (object).getOrCreateAssociatedObject (selector, objc_policy, type);
 }
 
+
 + (void) set: (id) object value: (id) value forKey: (NSString*) key {
-    ffkit::AssociatedObject (object).setAssociatedObject ((__bridge const void*) (self.associatedObjectKeyLookup [key]), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    NSString* const _key = [object associatedObjectKeyLookup] [key] = key;
+    ffkit::AssociatedObject (object).setAssociatedObject ((__bridge const void*) _key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 + (void) set: (id) object value: (id) value forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy {
+    NSString* const _key = [object associatedObjectKeyLookup] [key] = key;
     const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
-    ffkit::AssociatedObject (object).setAssociatedObject ((__bridge const void*) (self.associatedObjectKeyLookup [key]), value, objc_policy);
+    ffkit::AssociatedObject (object).setAssociatedObject ((__bridge const void*) _key, value, objc_policy);
 }
+
 
 + (void) set: (id) object value: (id) value forSelector: (SEL) selector {
     ffkit::AssociatedObject (object).setAssociatedObject (selector, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -119,6 +127,7 @@ end_namespace (ffkit);
     const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
     ffkit::AssociatedObject (object).setAssociatedObject (selector, value, objc_policy);
 }
+
 
 + (objc_AssociationPolicy) objc_AssociationPolicyFromFFAssociatedObjectPolicy: (FFAssociatedObjectPolicy) policy {
     objc_AssociationPolicy result = OBJC_ASSOCIATION_ASSIGN;
