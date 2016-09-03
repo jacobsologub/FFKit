@@ -25,6 +25,7 @@
 */
 
 #import <UIKit/UIKit.h>
+#import "../../events/FFListenerList.h"
 
 @interface UIControl (FFKit)
 
@@ -113,6 +114,28 @@ NS_ASSUME_NONNULL_BEGIN
     @see addUIControlEventEditingDidEndTarget
 */
 - (void) removeUIControlEventEditingDidEndOnExitTarget: (id) target action: (nullable SEL) action;
+
+/** Associates a target block with the control.
+ 
+    @param          The target block.
+    @param          A bitmask specifying the control-specific events for which 
+                    the action method is called. Always specify at least one 
+                    constant. For a list of possible constants.
+ 
+    @see UIControl#addTarget:action:forControlEvents, UIControlEvents,
+*/
+- (void) addTarget: (FFListenerListBlock) block forControlEvents: (UIControlEvents) controlEvents;
+
+/** Associates a target block with the control.
+ 
+    @param          The target block.
+    @param          A bitmask specifying the control-specific events for which 
+                    the action method is called. Always specify at least one 
+                    constant. For a list of possible constants.
+ 
+    @see UIControl#addTarget:action:forControlEvents, UIControlEvents,
+*/
+- (void) removeTarget: (FFListenerListBlock) block forControlEvents: (UIControlEvents) controlEvents;
 
 NS_ASSUME_NONNULL_END
 

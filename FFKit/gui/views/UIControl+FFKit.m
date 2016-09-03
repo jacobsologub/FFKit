@@ -25,6 +25,28 @@
 */
 
 #import "UIControl+FFKit.h"
+#import "NSObject+FFKit.h"
+#import "FFAssociatedObject.h"
+#import "FFListenerList.h"
+
+@interface UIControlTarget : NSObject
+@property (nonatomic, weak) FFListenerList* listenerList;
+@property (nonatomic, assign) UIControlEvents controlEvents;
+- (void) handleControlEvent: (UIControl*) control;
+@end
+
+@implementation UIControlTarget
+@synthesize listenerList;
+@synthesize controlEvents;
+
+- (void) dealloc {
+    // xx
+}
+
+- (void) handleControlEvent: (UIControl*) control {
+    [listenerList callWithObject: control withObject: @(controlEvents)];
+}
+@end
 
 @implementation UIControl (FFKit)
 
@@ -74,6 +96,27 @@
 
 - (void) removeUIControlEventEditingDidEndOnExitTarget: (id) target action: (SEL) action {
     [self removeTarget: target action: action forControlEvents: UIControlEventEditingDidEndOnExit];
+}
+
+- (void) addTarget: (FFListenerListBlock) block forControlEvents: (UIControlEvents) controlEvents {
+    NSString* controlListenerListKey = [NSString stringWithFormat: @"kFFKitControlListenerListKey:UIControlEvents=%u", (unsigned int) controlEvents];
+    FFListenerList* listenerList = [self getOrCreateAssociatedObjectForKey: controlListenerListKey type: [FFListenerList class]];
+    [listenerList addTarget: block];
+    
+    NSString* controlTargetKey = [NSString stringWithFormat: @"kFFKitControlTargetKey:UIControlEvents=%u", (unsigned int) controlEvents];
+    UIControlTarget* controlTarget = [self getOrCreateAssociatedObjectForKey: controlTargetKey type: [UIControlTarget class]];
+    controlTarget.listenerList = listenerList;
+    controlTarget.controlEvents = controlEvents;
+    [self addTarget: controlTarget action: @selector (handleControlEvent:) forControlEvents: controlEvents];
+}
+
+- (void) removeTarget: (FFListenerListBlock) block forControlEvents: (UIControlEvents) controlEvents {
+    NSString* controlListenerListKey = [NSString stringWithFormat: @"kFFKitControlListenerListKey:UIControlEvents=%u", (unsigned int) controlEvents];
+    FFListenerList* listenerList = [self getOrCreateAssociatedObjectForKey: controlListenerListKey type: [FFListenerList class]];
+    [listenerList removeTarget: block];
+    
+    NSString* controlTargetKey = [NSString stringWithFormat: @"kFFKitControlTargetKey:UIControlEvents=%u", (unsigned int) controlEvents];
+    [self setAssociatedObject: nil forKey: controlTargetKey];
 }
 
 @end
