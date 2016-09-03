@@ -37,7 +37,7 @@ typedef FFListenerListBlock UIGestureRecognizerBlock;
  
     @see FFListenerListBlock, FFListenerListBlockArgs
 */
-- (void) addTargetWithBlock: (UIGestureRecognizerBlock) block;
+- (void) addTarget: (UIGestureRecognizerBlock) block;
 
 @end
 

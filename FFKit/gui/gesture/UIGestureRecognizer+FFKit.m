@@ -51,7 +51,7 @@ static NSString* const kFFKitGestureRecognizerListenerListKey = @"kFFKitGestureR
 
 @implementation UIGestureRecognizer (FFKit)
 
-- (void) addTargetWithBlock: (UIGestureRecognizerBlock) block {
+- (void) addTarget: (UIGestureRecognizerBlock) block {
     FFListenerList* listenerList = [self getOrCreateAssociatedObjectForKey: kFFKitGestureRecognizerListenerListKey type: [FFListenerList class]];
     [listenerList addTarget: block];
     
