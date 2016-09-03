@@ -82,7 +82,12 @@ end_namespace (ffkit);
 }
 
 + (id) getOrCreate: (id) object forKey: (NSString*) key type: (Class) type {
-    NSString* const _key = [object associatedObjectKeyLookup] [key] = key;
+    NSString* _key = [object associatedObjectKeyLookup] [key];
+    if (_key == nil) {
+        [object associatedObjectKeyLookup] [key] = key;
+        _key = [object associatedObjectKeyLookup] [key];
+    }
+    
     return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) _key, OBJC_ASSOCIATION_RETAIN_NONATOMIC, type);
 }
 
