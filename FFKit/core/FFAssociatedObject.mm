@@ -82,17 +82,16 @@ end_namespace (ffkit);
 }
 
 + (id) getOrCreate: (id) object forKey: (NSString*) key type: (Class) type {
+    return [FFAssociatedObject getOrCreate: object forKey: key policy: FFAssociatedObjectPolicyRetainNonatomic type: type];
+}
+
++ (id) getOrCreate: (id) object forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy type: (Class) type {
     NSString* _key = [object associatedObjectKeyLookup] [key];
     if (_key == nil) {
         [object associatedObjectKeyLookup] [key] = key;
         _key = [object associatedObjectKeyLookup] [key];
     }
     
-    return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) _key, OBJC_ASSOCIATION_RETAIN_NONATOMIC, type);
-}
-
-+ (id) getOrCreate: (id) object forKey: (NSString*) key policy: (FFAssociatedObjectPolicy) policy type: (Class) type {
-    NSString* const _key = [object associatedObjectKeyLookup] [key] = key;
     const objc_AssociationPolicy objc_policy = [FFAssociatedObject objc_AssociationPolicyFromFFAssociatedObjectPolicy: policy];
     return ffkit::AssociatedObject (object).getOrCreateAssociatedObject ((__bridge const void*) _key, objc_policy, type);
 }
