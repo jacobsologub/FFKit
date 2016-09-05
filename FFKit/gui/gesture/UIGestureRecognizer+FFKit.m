@@ -32,12 +32,12 @@
 static NSString* const kFFKitGestureRecognizerTargetKey = @"kFFKitGestureRecognizerTargetKey";
 static NSString* const kFFKitGestureRecognizerListenerListKey = @"kFFKitGestureRecognizerListenerListKey";
 
-@interface UIGestureRecognizerTarget : NSObject
+@interface FFGestureRecognizerTarget : NSObject
 @property (nonatomic, weak) FFListenerList* listenerList;
 - (void) handleGesture: (UIGestureRecognizer*) recognizer;
 @end
 
-@implementation UIGestureRecognizerTarget
+@implementation FFGestureRecognizerTarget
 @synthesize listenerList;
 
 - (void) dealloc {
@@ -55,7 +55,7 @@ static NSString* const kFFKitGestureRecognizerListenerListKey = @"kFFKitGestureR
     FFListenerList* listenerList = [self getOrCreateAssociatedObjectForKey: kFFKitGestureRecognizerListenerListKey type: [FFListenerList class]];
     [listenerList addTarget: block];
     
-    UIGestureRecognizerTarget* const gestureRecognizerTarget = [UIGestureRecognizerTarget new];
+    FFGestureRecognizerTarget* const gestureRecognizerTarget = [FFGestureRecognizerTarget new];
     [self setAssociatedObject: gestureRecognizerTarget forKey: kFFKitGestureRecognizerTargetKey];
     
     gestureRecognizerTarget.listenerList = listenerList;
