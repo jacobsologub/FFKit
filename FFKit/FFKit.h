@@ -78,6 +78,8 @@
     #import "gui/views/UIScrollView+FFKit.h"
     #import "gui/views/UIImageView+FFKit.h"
     #import "gui/views/UIView+FFKit.h"
+
+    #import "threads/FFThread.h"
 #endif
 
 #if __cplusplus

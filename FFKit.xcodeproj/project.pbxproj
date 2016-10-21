@@ -35,6 +35,7 @@
 		16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C67F7A19359149006FF926 /* UIImageView+FFKit.m */; };
 		16CCF9FD1CEBF747001969F6 /* FFApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CCF9FC1CEBF747001969F6 /* FFApplication.m */; };
 		16D81FC21AF9509B00620042 /* NSBundle+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */; };
+		16EE74E41DB98C9C00E56043 /* FFThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16EE74E31DB98C9C00E56043 /* FFThread.mm */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9AE819319A320090D90F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AE719319A320090D90F /* XCTest.framework */; };
 		16FA9AE919319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
@@ -134,6 +135,8 @@
 		16CCF9FC1CEBF747001969F6 /* FFApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFApplication.m; sourceTree = "<group>"; };
 		16D81FC01AF9509B00620042 /* NSBundle+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+FFKit.h"; sourceTree = "<group>"; };
 		16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+FFKit.m"; sourceTree = "<group>"; };
+		16EE74E21DB98C9C00E56043 /* FFThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFThread.h; sourceTree = "<group>"; };
+		16EE74E31DB98C9C00E56043 /* FFThread.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FFThread.mm; sourceTree = "<group>"; };
 		16FA9AD619319A320090D90F /* libFFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FA9AD919319A320090D90F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		16FA9ADD19319A320090D90F /* FFKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -258,6 +261,15 @@
 			path = application;
 			sourceTree = "<group>";
 		};
+		16EE74E11DB98C8A00E56043 /* threads */ = {
+			isa = PBXGroup;
+			children = (
+				16EE74E21DB98C9C00E56043 /* FFThread.h */,
+				16EE74E31DB98C9C00E56043 /* FFThread.mm */,
+			);
+			path = threads;
+			sourceTree = "<group>";
+		};
 		16FA9ACD19319A320090D90F = {
 			isa = PBXGroup;
 			children = (
@@ -293,9 +305,10 @@
 				16D81FBF1AF9508600620042 /* application */,
 				16FA9B4419319A8C0090D90F /* core */,
 				16FA9B5319319A8C0090D90F /* events */,
+				16FA9B7519319A8C0090D90F /* FFKit.h */,
 				16FA9B5819319A8C0090D90F /* graphics */,
 				16FA9B6619319A8C0090D90F /* gui */,
-				16FA9B7519319A8C0090D90F /* FFKit.h */,
+				16EE74E11DB98C8A00E56043 /* threads */,
 				16FA9B7619319A8C0090D90F /* utilities */,
 				16FA9ADC19319A320090D90F /* Supporting Files */,
 			);
@@ -621,6 +634,7 @@
 				16FA9B7D19319A8C0090D90F /* FFListenerList.m in Sources */,
 				16BC6F551A3D174A007BFC3A /* NSDictionary+FFKit.m in Sources */,
 				16FA9B8119319A8C0090D90F /* UIImage+FFKit.m in Sources */,
+				16EE74E41DB98C9C00E56043 /* FFThread.mm in Sources */,
 				16BA024F1D6D391200D9834B /* UIGestureRecognizer+FFKit.m in Sources */,
 				1604FEC91D02289700576087 /* UITextView+FFKit.m in Sources */,
 				160080761D065A0000133883 /* FFAssociatedObject.mm in Sources */,
