@@ -28,6 +28,52 @@
 
 typedef void (^FFThreadBlock) (void);
 
+/** FFThread class
+ 
+    A basic objc wrapper around std::thread.
+    
+    Example usage:
+    @code
+ 
+    FFThread* const t = [FFThread thread: ^{
+        NSArray<NSString*>* const sites = @[
+            @"http://www.nytimes.com/",
+            @"https://upload.wikimedia.org/wikipedia/commons/4/43/Very_Large_Array,_2012.jpg",
+            @"http://www.apple.com/",
+            @"https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg",
+        ];
+        
+        NSMutableArray<FFThread*>* const threads = [NSMutableArray new];
+        
+        for (int i = 0; i < sites.count; ++i) {
+            
+            FFThread* const t = [FFThread thread: ^{
+                NSURL* const url = [NSURL URLWithString: sites [i]];
+                NSURLRequest* const request = [NSURLRequest requestWithURL: url];
+                
+                NSURLResponse* response = nil;
+                NSError* error = nil;
+                NSData* const responseData = [NSURLConnection sendSynchronousRequest: request returningResponse: &response error: &error];
+                (void) responseData;
+            }];
+            
+            [threads addObject: t];
+        }
+        
+        [threads makeObjectsPerformSelector: @selector (join)];
+        
+        // or
+        
+        // [threads enumerateObjectsUsingBlock: ^(FFThread* _Nonnull obj, NSUInteger idx, BOOL* _Nonnull stop) {
+        //     [obj join];
+        // }];
+    }];
+    
+    [t detach];
+ 
+    @endcode
+ 
+*/
 @interface FFThread : NSObject {
 @private
     FFThreadBlock block;
