@@ -50,6 +50,13 @@ CG_INLINE CGRect CGRectSetHeight (CGRect rect, CGFloat height) {
     return rect;
 }
 
+/**	Sets the size for the specified CGRect. */
+CG_INLINE CGRect CGRectSetSize (CGRect rect, CGSize size) {
+    rect.size.width = size.width;
+    rect.size.height = size.height;
+    return rect;
+}
+
 /**	Returns the x coordinate for the specified CGRect. */
 CG_INLINE CGFloat CGRectGetX (CGRect rect) {
     return rect.origin.x;

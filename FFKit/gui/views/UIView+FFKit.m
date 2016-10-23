@@ -98,6 +98,14 @@
     self.frame = CGRectSetHeight (self.frame, newHeight);
 }
 
+- (CGSize) size {
+    return self.bounds.size;
+}
+
+- (void) setSize: (CGSize) size {
+    self.frame = CGRectSetSize (self.frame, size);
+}
+
 - (CGFloat) right {
     return self.frame.origin.x + self.width;
 }

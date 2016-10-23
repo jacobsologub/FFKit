@@ -104,6 +104,12 @@ extern const CAShadow CAShadowZero;
 */
 @property (nonatomic, assign) CGFloat height;
 
+/**	Gets or sets the size of the view.
+ 
+    @see setWidth, setHeight
+*/
+@property (nonatomic, assign) CGSize size;
+
 /**	Gets or sets the x coordinate of the view's right edge. 
     
     @see setRight:adjustingWidth

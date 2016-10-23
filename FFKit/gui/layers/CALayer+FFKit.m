@@ -95,6 +95,14 @@ const CAShadow CAShadowZero = { 0.0f, 0.0f, { 0.0f, 0.0f },  NULL, NULL};
     self.frame = CGRectSetHeight (self.frame, newHeight);
 }
 
+- (CGSize) size {
+    return self.bounds.size;
+}
+
+- (void) setSize: (CGSize) size {
+    self.frame = CGRectSetSize (self.frame, size);
+}
+
 - (CGFloat) right {
     return self.frame.origin.x + self.width;
 }
