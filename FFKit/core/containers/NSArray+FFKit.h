@@ -24,7 +24,7 @@
   ==============================================================================
 */
 
-@interface NSArray (FFKit)
+@interface NSArray<__covariant ObjectType> (FFKit)
 
 /** Returns the lowest index whose corresponding array value is equal to a given 
     Class.
@@ -49,7 +49,7 @@
 /** Returns a new array by mapping each value in this array through a 
     transformation block.
 */
-- (NSArray*) mappedArray: (id (^)(id obj, NSUInteger idx, BOOL* stop)) block;
+- (NSArray*) mappedArray: (id (^)(ObjectType obj, NSUInteger idx, BOOL* stop)) block;
 
 /** Returns the number of objects in the array satisfying a specific criteria.
     
