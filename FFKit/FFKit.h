@@ -37,6 +37,7 @@
 
     #import "application/NSBundle+FFKit.h"
     #import "application/FFApplication.h"
+    #import "application/UIApplication+FFKit.h"
     #import "core/NSObject+FFKit.h"
     #import "core/NSNotificationCenter+FFKit.h"
     #import "core/containers/NSArray+FFKit.h"
