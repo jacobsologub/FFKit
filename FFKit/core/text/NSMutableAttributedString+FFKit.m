@@ -45,7 +45,7 @@
 }
 
 - (void) setFont: (UIFont*) font range: (NSRange) range {
-    [self addAttribute: NSFontAttributeName value: font range: NSMakeRange (0, [self length])];
+    [self addAttribute: NSFontAttributeName value: font range: range];
 }
 
 - (void) setTextColor: (UIColor*) color {
