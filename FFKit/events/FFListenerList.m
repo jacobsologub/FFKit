@@ -123,12 +123,14 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
 }
 
 - (void) removeTarget: (FFListenerListBlock) block {
-    NSDictionary* obj = @{
-        kFFListenerListTargetKey: block,
-        kFFListenerListTargetTypeKey: @(FFListenerListTargetTypeBlock),
-    };
-    
-    [listeners removeObject: obj];
+    if (block != nil) {    
+        NSDictionary* obj = @{
+            kFFListenerListTargetKey: block,
+            kFFListenerListTargetTypeKey: @(FFListenerListTargetTypeBlock),
+        };
+        
+        [listeners removeObject: obj];
+    }
 }
 
 - (void) removeAllTargets {
