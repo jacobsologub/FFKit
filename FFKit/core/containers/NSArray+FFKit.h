@@ -40,6 +40,20 @@
 */
 - (NSUInteger) indexOfObjectOfClassType: (Class) classType inRange: (NSRange) range;
 
+/** Returns the first object whose corresponding array value is equal to a given
+    Class.
+ 
+    @see indexOfObjectOfClassType:inRange
+*/
+- (ObjectType) objectOfClassType: (Class) classType;
+
+/** Returns the first object within a specified range whose corresponding array
+    value is equal to a given Class.
+ 
+    @see indexOfObjectOfClassType
+*/
+- (ObjectType) objectOfClassType: (Class) classType inRange: (NSRange) range;
+
 /** Returns a new array that is shuffled version of the receiving array. 
     
     @see NSMutableArray#shuffleArray

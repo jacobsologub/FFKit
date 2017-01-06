@@ -45,6 +45,28 @@
     }];
 }
 
+- (id) objectOfClassType: (Class) classType {
+    id result = nil;
+    
+    const NSUInteger _index = [self indexOfObjectOfClassType: classType];
+    if (_index != NSNotFound) {
+        result = self [_index];
+    }
+    
+    return result;
+}
+
+- (id) objectOfClassType: (Class) classType inRange: (NSRange) range {
+    id result = nil;
+    
+    const NSUInteger _index = [self indexOfObjectOfClassType: classType inRange: range];
+    if (_index != NSNotFound) {
+        result = self [_index];
+    }
+    
+    return result;
+}
+
 - (NSArray*) shuffledArray {
     NSMutableArray* mutableSelf = [self mutableCopy];
     [mutableSelf shuffleArray];
