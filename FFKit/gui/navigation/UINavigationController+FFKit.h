@@ -28,6 +28,20 @@
 
 @interface UINavigationController (FFKit)
 
+/** Returns the first view controller whose corresponding array value is equal 
+    to a given Class.
+ 
+    @see indexOfObjectOfClassType:inRange
+*/
+- (UIViewController*) viewControllerOfClassType: (Class) classType;
+
+/** Returns the first view controller within a specified range whose 
+    corresponding array value is equal to a given Class.
+ 
+    @see indexOfObjectOfClassType
+*/
+- (UIViewController*) viewControllerOfClassType: (Class) classType inRange: (NSRange) range;
+
 /**	Pops view controllers until the one specified is on top. Returns the popped 
     controllers.
 */

@@ -25,8 +25,23 @@
 */
 
 #import "UINavigationController+FFKit.h"
+#import "NSArray+FFKit.h"
 
 @implementation UINavigationController (FFKit)
+
+- (UIViewController*) viewControllerOfClassType: (Class) classType {
+    return [self viewControllerOfClassType: classType inRange: NSMakeRange (0, self.viewControllers.count)];
+}
+
+- (UIViewController*) viewControllerOfClassType: (Class) classType inRange: (NSRange) range {
+    UIViewController* result = nil;
+    const NSUInteger index = [self.viewControllers indexOfObjectOfClassType: classType inRange: range];
+    if (index != NSNotFound) {
+        result = self.viewControllers [index];
+    }
+    
+    return result;
+}
 
 - (NSArray*) popToViewControllerOfClassType: (Class) classType animated: (BOOL) animated {
     return [self popToViewControllerOfClassType: classType animated: animated dismissPresentedViewControllers: NO];
