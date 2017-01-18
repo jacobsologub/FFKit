@@ -26,6 +26,9 @@
 
 #import <UIKit/UIKit.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 typedef void (^UIAlertViewClickedButtonAtIndexBlock) (UIAlertView* alert, NSInteger buttonIndex);
 
 @interface UIAlertView (FFKit)
@@ -33,3 +36,5 @@ typedef void (^UIAlertViewClickedButtonAtIndexBlock) (UIAlertView* alert, NSInte
 - (void) showWithBlock: (UIAlertViewClickedButtonAtIndexBlock) block;
 
 @end
+
+#pragma clang diagnostic pop

@@ -26,6 +26,9 @@
 
 #import <UIKit/UIKit.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 typedef void (^UIActionSheetClickedButtonAtIndexBlock) (UIActionSheet* actionSheet, NSInteger buttonIndex);
 
 @interface UIActionSheet (FFKit)
@@ -33,3 +36,5 @@ typedef void (^UIActionSheetClickedButtonAtIndexBlock) (UIActionSheet* actionShe
 - (void) showInView: (UIView*) view block: (UIActionSheetClickedButtonAtIndexBlock) block;
 
 @end
+
+#pragma clang diagnostic pop
