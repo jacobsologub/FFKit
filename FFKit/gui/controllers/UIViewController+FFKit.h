@@ -71,4 +71,10 @@
 */
 - (UIViewController*) childViewControllerOfClassType: (Class) classType searchRecursively: (BOOL) searchRecursively;
 
+/** Returns the controller's top-level view controller.
+ 
+    @see UIViewController#presentedViewController
+*/
+- (UIViewController*) toplevelViewController;
+
 @end

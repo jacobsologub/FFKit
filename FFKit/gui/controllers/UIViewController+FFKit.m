@@ -124,4 +124,13 @@ static char kFFKitBlockListKey;
     return [self childViewControllerOfClassType: classType searchRecursively: NO];
 }
 
+- (UIViewController*) toplevelViewController {
+    UIViewController* result = self;
+    while (result.presentedViewController != nil) {
+        result = result.presentedViewController;
+    }
+    
+    return result;
+}
+
 @end
