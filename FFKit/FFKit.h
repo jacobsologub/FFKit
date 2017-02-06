@@ -70,6 +70,7 @@
     #import "gui/keyboard/FFKeyboardListener.h"
     #import "gui/labels/UILabel+FFKit.h"
     #import "gui/layers/CALayer+FFKit.h"
+    #import "gui/layers/CARadialGradientLayer.h"
     #import "gui/navigation/UINavigationController+FFKit.h"
     #import "gui/text/UITextField+FFKit.h"
     #import "gui/text/UITextView+FFKit.h"
