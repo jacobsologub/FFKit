@@ -38,3 +38,13 @@ static inline void dispatchAfterDelay (double delayInSeconds, dispatch_block_t b
 static inline void dispatchAsync (dispatch_block_t block) {
     dispatch_async (dispatch_get_main_queue(), block);
 }
+
+static inline void dispatchAsyncChecked (dispatch_block_t block) {
+    const BOOL isMainThread = [NSThread isMainThread];
+    if (!isMainThread) {
+        dispatch_async (dispatch_get_main_queue(), block);
+    }
+    else {
+        block();
+    }
+}
