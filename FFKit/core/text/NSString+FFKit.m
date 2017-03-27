@@ -50,4 +50,8 @@
     return ![self isEqualToString: string];
 }
 
+- (const char*) UTF8 {
+    return self.UTF8String;
+}
+
 @end
