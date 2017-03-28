@@ -26,6 +26,10 @@
 
 #import <Foundation/Foundation.h>
 
+#if __cplusplus
+ #include <string>
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (FFKit)
@@ -61,6 +65,10 @@ NS_ASSUME_NONNULL_BEGIN
     @see NSString#UTF8String
 */
 @property (nullable, readonly) const char* UTF8 NS_RETURNS_INNER_POINTER;
+
+#if __cplusplus
+@property (nonatomic, readonly) std::string stdString;
+#endif
 
 @end
 

@@ -54,4 +54,10 @@
     return self.UTF8String;
 }
 
+#if __cplusplus
+- (std::string) stdString {
+    return std::string (self.UTF8);
+}
+#endif
+
 @end
