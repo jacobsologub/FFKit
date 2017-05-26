@@ -39,10 +39,24 @@ static inline void dispatchAsync (dispatch_block_t block) {
     dispatch_async (dispatch_get_main_queue(), block);
 }
 
+static inline void dispatchSync (dispatch_block_t block) {
+    dispatch_sync (dispatch_get_main_queue(), block);
+}
+
 static inline void dispatchAsyncChecked (dispatch_block_t block) {
     const BOOL isMainThread = [NSThread isMainThread];
     if (!isMainThread) {
         dispatch_async (dispatch_get_main_queue(), block);
+    }
+    else {
+        block();
+    }
+}
+
+static inline void dispatchSyncChecked (dispatch_block_t block) {
+    const BOOL isMainThread = [NSThread isMainThread];
+    if (!isMainThread) {
+        dispatch_sync (dispatch_get_main_queue(), block);
     }
     else {
         block();
