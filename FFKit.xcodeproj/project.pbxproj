@@ -42,6 +42,7 @@
 		16E3E6661EDADFDC00A2A59C /* FFListenerListBlockArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */; };
 		16E3E6671EDADFEB00A2A59C /* NSObject+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4D19319A8C0090D90F /* NSObject+FFKit.m */; };
 		16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5019319A8C0090D90F /* NSString+FFKit.mm */; };
+		16E650971EDB708F00FCCFC2 /* FFAssociatedObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 160080751D065A0000133883 /* FFAssociatedObject.mm */; };
 		16EE74E41DB98C9C00E56043 /* FFThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16EE74E31DB98C9C00E56043 /* FFThread.mm */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */; };
@@ -579,6 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16E650971EDB708F00FCCFC2 /* FFAssociatedObject.mm in Sources */,
 				16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */,
 				16E3E6671EDADFEB00A2A59C /* NSObject+FFKit.m in Sources */,
 				16E3E6641EDADFDC00A2A59C /* FFListenerList.m in Sources */,
