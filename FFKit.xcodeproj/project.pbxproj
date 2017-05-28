@@ -37,6 +37,11 @@
 		16C67F7B19359149006FF926 /* UIImageView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C67F7A19359149006FF926 /* UIImageView+FFKit.m */; };
 		16CCF9FD1CEBF747001969F6 /* FFApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CCF9FC1CEBF747001969F6 /* FFApplication.m */; };
 		16D81FC21AF9509B00620042 /* NSBundle+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */; };
+		16E3E65D1EDADF8800A2A59C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
+		16E3E6641EDADFDC00A2A59C /* FFListenerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5519319A8C0090D90F /* FFListenerList.m */; };
+		16E3E6661EDADFDC00A2A59C /* FFListenerListBlockArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */; };
+		16E3E6671EDADFEB00A2A59C /* NSObject+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4D19319A8C0090D90F /* NSObject+FFKit.m */; };
+		16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5019319A8C0090D90F /* NSString+FFKit.mm */; };
 		16EE74E41DB98C9C00E56043 /* FFThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16EE74E31DB98C9C00E56043 /* FFThread.mm */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */; };
@@ -54,6 +59,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		16E3E65E1EDADF8800A2A59C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16FA9AD419319A320090D90F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,6 +139,7 @@
 		16CCF9FC1CEBF747001969F6 /* FFApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFApplication.m; sourceTree = "<group>"; };
 		16D81FC01AF9509B00620042 /* NSBundle+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+FFKit.h"; sourceTree = "<group>"; };
 		16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+FFKit.m"; sourceTree = "<group>"; };
+		16E3E6621EDADF8800A2A59C /* libFFKit-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libFFKit-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16EE74E21DB98C9C00E56043 /* FFThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFThread.h; sourceTree = "<group>"; };
 		16EE74E31DB98C9C00E56043 /* FFThread.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FFThread.mm; sourceTree = "<group>"; };
 		16FA9AD619319A320090D90F /* libFFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +180,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		16E3E65C1EDADF8800A2A59C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E3E65D1EDADF8800A2A59C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16FA9AD319319A320090D90F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				16FA9AD619319A320090D90F /* libFFKit.a */,
+				16E3E6621EDADF8800A2A59C /* libFFKit-macOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -489,6 +513,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		16E3E62F1EDADF8800A2A59C /* FFKit-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16E3E65F1EDADF8800A2A59C /* Build configuration list for PBXNativeTarget "FFKit-macOS" */;
+			buildPhases = (
+				16E3E6301EDADF8800A2A59C /* Sources */,
+				16E3E65C1EDADF8800A2A59C /* Frameworks */,
+				16E3E65E1EDADF8800A2A59C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FFKit-macOS";
+			productName = EXKit;
+			productReference = 16E3E6621EDADF8800A2A59C /* libFFKit-macOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		16FA9AD519319A320090D90F /* FFKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16FA9AF919319A320090D90F /* Build configuration list for PBXNativeTarget "FFKit" */;
@@ -528,11 +569,23 @@
 			projectRoot = "";
 			targets = (
 				16FA9AD519319A320090D90F /* FFKit */,
+				16E3E62F1EDADF8800A2A59C /* FFKit-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		16E3E6301EDADF8800A2A59C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */,
+				16E3E6671EDADFEB00A2A59C /* NSObject+FFKit.m in Sources */,
+				16E3E6641EDADFDC00A2A59C /* FFListenerList.m in Sources */,
+				16E3E6661EDADFDC00A2A59C /* FFListenerListBlockArgs.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16FA9AD219319A320090D90F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -586,6 +639,32 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		16E3E6601EDADF8800A2A59C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/FFKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16E3E6611EDADF8800A2A59C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/FFKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		16FA9AF719319A320090D90F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -619,7 +698,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -649,7 +727,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -662,6 +739,7 @@
 				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FFKit;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -674,6 +752,7 @@
 				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FFKit;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -681,6 +760,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		16E3E65F1EDADF8800A2A59C /* Build configuration list for PBXNativeTarget "FFKit-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16E3E6601EDADF8800A2A59C /* Debug */,
+				16E3E6611EDADF8800A2A59C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		16FA9AD119319A320090D90F /* Build configuration list for PBXProject "FFKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
