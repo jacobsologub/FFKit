@@ -48,7 +48,7 @@ typedef void (^FFListenerListBlock) (FFListenerListBlockArgs* args);
 
 /** Adds a block "target" to the list.
     
-    @param target   The block to which the action message is sent.
+    @param block   The block to which the action message is sent.
  
     @see FFListenerListBlock
 */

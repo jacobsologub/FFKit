@@ -117,10 +117,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Associates a target block with the control.
  
-    @param          The target block.
-    @param          A bitmask specifying the control-specific events for which 
-                    the action method is called. Always specify at least one 
-                    constant. For a list of possible constants.
+    @param block            The target block.
+    @param controlEvents    A bitmask specifying the control-specific events for which
+                            the action method is called. Always specify at least one
+                            constant. For a list of possible constants.
  
     @see UIControl#addTarget:action:forControlEvents, UIControlEvents,
 */
@@ -128,10 +128,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Associates a target block with the control.
  
-    @param          The target block.
-    @param          A bitmask specifying the control-specific events for which 
-                    the action method is called. Always specify at least one 
-                    constant. For a list of possible constants.
+    @param block            The target block.
+    @param controlEvents    A bitmask specifying the control-specific events for which
+                            the action method is called. Always specify at least one
+                            constant. For a list of possible constants.
  
     @see UIControl#addTarget:action:forControlEvents, UIControlEvents,
 */
