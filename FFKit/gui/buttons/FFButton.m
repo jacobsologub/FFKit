@@ -128,6 +128,14 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     }
 }
 
+- (void)setHidden:(BOOL)hidden {
+    [super setHidden:hidden];
+    
+    if (renderingMode == FFButtonRenderingModeDraw) {
+        [self setNeedsDisplay];
+    }
+}
+
 #pragma mark -
 #pragma mark UIControl Overrides
 //==============================================================================
