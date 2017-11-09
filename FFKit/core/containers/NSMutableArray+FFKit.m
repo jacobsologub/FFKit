@@ -28,10 +28,13 @@
 
 @implementation NSMutableArray (FFKit)
 
-- (void) addObjectChecked: (id) anObject {
-    if (anObject != nil) {
+- (BOOL) addObjectChecked: (id) anObject {
+    BOOL result = (anObject != nil);
+    if (result) {
         [self addObject: anObject];
     }
+    
+    return result;
 }
 
 - (void) shuffleArray {

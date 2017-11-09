@@ -32,7 +32,7 @@
     
     @see addObject
 */
-- (void) addObjectChecked: (id) anObject;
+- (BOOL) addObjectChecked: (id) anObject;
 
 /** Shuffles the array’s content.
     
