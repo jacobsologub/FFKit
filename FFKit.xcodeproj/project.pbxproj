@@ -43,6 +43,10 @@
 		16E3E6671EDADFEB00A2A59C /* NSObject+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4D19319A8C0090D90F /* NSObject+FFKit.m */; };
 		16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5019319A8C0090D90F /* NSString+FFKit.mm */; };
 		16E650971EDB708F00FCCFC2 /* FFAssociatedObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 160080751D065A0000133883 /* FFAssociatedObject.mm */; };
+		16EBCB4C1FB50DA700128FA8 /* NSMutableArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4919319A8C0090D90F /* NSMutableArray+FFKit.m */; };
+		16EBCB4D1FB50DAC00128FA8 /* NSDictionary+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */; };
+		16EBCB4E1FB50DBD00128FA8 /* NSArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */; };
+		16EBCB501FB50DC600128FA8 /* NSJSONSerialization+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A242DD1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m */; };
 		16EE74E41DB98C9C00E56043 /* FFThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16EE74E31DB98C9C00E56043 /* FFThread.mm */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
 		16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */; };
@@ -581,9 +585,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				16E650971EDB708F00FCCFC2 /* FFAssociatedObject.mm in Sources */,
+				16EBCB4E1FB50DBD00128FA8 /* NSArray+FFKit.m in Sources */,
 				16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */,
+				16EBCB4D1FB50DAC00128FA8 /* NSDictionary+FFKit.m in Sources */,
 				16E3E6671EDADFEB00A2A59C /* NSObject+FFKit.m in Sources */,
 				16E3E6641EDADFDC00A2A59C /* FFListenerList.m in Sources */,
+				16EBCB4C1FB50DA700128FA8 /* NSMutableArray+FFKit.m in Sources */,
+				16EBCB501FB50DC600128FA8 /* NSJSONSerialization+FFKit.m in Sources */,
 				16E3E6661EDADFDC00A2A59C /* FFListenerListBlockArgs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
