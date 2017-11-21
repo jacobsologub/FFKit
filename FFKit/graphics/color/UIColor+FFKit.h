@@ -26,6 +26,16 @@
 
 #import <UIKit/UIKit.h>
 
+#if defined (__cplusplus)
+ #include <tuple>
+
+ namespace ffkit {
+     using UIColorRGBA = std::tuple <CGFloat, CGFloat, CGFloat, CGFloat>;
+ }
+
+ using ffkit::UIColorRGBA;
+#endif
+
 @interface UIColor (FFKit)
 
 /**	Creates and returns a color object using the specified 'ARGB" hex value. */
@@ -52,5 +62,12 @@
 
 /** Creates and returns a color object using the specified image filename. */
 + (UIColor*) colorWithPatternImageNamed: (NSString*) name;
+
+#if defined (__cplusplus)
+/** Returns the components that make up the color in the RGB color space.
+    @see ffkit::UIColorRGBA, std::tuple
+*/
+@property (nonatomic, readonly) UIColorRGBA rgba;
+#endif
 
 @end

@@ -73,4 +73,17 @@
     return [UIColor colorWithPatternImage: [UIImage imageNamed: name]];
 }
 
+#if defined (__cplusplus)
+- (UIColorRGBA) rgba {
+    CGFloat r = 0.0f;
+    CGFloat g = 0.0f;
+    CGFloat b = 0.0f;
+    CGFloat a = 0.0f;
+    
+    [self getRed: &r green: &g blue: &b alpha: &a];
+    
+    return std::make_tuple (r, g, b, a);
+}
+#endif
+
 @end

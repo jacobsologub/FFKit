@@ -55,7 +55,7 @@
 		16FA9B7B19319A8C0090D90F /* NSString+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5019319A8C0090D90F /* NSString+FFKit.mm */; };
 		16FA9B7C19319A8C0090D90F /* NSURL+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5219319A8C0090D90F /* NSURL+FFKit.m */; };
 		16FA9B7D19319A8C0090D90F /* FFListenerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5519319A8C0090D90F /* FFListenerList.m */; };
-		16FA9B7F19319A8C0090D90F /* UIColor+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5B19319A8C0090D90F /* UIColor+FFKit.m */; };
+		16FA9B7F19319A8C0090D90F /* UIColor+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5B19319A8C0090D90F /* UIColor+FFKit.mm */; };
 		16FA9B8119319A8C0090D90F /* UIImage+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B6519319A8C0090D90F /* UIImage+FFKit.m */; };
 		16FA9B8219319A8C0090D90F /* UIBarButtonItem+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B6919319A8C0090D90F /* UIBarButtonItem+FFKit.m */; };
 		16FA9B8419319A8C0090D90F /* CALayer+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B6E19319A8C0090D90F /* CALayer+FFKit.m */; };
@@ -166,7 +166,7 @@
 		16FA9B5419319A8C0090D90F /* FFListenerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FFListenerList.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		16FA9B5519319A8C0090D90F /* FFListenerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FFListenerList.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		16FA9B5A19319A8C0090D90F /* UIColor+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FFKit.h"; sourceTree = "<group>"; };
-		16FA9B5B19319A8C0090D90F /* UIColor+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FFKit.m"; sourceTree = "<group>"; };
+		16FA9B5B19319A8C0090D90F /* UIColor+FFKit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIColor+FFKit.mm"; sourceTree = "<group>"; };
 		16FA9B6019319A8C0090D90F /* CGRect+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CGRect+FFKit.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		16FA9B6119319A8C0090D90F /* CGSize+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CGSize+FFKit.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		16FA9B6219319A8C0090D90F /* UIEdgeInsets+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIEdgeInsets+FFKit.h"; sourceTree = "<group>"; };
@@ -410,7 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				16FA9B5A19319A8C0090D90F /* UIColor+FFKit.h */,
-				16FA9B5B19319A8C0090D90F /* UIColor+FFKit.m */,
+				16FA9B5B19319A8C0090D90F /* UIColor+FFKit.mm */,
 			);
 			path = color;
 			sourceTree = "<group>";
@@ -616,7 +616,7 @@
 				162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */,
 				1604FEC01D02179500576087 /* UITextField+FFKit.m in Sources */,
 				16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */,
-				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.m in Sources */,
+				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.mm in Sources */,
 				1691EC96197323840014DF30 /* FFButton.m in Sources */,
 				1648B10E1CEC41FA0063E0AA /* UIViewController+FFKit.m in Sources */,
 				16FA9B7C19319A8C0090D90F /* NSURL+FFKit.m in Sources */,
