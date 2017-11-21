@@ -272,6 +272,10 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     }
 }
 
+- (CGFloat) cornerRadius {
+    return cornerRadius;
+}
+
 - (void) setBorderWidth: (CGFloat) newBorderWidth {
     borderWidth = newBorderWidth;
     
@@ -281,6 +285,10 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     else {
         [self setNeedsDisplay];
     }
+}
+
+- (CGFloat) borderWidth {
+    return borderWidth;
 }
 
 #pragma mark -
