@@ -19,6 +19,7 @@
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16381C801E47F50F00CEF4C5 /* CARadialGradientLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16381C7F1E47F50F00CEF4C5 /* CARadialGradientLayer.mm */; };
 		1640EBE41C839EDB0097E1A1 /* UIScreen+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1640EBE31C839EDB0097E1A1 /* UIScreen+FFKit.m */; };
+		164331CB1FD8E85100A394DC /* NSBundle+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D81FC11AF9509B00620042 /* NSBundle+FFKit.m */; };
 		1646B4A91D026EBC0016D82E /* FFKeyboardListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 1646B4A81D026EBC0016D82E /* FFKeyboardListener.m */; };
 		1646B4AE1D02710C0016D82E /* FFKeyboardListenerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1646B4AD1D02710C0016D82E /* FFKeyboardListenerInfo.m */; };
 		1648B10E1CEC41FA0063E0AA /* UIViewController+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1648B10D1CEC41FA0063E0AA /* UIViewController+FFKit.m */; };
@@ -587,6 +588,7 @@
 				16E650971EDB708F00FCCFC2 /* FFAssociatedObject.mm in Sources */,
 				16EBCB4E1FB50DBD00128FA8 /* NSArray+FFKit.m in Sources */,
 				16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */,
+				164331CB1FD8E85100A394DC /* NSBundle+FFKit.m in Sources */,
 				16EBCB4D1FB50DAC00128FA8 /* NSDictionary+FFKit.m in Sources */,
 				16E3E6671EDADFEB00A2A59C /* NSObject+FFKit.m in Sources */,
 				16E3E6641EDADFDC00A2A59C /* FFListenerList.m in Sources */,
