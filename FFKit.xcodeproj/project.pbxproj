@@ -12,6 +12,8 @@
 		1604FEC01D02179500576087 /* UITextField+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1604FEBF1D02179500576087 /* UITextField+FFKit.m */; };
 		1604FEC61D021BDA00576087 /* NSNotificationCenter+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1604FEC51D021BDA00576087 /* NSNotificationCenter+FFKit.m */; };
 		1604FEC91D02289700576087 /* UITextView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1604FEC81D02289700576087 /* UITextView+FFKit.m */; };
+		160EF4221FDB1B770051C9E8 /* FFPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 160EF4211FDB1B770051C9E8 /* FFPair.m */; };
+		160EF4231FDB1B770051C9E8 /* FFPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 160EF4211FDB1B770051C9E8 /* FFPair.m */; };
 		161031BB1A02C17100C0B229 /* FFListenerListBlockArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */; };
 		162994541CEE9B1B0056907A /* UIScrollView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162994531CEE9B1B0056907A /* UIScrollView+FFKit.m */; };
 		162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */; };
@@ -96,6 +98,8 @@
 		1604FEC51D021BDA00576087 /* NSNotificationCenter+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+FFKit.m"; sourceTree = "<group>"; };
 		1604FEC71D02289700576087 /* UITextView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+FFKit.h"; sourceTree = "<group>"; };
 		1604FEC81D02289700576087 /* UITextView+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+FFKit.m"; sourceTree = "<group>"; };
+		160EF4201FDB1B770051C9E8 /* FFPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFPair.h; sourceTree = "<group>"; };
+		160EF4211FDB1B770051C9E8 /* FFPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFPair.m; sourceTree = "<group>"; };
 		161031B91A02C17100C0B229 /* FFListenerListBlockArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFListenerListBlockArgs.h; sourceTree = "<group>"; };
 		161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFListenerListBlockArgs.m; sourceTree = "<group>"; };
 		162994521CEE9B1B0056907A /* UIScrollView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FFKit.h"; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 		16FA9B4519319A8C0090D90F /* containers */ = {
 			isa = PBXGroup;
 			children = (
+				160EF4201FDB1B770051C9E8 /* FFPair.h */,
+				160EF4211FDB1B770051C9E8 /* FFPair.m */,
 				16FA9B4619319A8C0090D90F /* NSArray+FFKit.h */,
 				16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */,
 				16BC6F531A3D174A007BFC3A /* NSDictionary+FFKit.h */,
@@ -595,6 +601,7 @@
 				16EBCB4C1FB50DA700128FA8 /* NSMutableArray+FFKit.m in Sources */,
 				16EBCB501FB50DC600128FA8 /* NSJSONSerialization+FFKit.m in Sources */,
 				16E3E6661EDADFDC00A2A59C /* FFListenerListBlockArgs.m in Sources */,
+				160EF4231FDB1B770051C9E8 /* FFPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +652,7 @@
 				1646B4A91D026EBC0016D82E /* FFKeyboardListener.m in Sources */,
 				16FA9B7A19319A8C0090D90F /* NSObject+FFKit.m in Sources */,
 				169815D11DCD1E4A00A26445 /* UIApplication+FFKit.m in Sources */,
+				160EF4221FDB1B770051C9E8 /* FFPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

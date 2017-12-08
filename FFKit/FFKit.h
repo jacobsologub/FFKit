@@ -40,6 +40,7 @@
     #import "application/UIApplication+FFKit.h"
     #import "core/NSObject+FFKit.h"
     #import "core/NSNotificationCenter+FFKit.h"
+    #import "core/containers/FFPair.h"
     #import "core/containers/NSArray+FFKit.h"
     #import "core/containers/NSDictionary+FFKit.h"
     #import "core/containers/NSIndexPath+FFKit.h"
