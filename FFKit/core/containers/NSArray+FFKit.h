@@ -24,6 +24,11 @@
   ==============================================================================
 */
 
+#if defined (__cplusplus)
+ #include <vector>
+ #include <functional>
+#endif
+
 @interface NSArray<__covariant ObjectType> (FFKit)
 
 /** Returns the lowest index whose corresponding array value is equal to a given 
@@ -72,3 +77,19 @@
 - (NSUInteger) count: (BOOL (^)(id obj, NSUInteger idx, BOOL* stop)) predicate;
 
 @end
+
+#if defined (__cplusplus)
+namespace ffkit {
+    template <class FromType, class ToType>
+    struct FFArray {
+        static inline std::vector<ToType> makeVector (NSArray<FromType>* array, std::function<ToType (FromType)> f) {
+            std::vector<ToType> result;
+            for (FromType v in array) {
+                result.push_back (f (v));
+            }
+            
+            return result;
+        }
+    };
+}
+#endif

@@ -48,11 +48,11 @@
 		16E650971EDB708F00FCCFC2 /* FFAssociatedObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 160080751D065A0000133883 /* FFAssociatedObject.mm */; };
 		16EBCB4C1FB50DA700128FA8 /* NSMutableArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4919319A8C0090D90F /* NSMutableArray+FFKit.m */; };
 		16EBCB4D1FB50DAC00128FA8 /* NSDictionary+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */; };
-		16EBCB4E1FB50DBD00128FA8 /* NSArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */; };
+		16EBCB4E1FB50DBD00128FA8 /* NSArray+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.mm */; };
 		16EBCB501FB50DC600128FA8 /* NSJSONSerialization+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A242DD1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m */; };
 		16EE74E41DB98C9C00E56043 /* FFThread.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16EE74E31DB98C9C00E56043 /* FFThread.mm */; };
 		16FA9ADA19319A320090D90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FA9AD919319A320090D90F /* Foundation.framework */; };
-		16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */; };
+		16FA9B7819319A8C0090D90F /* NSArray+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4719319A8C0090D90F /* NSArray+FFKit.mm */; };
 		16FA9B7919319A8C0090D90F /* NSMutableArray+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4919319A8C0090D90F /* NSMutableArray+FFKit.m */; };
 		16FA9B7A19319A8C0090D90F /* NSObject+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B4D19319A8C0090D90F /* NSObject+FFKit.m */; };
 		16FA9B7B19319A8C0090D90F /* NSString+FFKit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FA9B5019319A8C0090D90F /* NSString+FFKit.mm */; };
@@ -158,7 +158,7 @@
 		16FA9AE719319A320090D90F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		16FA9AEA19319A320090D90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		16FA9B4619319A8C0090D90F /* NSArray+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSArray+FFKit.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSArray+FFKit.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		16FA9B4719319A8C0090D90F /* NSArray+FFKit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = "NSArray+FFKit.mm"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		16FA9B4819319A8C0090D90F /* NSMutableArray+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSMutableArray+FFKit.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		16FA9B4919319A8C0090D90F /* NSMutableArray+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSMutableArray+FFKit.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		16FA9B4B19319A8C0090D90F /* GCD+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "GCD+FFKit.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -354,7 +354,7 @@
 				160EF4201FDB1B770051C9E8 /* FFPair.h */,
 				160EF4211FDB1B770051C9E8 /* FFPair.m */,
 				16FA9B4619319A8C0090D90F /* NSArray+FFKit.h */,
-				16FA9B4719319A8C0090D90F /* NSArray+FFKit.m */,
+				16FA9B4719319A8C0090D90F /* NSArray+FFKit.mm */,
 				16BC6F531A3D174A007BFC3A /* NSDictionary+FFKit.h */,
 				16BC6F541A3D174A007BFC3A /* NSDictionary+FFKit.m */,
 				169E959C1CACE6440016266E /* NSIndexPath+FFKit.h */,
@@ -592,7 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16E650971EDB708F00FCCFC2 /* FFAssociatedObject.mm in Sources */,
-				16EBCB4E1FB50DBD00128FA8 /* NSArray+FFKit.m in Sources */,
+				16EBCB4E1FB50DBD00128FA8 /* NSArray+FFKit.mm in Sources */,
 				16E3E6681EDADFF100A2A59C /* NSString+FFKit.mm in Sources */,
 				164331CB1FD8E85100A394DC /* NSBundle+FFKit.m in Sources */,
 				16EBCB4D1FB50DAC00128FA8 /* NSDictionary+FFKit.m in Sources */,
@@ -624,7 +624,7 @@
 				16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */,
 				162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */,
 				1604FEC01D02179500576087 /* UITextField+FFKit.m in Sources */,
-				16FA9B7819319A8C0090D90F /* NSArray+FFKit.m in Sources */,
+				16FA9B7819319A8C0090D90F /* NSArray+FFKit.mm in Sources */,
 				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.mm in Sources */,
 				1691EC96197323840014DF30 /* FFButton.m in Sources */,
 				1648B10E1CEC41FA0063E0AA /* UIViewController+FFKit.m in Sources */,
