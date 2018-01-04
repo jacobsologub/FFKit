@@ -45,6 +45,20 @@
 */
 - (NSUInteger) indexOfObjectOfClassType: (Class) classType inRange: (NSRange) range;
 
+/** Returns the indexes of objects whose corresponding array value is equal to
+    a given Class.
+ 
+    @see indexesOfObjectsOfClassType:inRange
+*/
+- (NSIndexSet*) indexesOfObjectsOfClassType: (Class) classType;
+
+/** Returns the indexes of objects within a specified range whose corresponding
+    array value is equal to a given Class.
+ 
+    @see indexesOfObjectsOfClassType:inRange
+*/
+- (NSIndexSet*) indexesOfObjectsOfClassType: (Class) classType inRange: (NSRange) range;
+
 /** Returns the first object whose corresponding array value is equal to a given
     Class.
  

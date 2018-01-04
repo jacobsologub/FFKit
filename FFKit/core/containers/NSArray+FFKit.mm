@@ -45,6 +45,21 @@
     }];
 }
 
+- (NSIndexSet*) indexesOfObjectsOfClassType: (Class) classType {
+    return [self indexesOfObjectsOfClassType: classType inRange: NSMakeRange (0, [self count])];
+}
+
+- (NSIndexSet*) indexesOfObjectsOfClassType: (Class) classType inRange: (NSRange) range {
+    NSArray* array = [self subarrayWithRange: range];
+    return [array indexesOfObjectsPassingTest: ^BOOL (id _Nonnull obj, NSUInteger idx, BOOL* _Nonnull stop) {
+        if ([obj isKindOfClass: classType]) {
+            return YES;
+        }
+        
+        return NO;
+    }];
+}
+
 - (id) objectOfClassType: (Class) classType {
     id result = nil;
     
