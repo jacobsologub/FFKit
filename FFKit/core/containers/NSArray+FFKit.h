@@ -95,11 +95,13 @@
 #if defined (__cplusplus)
 namespace ffkit {
     struct FFArray {
-        template <class FromType, class ToType>
-        static inline std::vector<ToType> makeVector (NSArray<FromType>* array, std::function<ToType (FromType)> f) {
+        template <class FromType = NSObject, class ToType>
+        static inline std::vector<ToType> makeVector (NSArray<FromType*>* array, std::function<ToType (FromType*)> f) {
             std::vector<ToType> result;
-            for (FromType v in array) {
-                result.push_back (f (v));
+            for (FromType* v in array) {
+                if ([v isKindOfClass: [FromType class]]) {
+                    result.push_back (f (v));
+                }
             }
             
             return result;
