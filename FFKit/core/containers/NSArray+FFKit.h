@@ -80,8 +80,8 @@
 
 #if defined (__cplusplus)
 namespace ffkit {
-    template <class FromType, class ToType>
     struct FFArray {
+        template <class FromType, class ToType>
         static inline std::vector<ToType> makeVector (NSArray<FromType>* array, std::function<ToType (FromType)> f) {
             std::vector<ToType> result;
             for (FromType v in array) {
