@@ -93,14 +93,14 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     UIColor* color = backgroundColorLookup [@(self.state)] ?: backgroundColorLookup [@(UIControlStateNormal)];
     if (color != nil) {
         [color setFill];
-        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect: CGRectInset (self.bounds, borderWidth * 0.5f, borderWidth * 0.5f) cornerRadius: cornerRadius];
+        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect: CGRectInset (self.bounds, borderWidth * 0.5f - 1.0f, borderWidth * 0.5f - 1.0f) cornerRadius: cornerRadius];
         [path fill];
     }
     
     color = borderColorLookup [@(self.state)] ?: borderColorLookup [@(UIControlStateNormal)];
     if (color != nil) {
         [color setStroke];
-        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect: CGRectInset (self.bounds, borderWidth * 0.5f, borderWidth * 0.5f) cornerRadius: cornerRadius];
+        UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect: CGRectInset (self.bounds, borderWidth * 0.5f - 1.0f, borderWidth * 0.5f - 1.0f) cornerRadius: cornerRadius];
         path.lineWidth = borderWidth;
         [path stroke];
     }
