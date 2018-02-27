@@ -58,6 +58,11 @@
 - (std::string) stdString {
     return std::string (self.UTF8);
 }
+
++ (nullable instancetype) stringWithStdString: (std::string) string {
+    return [NSString stringWithUTF8String: string.c_str()];
+}
+
 #endif
 
 @end

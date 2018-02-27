@@ -68,6 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #if __cplusplus
 @property (nonatomic, readonly) std::string stdString;
++ (nullable instancetype) stringWithStdString: (std::string) string;
 #endif
 
 @end
