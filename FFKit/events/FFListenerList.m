@@ -98,6 +98,11 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
     NSIndexSet* indexSet = nil;
     if (action == nil) {
         indexSet = [listeners indexesOfObjectsPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
+            const FFListenerListTargetType targetType = [obj [kFFListenerListTargetTypeKey] integerValue];
+            if (targetType != FFListenerListTargetTypeObject) {
+                return NO;
+            }
+            
             if ([obj [kFFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]) {
                 return YES;
             }
@@ -107,6 +112,11 @@ typedef NS_ENUM (NSInteger, FFListenerListTargetType) {
     }
     else {
         indexSet = [listeners indexesOfObjectsPassingTest: ^BOOL (NSDictionary* obj, NSUInteger idx, BOOL* stop) {
+            const FFListenerListTargetType targetType = [obj [kFFListenerListTargetTypeKey] integerValue];
+            if (targetType != FFListenerListTargetTypeObject) {
+                return NO;
+            }
+            
             if ([obj [kFFListenerListTargetKey] isEqualToValue: [NSValue valueWithPointer: (void*) target]]
                 && [obj [kFFListenerListActionKey] isEqualToString: NSStringFromSelector (action)]) {
                 *stop = YES;
