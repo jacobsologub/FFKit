@@ -56,13 +56,24 @@
 
 #if __cplusplus
 - (std::string) stdString {
-    return std::string (self.UTF8);
+    return std::to_string (self);
 }
 
 + (nullable instancetype) stringWithStdString: (std::string) string {
-    return [NSString stringWithUTF8String: string.c_str()];
+    return std::stonss (string);
 }
 
 #endif
 
 @end
+
+#if __cplusplus
+NSString* std::stonss (const std::string& str) {
+    return [NSString stringWithUTF8String: str.c_str()];
+}
+
+std::string std::to_string (NSString* const val) {
+    return std::string (val.UTF8);
+}
+
+#endif

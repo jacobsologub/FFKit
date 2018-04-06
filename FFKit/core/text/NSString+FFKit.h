@@ -73,4 +73,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#if __cplusplus
+namespace std {
+    NSString* stonss (const std::string& str);
+    std::string to_string (NSString* const val);
+}
+#endif
+
 NS_ASSUME_NONNULL_END
