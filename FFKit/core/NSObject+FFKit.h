@@ -162,6 +162,8 @@
 
 @end
 
+#pragma once
+
 #if __cplusplus
 #include "../utilities/macros.h"
 begin_namespace (ffkit)

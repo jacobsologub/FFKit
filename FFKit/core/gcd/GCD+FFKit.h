@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <Foundation/Foundation.h>
 
 static inline void dispatchAfterDelayWithQueue (double delayInSeconds, dispatch_queue_t queue, dispatch_block_t block) {

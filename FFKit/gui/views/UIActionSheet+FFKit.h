@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <UIKit/UIKit.h>
 
 #pragma clang diagnostic push

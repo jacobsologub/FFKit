@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #include <CoreGraphics/CGGeometry.h>
 #import "CGRect+FFKit.h"
 

@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <UIKit/UIKit.h>
 
 typedef void (^UIImageDrawRectBlock) (CGRect rect, CGContextRef ctx);

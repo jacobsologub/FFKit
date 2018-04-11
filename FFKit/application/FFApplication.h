@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <UIKit/UIKit.h>
 
 @interface FFApplication <__covariant ObjectType: UIResponder <UIApplicationDelegate>*> : UIApplication

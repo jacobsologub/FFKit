@@ -73,6 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma once
+
 #if __cplusplus
 namespace std {
     NSString* stonss (const std::string& str);

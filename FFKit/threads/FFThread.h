@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <Foundation/Foundation.h>
 
 typedef void (^FFThreadBlock) (void);

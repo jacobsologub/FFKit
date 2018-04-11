@@ -24,8 +24,7 @@
   ==============================================================================
 */
 
-#ifndef __FF_KIT_LISTENER_LIST__
-#define __FF_KIT_LISTENER_LIST__
+#pragma once
 
 #include "../utilities/macros.h"
 
@@ -118,5 +117,3 @@ private:
 };
 
 end_namespace (ffkit);
-
-#endif // __FF_KIT_LISTENER_LIST__

@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <Foundation/Foundation.h>
 
 @interface FFListenerListBlockArgs <Object1Type, Object2Type> : NSObject {

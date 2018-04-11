@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CGGeometry.h>
 #import <UIKit/UIView.h>

@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <UIKit/UIKit.h>
 
 @interface UILabel (FFKit)

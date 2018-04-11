@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #include <CoreGraphics/CGGeometry.h>
 
 /**	Sets the x coordinate for the specified CGRect. */

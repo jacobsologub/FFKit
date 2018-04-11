@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #include <CoreGraphics/CGGeometry.h>
 
 /** Creates an edge inset for the specified inset for all sides */

@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import <Foundation/Foundation.h>
 #import <QuartzCore/CALayer.h>
 

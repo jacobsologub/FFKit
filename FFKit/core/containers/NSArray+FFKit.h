@@ -92,6 +92,8 @@
 
 @end
 
+#pragma once
+
 #if defined (__cplusplus)
 namespace ffkit {
     struct FFArray {

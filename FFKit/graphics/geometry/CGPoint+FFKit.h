@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #include <CoreGraphics/CGGeometry.h>
 
 /** Creates point with the same x and y coordinates. */

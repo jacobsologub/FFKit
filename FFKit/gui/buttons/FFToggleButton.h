@@ -24,6 +24,8 @@
   ==============================================================================
 */
 
+#pragma once
+
 #import "FFButton.h"
 
 @interface FFToggleButton : FFButton {
