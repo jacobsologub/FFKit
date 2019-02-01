@@ -109,5 +109,14 @@ namespace ffkit {
             return result;
         }
     };
+    
+    template <class Type>
+    static inline std::vector<Type> to_vector (NSArray<Type>* array) {
+        std::vector<Type> result{};
+        for (Type v in array) {
+            result.push_back (v);
+        }
+        return result;
+    }
 }
 #endif
