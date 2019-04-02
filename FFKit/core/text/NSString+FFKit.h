@@ -59,13 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (BOOL) isNotEqualToString: (NSString*) string;
 
-/** A shorter convenience method to return null-terminated UTF8 representation 
-    of this string
-    
-    @see NSString#UTF8String
-*/
-@property (nullable, readonly) const char* UTF8 NS_RETURNS_INNER_POINTER;
-
 #if __cplusplus
 @property (nonatomic, readonly) std::string stdString;
 + (nullable instancetype) stringWithStdString: (std::string) string;

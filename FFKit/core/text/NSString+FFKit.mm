@@ -50,10 +50,6 @@
     return ![self isEqualToString: string];
 }
 
-- (const char*) UTF8 {
-    return self.UTF8String;
-}
-
 #if __cplusplus
 - (std::string) stdString {
     return std::to_string (self);
@@ -73,7 +69,7 @@ NSString* std::stonss (const std::string& str) {
 }
 
 std::string std::to_string (NSString* const val) {
-    return std::string (val.UTF8);
+    return std::string (val.UTF8String);
 }
 
 #endif
