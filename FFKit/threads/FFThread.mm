@@ -30,11 +30,10 @@
 #include <chrono>
 
 using std::thread;
-using std::auto_ptr;
 
 @interface FFThread()
 @property (nonatomic, readonly) FFThreadBlock block;
-@property (nonatomic, readonly) auto_ptr<thread> t;
+@property (nonatomic, readonly) std::shared_ptr<thread> t;
 @end
 
 @implementation FFThread
@@ -59,7 +58,7 @@ using std::auto_ptr;
         
         block = block_;
         
-        t = auto_ptr<std::thread> (new thread ([self] () {
+        t = std::shared_ptr<std::thread> (new thread ([self] () {
             self.block();
         }));
     }
