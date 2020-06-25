@@ -106,6 +106,19 @@ FFButtonRenderingMode FFButtonDefaultRenderingMode = FFButtonRenderingModeLayer;
     }
 }
 
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    if (UIEdgeInsetsEqualToEdgeInsets (hitTestEdgeInsets, UIEdgeInsetsZero) || !self.enabled || self.hidden) {
+        return [super hitTest: point withEvent: event];
+    }
+    
+    CGRect relativeFrame = CGRectMake (0.0f, 0.0f, self.width, self.height);
+    CGRect hitFrame = UIEdgeInsetsInsetRect (relativeFrame, self.hitTestEdgeInsets);
+    if (CGRectContainsPoint (hitFrame, point)) {
+        return YES;
+    }
+    return NO;
+}
+
 - (UIView*) hitTest: (CGPoint) point withEvent: (UIEvent*) event {
     if (UIEdgeInsetsEqualToEdgeInsets (hitTestEdgeInsets, UIEdgeInsetsZero) || !self.enabled || self.hidden) {
         return [super hitTest: point withEvent: event];
