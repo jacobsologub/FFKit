@@ -83,6 +83,7 @@ using std::vector;
         const float radius = MIN (self.bounds.size.width , self.bounds.size.height);
         
         CGContextDrawRadialGradient (ctx, gradient, center, 0.0f, center, radius, kCGGradientDrawsAfterEndLocation);
+        CGGradientRelease (gradient);
     }
 }
 
