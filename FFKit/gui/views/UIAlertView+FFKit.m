@@ -29,6 +29,9 @@
 
 static char kUIAlertViewBlockKey;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @implementation UIAlertView (FFKit)
 
 - (void) showWithBlock: (UIAlertViewClickedButtonAtIndexBlock) block {
@@ -50,3 +53,5 @@ static char kUIAlertViewBlockKey;
 }
 
 @end
+
+#pragma clang diagnostic pop

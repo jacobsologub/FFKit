@@ -29,6 +29,9 @@
 
 static char kUIActionSheetBlockKey;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @implementation UIActionSheet (FFKit)
 
 - (void) showInView: (UIView*) view block: (UIActionSheetClickedButtonAtIndexBlock) block {
@@ -50,3 +53,5 @@ static char kUIActionSheetBlockKey;
 }
 
 @end
+
+#pragma clang diagnostic pop
