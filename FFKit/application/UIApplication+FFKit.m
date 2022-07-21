@@ -35,42 +35,39 @@ const NSString* const kFFAppleLookupUrl = @"http://itunes.apple.com/lookup";
     NSURL* const url = [NSURL URLWithString: [NSString stringWithFormat: @"%@?id=%d", kFFAppleLookupUrl, (int) appleId]];
     NSURLRequest* const request = [NSURLRequest requestWithURL: url];
     
-    [NSURLConnection sendAsynchronousRequest: request
-        queue: [NSOperationQueue mainQueue]
-        completionHandler: ^(NSURLResponse* _Nullable response, NSData* _Nullable data, NSError* _Nullable connectionError) {
-            if (!connectionError) {
-                NSError* error = nil;
-                NSDictionary* const object = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableLeaves error: &error];
-                
-                if (error) {
-                    block (error, nil, NO);
-                }
-                else {
-                    NSArray* const results = [object objectForKey: @"results"];
-                    if (results.count > 0) {
-                        NSDictionary* const jsonData = results.firstObject;
-                        
-                        NSString* const thisVersion = [NSBundle version];
-                        NSString* const thatVersion = [jsonData objectForKey: @"version"];
-                        
-                        const BOOL hasUpdate = [self compareVersions: thisVersion version2: thatVersion] == NSOrderedAscending;
-                        block (nil, jsonData, hasUpdate);
-                    }
-                    else {
-                        NSDictionary* const userInfo = @{
-                            NSLocalizedFailureReasonErrorKey: @"Apple ID info not found."
-                        };
-                        
-                        NSError* const error = [NSError errorWithDomain: @"FFKit.UIApplication.checkVersionForAppId" code: -9191 userInfo: userInfo];
-                        block (error, nil, NO);
-                    }
-                }
+    [[NSURLSession sharedSession] dataTaskWithRequest: request completionHandler: ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable connectionError) {
+        if (!connectionError) {
+            NSError* error = nil;
+            NSDictionary* const object = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableLeaves error: &error];
+            
+            if (error) {
+                block (error, nil, NO);
             }
             else {
-                block (connectionError, nil, NO);
+                NSArray* const results = [object objectForKey: @"results"];
+                if (results.count > 0) {
+                    NSDictionary* const jsonData = results.firstObject;
+                    
+                    NSString* const thisVersion = [NSBundle version];
+                    NSString* const thatVersion = [jsonData objectForKey: @"version"];
+                    
+                    const BOOL hasUpdate = [self compareVersions: thisVersion version2: thatVersion] == NSOrderedAscending;
+                    block (nil, jsonData, hasUpdate);
+                }
+                else {
+                    NSDictionary* const userInfo = @{
+                        NSLocalizedFailureReasonErrorKey: @"Apple ID info not found."
+                    };
+                    
+                    NSError* const error = [NSError errorWithDomain: @"FFKit.UIApplication.checkVersionForAppId" code: -9191 userInfo: userInfo];
+                    block (error, nil, NO);
+                }
             }
         }
-    ];
+        else {
+            block (connectionError, nil, NO);
+        }
+    }];
 }
 
 + (NSComparisonResult) compareVersions: (NSString*) version1 version2: (NSString*) version2 {
