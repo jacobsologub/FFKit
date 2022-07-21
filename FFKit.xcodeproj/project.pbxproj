@@ -760,6 +760,7 @@
 				DSTROOT = /tmp/FFKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FFKit;
 				SDKROOT = iphoneos;
@@ -773,6 +774,7 @@
 				DSTROOT = /tmp/FFKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FFKit/FFKit-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = FFKit;
 				SDKROOT = iphoneos;
