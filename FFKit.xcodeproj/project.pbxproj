@@ -16,8 +16,6 @@
 		160EF4231FDB1B770051C9E8 /* FFPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 160EF4211FDB1B770051C9E8 /* FFPair.m */; };
 		161031BB1A02C17100C0B229 /* FFListenerListBlockArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */; };
 		162994541CEE9B1B0056907A /* UIScrollView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162994531CEE9B1B0056907A /* UIScrollView+FFKit.m */; };
-		162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */; };
-		162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */; };
 		162BD4831935B68C00BF2F15 /* ListenerList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162BD4821935B68C00BF2F15 /* ListenerList.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16381C801E47F50F00CEF4C5 /* CARadialGradientLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16381C7F1E47F50F00CEF4C5 /* CARadialGradientLayer.mm */; };
 		1640EBE41C839EDB0097E1A1 /* UIScreen+FFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1640EBE31C839EDB0097E1A1 /* UIScreen+FFKit.m */; };
@@ -104,10 +102,6 @@
 		161031BA1A02C17100C0B229 /* FFListenerListBlockArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFListenerListBlockArgs.m; sourceTree = "<group>"; };
 		162994521CEE9B1B0056907A /* UIScrollView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FFKit.h"; sourceTree = "<group>"; };
 		162994531CEE9B1B0056907A /* UIScrollView+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FFKit.m"; sourceTree = "<group>"; };
-		162BD47B1935AF9F00BF2F15 /* UIAlertView+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+FFKit.h"; sourceTree = "<group>"; };
-		162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+FFKit.m"; sourceTree = "<group>"; };
-		162BD47E1935B45200BF2F15 /* UIActionSheet+FFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+FFKit.h"; sourceTree = "<group>"; };
-		162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+FFKit.m"; sourceTree = "<group>"; };
 		162BD4811935B68C00BF2F15 /* ListenerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerList.h; sourceTree = "<group>"; };
 		162BD4821935B68C00BF2F15 /* ListenerList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListenerList.mm; sourceTree = "<group>"; };
 		16381C7E1E47F50F00CEF4C5 /* CARadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CARadialGradientLayer.h; sourceTree = "<group>"; };
@@ -498,10 +492,6 @@
 		16FA9B7219319A8C0090D90F /* views */ = {
 			isa = PBXGroup;
 			children = (
-				162BD47E1935B45200BF2F15 /* UIActionSheet+FFKit.h */,
-				162BD47F1935B45200BF2F15 /* UIActionSheet+FFKit.m */,
-				162BD47B1935AF9F00BF2F15 /* UIAlertView+FFKit.h */,
-				162BD47C1935AF9F00BF2F15 /* UIAlertView+FFKit.m */,
 				1604FEBA1D02149100576087 /* UIControl+FFKit.h */,
 				1604FEBB1D02149100576087 /* UIControl+FFKit.m */,
 				16C67F7919359149006FF926 /* UIImageView+FFKit.h */,
@@ -618,13 +608,11 @@
 				16FA9B8519319A8C0090D90F /* UINavigationController+FFKit.m in Sources */,
 				16A242DE1AFEE5C900944BDF /* NSJSONSerialization+FFKit.m in Sources */,
 				16FA9B8619319A8C0090D90F /* UIView+FFKit.m in Sources */,
-				162BD47D1935AF9F00BF2F15 /* UIAlertView+FFKit.m in Sources */,
 				16FA9B8219319A8C0090D90F /* UIBarButtonItem+FFKit.m in Sources */,
 				1640EBE41C839EDB0097E1A1 /* UIScreen+FFKit.m in Sources */,
 				16381C801E47F50F00CEF4C5 /* CARadialGradientLayer.mm in Sources */,
 				16CCF9FD1CEBF747001969F6 /* FFApplication.m in Sources */,
 				16605A0119395FE1006BEF3E /* NSMutableAttributedString+FFKit.m in Sources */,
-				162BD4801935B45200BF2F15 /* UIActionSheet+FFKit.m in Sources */,
 				1604FEC01D02179500576087 /* UITextField+FFKit.m in Sources */,
 				16FA9B7819319A8C0090D90F /* NSArray+FFKit.mm in Sources */,
 				16FA9B7F19319A8C0090D90F /* UIColor+FFKit.mm in Sources */,

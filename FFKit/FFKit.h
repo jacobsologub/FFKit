@@ -75,8 +75,6 @@
     #import "gui/navigation/UINavigationController+FFKit.h"
     #import "gui/text/UITextField+FFKit.h"
     #import "gui/text/UITextView+FFKit.h"
-    #import "gui/views/UIActionSheet+FFKit.h"
-    #import "gui/views/UIAlertView+FFKit.h"
     #import "gui/views/UIControl+FFKit.h"
     #import "gui/views/UIScrollView+FFKit.h"
     #import "gui/views/UIImageView+FFKit.h"
